@@ -57,47 +57,47 @@
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="2.0"/>
     <appear>
-      <rect fill="none" height="330" stroke="#000000" width="61" x="49" y="50"/>
-      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="61" y="76">R1</text>
-      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="65" y="376">R31</text>
-      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="79" y="66">R_Select</text>
-      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="88" y="215">R_Out</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="10" font-weight="bold" text-anchor="middle" x="89" y="347">Register</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="10" font-weight="bold" text-anchor="middle" x="88" y="359">Selector</text>
-      <circ-anchor facing="east" x="110" y="210"/>
-      <circ-port dir="in" pin="120,110" x="50" y="70"/>
-      <circ-port dir="in" pin="120,200" x="50" y="110"/>
-      <circ-port dir="in" pin="120,300" x="50" y="150"/>
-      <circ-port dir="in" pin="120,390" x="50" y="190"/>
-      <circ-port dir="in" pin="120,480" x="50" y="230"/>
-      <circ-port dir="in" pin="120,570" x="50" y="270"/>
-      <circ-port dir="in" pin="120,670" x="50" y="310"/>
-      <circ-port dir="in" pin="120,770" x="50" y="350"/>
-      <circ-port dir="in" pin="150,30" x="80" y="50"/>
-      <circ-port dir="in" pin="310,110" x="50" y="80"/>
-      <circ-port dir="in" pin="310,200" x="50" y="120"/>
-      <circ-port dir="in" pin="310,300" x="50" y="160"/>
-      <circ-port dir="in" pin="310,390" x="50" y="200"/>
-      <circ-port dir="in" pin="310,480" x="50" y="240"/>
-      <circ-port dir="in" pin="310,570" x="50" y="280"/>
-      <circ-port dir="in" pin="310,670" x="50" y="320"/>
-      <circ-port dir="in" pin="310,770" x="50" y="360"/>
-      <circ-port dir="in" pin="490,110" x="50" y="90"/>
-      <circ-port dir="in" pin="490,200" x="50" y="130"/>
-      <circ-port dir="in" pin="490,300" x="50" y="170"/>
-      <circ-port dir="in" pin="490,390" x="50" y="210"/>
-      <circ-port dir="in" pin="490,480" x="50" y="250"/>
-      <circ-port dir="in" pin="490,570" x="50" y="290"/>
-      <circ-port dir="in" pin="490,670" x="50" y="330"/>
-      <circ-port dir="in" pin="490,770" x="50" y="370"/>
-      <circ-port dir="in" pin="680,110" x="50" y="100"/>
-      <circ-port dir="in" pin="680,200" x="50" y="140"/>
-      <circ-port dir="in" pin="680,300" x="50" y="180"/>
-      <circ-port dir="in" pin="680,390" x="50" y="220"/>
-      <circ-port dir="in" pin="680,480" x="50" y="260"/>
-      <circ-port dir="in" pin="680,570" x="50" y="300"/>
-      <circ-port dir="in" pin="680,670" x="50" y="340"/>
-      <circ-port dir="out" pin="680,770" x="110" y="210"/>
+      <rect fill="none" height="623" stroke="#000000" width="111" x="49" y="80"/>
+      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="63" y="96">R1</text>
+      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="69" y="695">R31</text>
+      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="110" y="99">R_Select</text>
+      <text dominant-baseline="bottom" font-family="SansSerif" font-size="9" text-anchor="middle" x="138" y="115">R_Out</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="10" font-weight="bold" text-anchor="middle" x="107" y="375">Register</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="10" font-weight="bold" text-anchor="middle" x="106" y="389">Selector</text>
+      <circ-anchor facing="east" x="160" y="110"/>
+      <circ-port dir="in" pin="120,110" x="50" y="90"/>
+      <circ-port dir="in" pin="120,200" x="50" y="170"/>
+      <circ-port dir="in" pin="120,300" x="50" y="250"/>
+      <circ-port dir="in" pin="120,390" x="50" y="330"/>
+      <circ-port dir="in" pin="120,480" x="50" y="410"/>
+      <circ-port dir="in" pin="120,570" x="50" y="490"/>
+      <circ-port dir="in" pin="120,670" x="50" y="570"/>
+      <circ-port dir="in" pin="120,770" x="50" y="650"/>
+      <circ-port dir="in" pin="150,30" x="110" y="80"/>
+      <circ-port dir="in" pin="310,110" x="50" y="110"/>
+      <circ-port dir="in" pin="310,200" x="50" y="190"/>
+      <circ-port dir="in" pin="310,300" x="50" y="270"/>
+      <circ-port dir="in" pin="310,390" x="50" y="350"/>
+      <circ-port dir="in" pin="310,480" x="50" y="430"/>
+      <circ-port dir="in" pin="310,570" x="50" y="510"/>
+      <circ-port dir="in" pin="310,670" x="50" y="590"/>
+      <circ-port dir="in" pin="310,770" x="50" y="670"/>
+      <circ-port dir="in" pin="490,110" x="50" y="130"/>
+      <circ-port dir="in" pin="490,200" x="50" y="210"/>
+      <circ-port dir="in" pin="490,300" x="50" y="290"/>
+      <circ-port dir="in" pin="490,390" x="50" y="370"/>
+      <circ-port dir="in" pin="490,480" x="50" y="450"/>
+      <circ-port dir="in" pin="490,570" x="50" y="530"/>
+      <circ-port dir="in" pin="490,670" x="50" y="610"/>
+      <circ-port dir="in" pin="490,770" x="50" y="690"/>
+      <circ-port dir="in" pin="680,110" x="50" y="150"/>
+      <circ-port dir="in" pin="680,200" x="50" y="230"/>
+      <circ-port dir="in" pin="680,300" x="50" y="310"/>
+      <circ-port dir="in" pin="680,390" x="50" y="390"/>
+      <circ-port dir="in" pin="680,480" x="50" y="470"/>
+      <circ-port dir="in" pin="680,570" x="50" y="550"/>
+      <circ-port dir="in" pin="680,670" x="50" y="630"/>
+      <circ-port dir="out" pin="680,770" x="160" y="110"/>
     </appear>
     <comp lib="0" loc="(120,1000)" name="Tunnel">
       <a name="facing" val="south"/>
