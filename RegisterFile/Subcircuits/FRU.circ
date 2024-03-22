@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
+<project source="2.7.1" version="1.0">
+  This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
 
-  <lib desc="#Wiring" name="0">
-    <tool name="Pin">
-      <a name="appearance" val="classic"/>
-    </tool>
-  </lib>
+  <lib desc="#Wiring" name="0"/>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
   <lib desc="#Memory" name="4"/>
   <lib desc="#I/O" name="5"/>
-  <lib desc="#TTL" name="6"/>
-  <lib desc="#TCL" name="7"/>
-  <lib desc="#Base" name="8"/>
-  <lib desc="#BFH-Praktika" name="9"/>
-  <lib desc="#Input/Output-Extra" name="10"/>
-  <lib desc="#Soc" name="11"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
   <main name="FRU"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -25,15 +23,20 @@
     <a name="simrand" val="0"/>
   </options>
   <mappings>
-    <tool lib="8" map="Button2" name="Poke Tool"/>
-    <tool lib="8" map="Button3" name="Menu Tool"/>
-    <tool lib="8" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button2" name="Poke Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
-    <tool lib="8" name="Poke Tool"/>
-    <tool lib="8" name="Edit Tool"/>
-    <tool lib="8" name="Wiring Tool"/>
-    <tool lib="8" name="Text Tool"/>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Wiring Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
     <sep/>
     <tool lib="0" name="Pin"/>
     <tool lib="0" name="Pin">
@@ -52,113 +55,109 @@
     <tool lib="4" name="Register"/>
   </toolbar>
   <circuit name="FRU">
-    <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="FRU"/>
-    <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="2.0"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
     <appear>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="5" text-anchor="middle" x="113" y="110">Register Write</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="6" text-anchor="middle" x="214" y="100">CLK</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="7" text-anchor="middle" x="161" y="114">Read Bus</text>
+      <text font-family="SansSerif" font-size="5" text-anchor="middle" x="113" y="110">Register Write</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="214" y="100">CLK</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="161" y="114">Read Bus</text>
       <rect fill="none" height="40" stroke="#000000" width="140" x="90" y="80"/>
       <polyline fill="none" points="230,94 222,100" stroke="#000000"/>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="7" text-anchor="middle" x="161" y="87">Write Bus</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="5" text-anchor="middle" x="114" y="90">Register Enable</text>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="161" y="87">Write Bus</text>
+      <text font-family="SansSerif" font-size="5" text-anchor="middle" x="114" y="90">Register Enable</text>
       <polyline fill="none" points="222,100 229,104" stroke="#000000"/>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="10" font-weight="bold" text-anchor="middle" x="161" y="100">FRU</text>
-      <circ-anchor facing="east" x="160" y="120"/>
-      <circ-port dir="in" pin="100,120" x="90" y="90"/>
-      <circ-port dir="in" pin="100,60" x="230" y="100"/>
-      <circ-port dir="in" pin="100,90" x="90" y="110"/>
-      <circ-port dir="in" pin="160,180" x="160" y="80"/>
-      <circ-port dir="out" pin="160,270" x="160" y="120"/>
+      <text font-family="SansSerif" font-size="10" font-weight="bold" text-anchor="middle" x="161" y="100">FRU</text>
+      <circ-port height="8" pin="100,60" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="100,90" width="8" x="46" y="76"/>
+      <circ-port height="8" pin="100,120" width="8" x="46" y="86"/>
+      <circ-port height="8" pin="160,180" width="8" x="46" y="96"/>
+      <circ-port height="10" pin="160,270" width="10" x="45" y="105"/>
+      <circ-anchor facing="east" height="6" width="6" x="47" y="57"/>
     </appear>
-    <comp lib="0" loc="(100,120)" name="Pin">
-      <a name="appearance" val="classic"/>
+    <wire from="(160,180)" to="(190,180)"/>
+    <wire from="(160,270)" to="(190,270)"/>
+    <wire from="(440,170)" to="(470,170)"/>
+    <wire from="(100,60)" to="(190,60)"/>
+    <wire from="(340,200)" to="(370,200)"/>
+    <wire from="(420,180)" to="(470,180)"/>
+    <wire from="(500,170)" to="(550,170)"/>
+    <wire from="(350,160)" to="(370,160)"/>
+    <wire from="(100,90)" to="(150,90)"/>
+    <wire from="(480,190)" to="(480,230)"/>
+    <wire from="(440,150)" to="(440,170)"/>
+    <wire from="(490,190)" to="(490,210)"/>
+    <wire from="(100,120)" to="(170,120)"/>
+    <comp lib="0" loc="(170,120)" name="Tunnel">
       <a name="label" val="RegEn"/>
     </comp>
+    <comp lib="0" loc="(480,230)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="CLK"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
+    </comp>
+    <comp lib="0" loc="(340,200)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="RegEn"/>
+      <a name="labelfont" val="SansSerif bold 12"/>
+    </comp>
     <comp lib="0" loc="(100,60)" name="Pin">
-      <a name="appearance" val="classic"/>
       <a name="label" val="CLK"/>
     </comp>
+    <comp lib="0" loc="(160,270)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+      <a name="label" val="BusR"/>
+    </comp>
+    <comp lib="0" loc="(100,120)" name="Pin">
+      <a name="label" val="RegEn"/>
+    </comp>
+    <comp lib="4" loc="(500,170)" name="Register">
+      <a name="width" val="32"/>
+      <a name="labelfont" val="SansSerif bold 24"/>
+    </comp>
+    <comp lib="0" loc="(440,150)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="width" val="32"/>
+      <a name="label" val="BusW"/>
+    </comp>
+    <comp lib="0" loc="(190,180)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="BusW"/>
+    </comp>
     <comp lib="0" loc="(100,90)" name="Pin">
-      <a name="appearance" val="classic"/>
       <a name="label" val="RegWrite"/>
     </comp>
     <comp lib="0" loc="(150,90)" name="Tunnel">
       <a name="label" val="RegWrite"/>
     </comp>
-    <comp lib="0" loc="(160,180)" name="Pin">
-      <a name="appearance" val="classic"/>
-      <a name="label" val="BusW"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(160,270)" name="Pin">
-      <a name="appearance" val="classic"/>
-      <a name="label" val="BusR"/>
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(170,120)" name="Tunnel">
-      <a name="label" val="RegEn"/>
-    </comp>
-    <comp lib="0" loc="(190,180)" name="Tunnel">
-      <a name="label" val="BusW"/>
-      <a name="width" val="32"/>
-    </comp>
     <comp lib="0" loc="(190,270)" name="Tunnel">
-      <a name="label" val="BusR"/>
       <a name="width" val="32"/>
+      <a name="label" val="BusR"/>
+    </comp>
+    <comp lib="1" loc="(420,180)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(160,180)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="label" val="BusW"/>
+    </comp>
+    <comp lib="0" loc="(550,170)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="BusR"/>
     </comp>
     <comp lib="0" loc="(190,60)" name="Tunnel">
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="0" loc="(340,210)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="RegEn"/>
-      <a name="labelfont" val="SansSerif bold 12"/>
+    <comp lib="0" loc="(490,210)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(350,170)" name="Tunnel">
+    <comp lib="0" loc="(350,160)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="RegWrite"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(440,120)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="BusW"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(460,230)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="CLK"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
-    </comp>
-    <comp lib="0" loc="(490,240)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(550,170)" name="Tunnel">
-      <a name="label" val="BusR"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="1" loc="(420,190)" name="AND Gate"/>
-    <comp lib="4" loc="(460,140)" name="Register">
-      <a name="appearance" val="logisim_evolution"/>
-      <a name="labelfont" val="SansSerif bold 24"/>
-      <a name="width" val="32"/>
-    </comp>
-    <wire from="(100,120)" to="(170,120)"/>
-    <wire from="(100,60)" to="(190,60)"/>
-    <wire from="(100,90)" to="(150,90)"/>
-    <wire from="(160,180)" to="(190,180)"/>
-    <wire from="(160,270)" to="(190,270)"/>
-    <wire from="(340,210)" to="(370,210)"/>
-    <wire from="(350,170)" to="(370,170)"/>
-    <wire from="(420,190)" to="(460,190)"/>
-    <wire from="(440,120)" to="(440,170)"/>
-    <wire from="(440,170)" to="(460,170)"/>
-    <wire from="(460,210)" to="(460,230)"/>
-    <wire from="(490,230)" to="(490,240)"/>
-    <wire from="(520,170)" to="(550,170)"/>
   </circuit>
 </project>
