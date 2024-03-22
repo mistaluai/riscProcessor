@@ -70,7 +70,7 @@
     <appear>
       <rect fill="none" height="260" stroke="#000000" width="220" x="50" y="50"/>
       <text font-family="SansSerif" font-size="10" text-anchor="middle" x="247" y="93">Bus_A</text>
-      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="243" y="144">Bus_B</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="248" y="263">Bus_B</text>
       <text font-family="SansSerif" font-size="10" text-anchor="middle" x="209" y="299">Bus_W</text>
       <text font-family="SansSerif" font-size="10" text-anchor="middle" x="91" y="296">RegWrite</text>
       <polyline fill="none" points="51,274 60,279" stroke="#000000"/>
@@ -86,7 +86,7 @@
       <circ-port height="8" pin="80,180" width="8" x="46" y="216"/>
       <circ-port height="8" pin="140,250" width="8" x="206" y="306"/>
       <circ-port height="10" pin="140,340" width="10" x="265" y="85"/>
-      <circ-port height="10" pin="140,430" width="10" x="265" y="135"/>
+      <circ-port height="10" pin="140,430" width="10" x="265" y="255"/>
       <circ-anchor facing="east" height="6" width="6" x="267" y="87"/>
     </appear>
     <wire from="(680,1080)" to="(680,1090)"/>

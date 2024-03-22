@@ -89,6 +89,21 @@
     <wire from="(440,150)" to="(440,170)"/>
     <wire from="(490,190)" to="(490,210)"/>
     <wire from="(100,120)" to="(170,120)"/>
+    <comp lib="0" loc="(100,90)" name="Pin">
+      <a name="label" val="RegWrite"/>
+    </comp>
+    <comp lib="0" loc="(150,90)" name="Tunnel">
+      <a name="label" val="RegWrite"/>
+    </comp>
+    <comp lib="0" loc="(340,200)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="RegEn"/>
+      <a name="labelfont" val="SansSerif bold 12"/>
+    </comp>
+    <comp lib="0" loc="(190,270)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="BusR"/>
+    </comp>
     <comp lib="0" loc="(170,120)" name="Tunnel">
       <a name="label" val="RegEn"/>
     </comp>
@@ -97,44 +112,24 @@
       <a name="label" val="CLK"/>
       <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
-    <comp lib="0" loc="(340,200)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="RegEn"/>
-      <a name="labelfont" val="SansSerif bold 12"/>
-    </comp>
-    <comp lib="0" loc="(100,60)" name="Pin">
-      <a name="label" val="CLK"/>
-    </comp>
     <comp lib="0" loc="(160,270)" name="Pin">
       <a name="output" val="true"/>
       <a name="width" val="32"/>
       <a name="label" val="BusR"/>
     </comp>
-    <comp lib="0" loc="(100,120)" name="Pin">
-      <a name="label" val="RegEn"/>
-    </comp>
-    <comp lib="4" loc="(500,170)" name="Register">
-      <a name="width" val="32"/>
-      <a name="labelfont" val="SansSerif bold 24"/>
+    <comp lib="0" loc="(490,210)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="value" val="0x0"/>
     </comp>
     <comp lib="0" loc="(440,150)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="width" val="32"/>
       <a name="label" val="BusW"/>
     </comp>
-    <comp lib="0" loc="(190,180)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="BusW"/>
-    </comp>
-    <comp lib="0" loc="(100,90)" name="Pin">
+    <comp lib="0" loc="(350,160)" name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="label" val="RegWrite"/>
-    </comp>
-    <comp lib="0" loc="(150,90)" name="Tunnel">
-      <a name="label" val="RegWrite"/>
-    </comp>
-    <comp lib="0" loc="(190,270)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="BusR"/>
+      <a name="labelfont" val="SansSerif bold 11"/>
     </comp>
     <comp lib="1" loc="(420,180)" name="AND Gate">
       <a name="inputs" val="2"/>
@@ -143,21 +138,26 @@
       <a name="width" val="32"/>
       <a name="label" val="BusW"/>
     </comp>
+    <comp lib="0" loc="(190,60)" name="Tunnel">
+      <a name="label" val="CLK"/>
+    </comp>
+    <comp lib="4" loc="(500,170)" name="Register">
+      <a name="width" val="32"/>
+      <a name="labelfont" val="SansSerif bold 24"/>
+    </comp>
+    <comp lib="0" loc="(190,180)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="BusW"/>
+    </comp>
+    <comp lib="0" loc="(100,60)" name="Pin">
+      <a name="label" val="CLK"/>
+    </comp>
     <comp lib="0" loc="(550,170)" name="Tunnel">
       <a name="width" val="32"/>
       <a name="label" val="BusR"/>
     </comp>
-    <comp lib="0" loc="(190,60)" name="Tunnel">
-      <a name="label" val="CLK"/>
-    </comp>
-    <comp lib="0" loc="(490,210)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(350,160)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="RegWrite"/>
-      <a name="labelfont" val="SansSerif bold 11"/>
+    <comp lib="0" loc="(100,120)" name="Pin">
+      <a name="label" val="RegEn"/>
     </comp>
   </circuit>
 </project>
