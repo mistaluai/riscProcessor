@@ -105,13 +105,62 @@ public class Assembler {
         else return null;
     }
 
+    private String decodeRType(String instruction) throws Exception {
+        Pattern parametersPattern = Pattern.compile("[$]+\\d");
+        Matcher parametersMatcher = parametersPattern.matcher(instruction);
+        
+        int[] parameters = new int[3];
+        int i = 0;
+       for (;parametersMatcher.find(); i++) {
+               parameters[i] = Integer.parseInt(parametersMatcher.group().substring(1));
+       }
+
+       if (i < 3)
+           throw new Exception("Unsupported or missing Parameters in " + instruction);
+
+
+       instruction = getInstruction(instruction);
+
+       int opcode = instructionOPcode.get(instruction);
+       String opcodeString = Integer.toBinaryString(opcode);
+       opcodeString = binaryExtend(opcodeString, 5);
+
+       int func = instructionFunction.get(instruction);
+       String funcString = Integer.toBinaryString(func);
+        funcString = binaryExtend(funcString, 2);
+
+       int rd = parameters[0];
+        String rdString = Integer.toBinaryString(rd);
+        rdString = binaryExtend(rdString, 3);
+       int rs = parameters[1];
+        String rsString = Integer.toBinaryString(rs);
+        rsString = binaryExtend(rsString, 3);
+       int rt = parameters[2];
+        String rtString = Integer.toBinaryString(rt);
+        rtString = binaryExtend(rtString, 3);
+       return opcodeString
+               + funcString
+               + rdString
+               + rsString
+               + rtString;
+    }
+private String binaryExtend(String binary, int amount) {
+    String extender = "";
+    for (int c = 0; c < amount - binary.length(); c++) {
+        extender += "0";
+    }
+    binary = extender + binary;
+    return binary;
+}
     //Testing
     public static void main(String[] args) throws Exception {
         Assembler assembler = new Assembler();
-        String instruction = "and $3, $2, $5";
+        String instruction = "add $3, $2, $5";
+        System.out.println(assembler.decodeRType(instruction));
         instruction = assembler.getInstruction(instruction);
         System.out.println(instruction);
         System.out.println(assembler.getInstructionType(instruction));
+
     }
 
 }
