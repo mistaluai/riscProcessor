@@ -1,9 +1,16 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Assembler {
     Map<String, Integer> instructionOPcode;
     Map<String, Integer> instructionFunction;
+    enum InstructionType {
+        RType,
+        IType,
+        JType
+    }
 
     Assembler() {
         initializeOpcodes();
@@ -66,4 +73,45 @@ public class Assembler {
         //Opcode 2
         instructionFunction.put("JR", 0);
     }
+
+    private String getInstruction(String instruction) throws Exception {
+        Pattern instructionPattern = Pattern.compile("[\\w]+ ", Pattern.CASE_INSENSITIVE);
+        Matcher instructionMatcher = instructionPattern.matcher(instruction);
+        if (!instructionMatcher.find())
+            throw new Exception("Instruction not found in" + instruction);
+
+        instruction = instructionMatcher.group();
+        instruction = instruction.substring(0, instruction.length() - 1);
+        instruction = instruction.toUpperCase();
+
+        if (!instructionOPcode.containsKey(instruction))
+            throw new Exception("Unknown Instruction " + instruction);
+
+        return instruction;
+    }
+    private InstructionType getInstructionType(String instruction) {
+
+        int opcode = instructionOPcode.get(instruction);
+
+        if (opcode >= 0 && opcode <= 2)
+            return InstructionType.RType;
+
+        if (opcode >= 4 && opcode <= 17)
+            return InstructionType.IType;
+
+        if (opcode >= 18 && opcode <= 31)
+            return InstructionType.JType;
+
+        else return null;
+    }
+
+    //Testing
+    public static void main(String[] args) throws Exception {
+        Assembler assembler = new Assembler();
+        String instruction = "and $3, $2, $5";
+        instruction = assembler.getInstruction(instruction);
+        System.out.println(instruction);
+        System.out.println(assembler.getInstructionType(instruction));
+    }
+
 }
