@@ -108,7 +108,7 @@ public class Assembler {
     private String decodeRType(String instruction) throws Exception {
         Pattern parametersPattern = Pattern.compile("[$]+\\d");
         Matcher parametersMatcher = parametersPattern.matcher(instruction);
-        
+
         int[] parameters = new int[3];
         int i = 0;
        for (;parametersMatcher.find(); i++) {
@@ -132,18 +132,22 @@ public class Assembler {
        int rd = parameters[0];
         String rdString = Integer.toBinaryString(rd);
         rdString = binaryExtend(rdString, 3);
+
        int rs = parameters[1];
         String rsString = Integer.toBinaryString(rs);
         rsString = binaryExtend(rsString, 3);
+
        int rt = parameters[2];
         String rtString = Integer.toBinaryString(rt);
         rtString = binaryExtend(rtString, 3);
+
        return opcodeString
                + funcString
                + rdString
                + rsString
                + rtString;
     }
+
 private String binaryExtend(String binary, int amount) {
     String extender = "";
     for (int c = 0; c < amount - binary.length(); c++) {
@@ -155,7 +159,7 @@ private String binaryExtend(String binary, int amount) {
     //Testing
     public static void main(String[] args) throws Exception {
         Assembler assembler = new Assembler();
-        String instruction = "add $3, $2, $5";
+        String instruction = "and $3, $6, $9";
         System.out.println(assembler.decodeRType(instruction));
         instruction = assembler.getInstruction(instruction);
         System.out.println(instruction);
