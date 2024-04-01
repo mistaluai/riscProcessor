@@ -9,7 +9,9 @@ public class Assembler {
     enum InstructionType {
         RType,
         IType,
-        JType
+        JType,
+        LoadStoreType,
+        BType
     }
 
     Assembler() {
@@ -148,6 +150,53 @@ public class Assembler {
                + rtString;
     }
 
+    private String decodeIType(String instruction) throws Exception {
+
+        Pattern parametersPattern = Pattern.compile("[$]+\\d");
+        Matcher parametersMatcher = parametersPattern.matcher(instruction);
+
+        int[] parameters = new int[2];
+        int i = 0;
+
+        for (;parametersMatcher.find(); i++) {
+            parameters[i] = Integer.parseInt(parametersMatcher.group().substring(1));
+        }
+
+        if (i < 2)
+            throw new Exception("Unsupported or missing Parameters in " + instruction);
+
+
+        Pattern immediatePattern = Pattern.compile("[^$][\\d+]");
+        Matcher immediateMatcher = immediatePattern.matcher(instruction);
+        int immediate = 0;
+        if (immediateMatcher.find())
+             immediate = Integer.parseInt(immediateMatcher.group().substring(1));
+        else
+            throw new Exception("immediate value not given in " + instruction);
+
+        instruction = getInstruction(instruction);
+        int opcode = instructionOPcode.get(instruction);
+        String opcodeString = Integer.toBinaryString(opcode);
+        opcodeString = binaryExtend(opcodeString, 5);
+
+       int rd = parameters[0];
+       String rdString = Integer.toBinaryString(rd);
+       rdString = binaryExtend(rdString, 3);
+
+        int rs = parameters[1];
+        String rsString = Integer.toBinaryString(rs);
+        rsString = binaryExtend(rsString, 3);
+
+
+        String immediateString = Integer.toBinaryString(immediate);
+        immediateString = binaryExtend(immediateString, 5);
+
+        return opcodeString
+                + immediateString
+                + rsString
+                + rdString;
+
+    }
 private String binaryExtend(String binary, int amount) {
     String extender = "";
     for (int c = 0; c < amount - binary.length(); c++) {
@@ -159,8 +208,8 @@ private String binaryExtend(String binary, int amount) {
     //Testing
     public static void main(String[] args) throws Exception {
         Assembler assembler = new Assembler();
-        String instruction = "and $3, $6, $9";
-        System.out.println(assembler.decodeRType(instruction));
+        String instruction = "andi $3, $6, 9";
+        System.out.println(assembler.decodeIType(instruction));
         instruction = assembler.getInstruction(instruction);
         System.out.println(instruction);
         System.out.println(assembler.getInstructionType(instruction));
