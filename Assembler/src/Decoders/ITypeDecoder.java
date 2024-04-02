@@ -3,6 +3,8 @@ package Decoders;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static Utils.BinaryOperations.binaryExtend;
+
 public class ITypeDecoder implements Decoder {
     InstructionsOperations instructionsOperations;
 
@@ -12,14 +14,14 @@ public class ITypeDecoder implements Decoder {
 
     public String decodeInstruction(String instruction) throws Exception {
 
-            Pattern parametersPattern = Pattern.compile("[$]+\\d");
-            Matcher parametersMatcher = parametersPattern.matcher(instruction);
+            Pattern registersPattern = Pattern.compile("[$]+\\d");
+            Matcher registersMatcher = registersPattern.matcher(instruction);
 
-            int[] parameters = new int[2];
+            int[] registers = new int[2];
             int i = 0;
 
-            for (;parametersMatcher.find(); i++) {
-                parameters[i] = Integer.parseInt(parametersMatcher.group().substring(1));
+            for (;registersMatcher.find(); i++) {
+                registers[i] = Integer.parseInt(registersMatcher.group().substring(1));
             }
 
             if (i < 2)
@@ -36,10 +38,10 @@ public class ITypeDecoder implements Decoder {
 
             String opcodeString = instructionsOperations.getOpcode(instruction);
 
-            int rd = parameters[0];
+            int rd = registers[0];
             String rdString = instructionsOperations.getRegister(rd);
 
-            int rs = parameters[1];
+            int rs = registers[1];
             String rsString = instructionsOperations.getRegister(rs);
 
 
@@ -53,12 +55,4 @@ public class ITypeDecoder implements Decoder {
 
         }
 
-    private String binaryExtend(String binary, int amount) {
-        String extender = "";
-        for (int c = 0; c < amount - binary.length(); c++) {
-            extender += "0";
-        }
-        binary = extender + binary;
-        return binary;
-    }
 }

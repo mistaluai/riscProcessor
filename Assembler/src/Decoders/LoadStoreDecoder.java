@@ -3,30 +3,41 @@ package Decoders;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RTypeDecoder implements Decoder {
+import static Utils.BinaryOperations.binaryExtend;
+
+public class LoadStoreDecoder implements Decoder {
     InstructionsOperations instructionsOperations;
 
-    public RTypeDecoder() {
+    public LoadStoreDecoder() {
         instructionsOperations = new InstructionsOperations();
     }
+
     public String decodeInstruction(String instruction) throws Exception {
         Pattern registersPattern = Pattern.compile("[$]+\\d");
         Matcher registersMatcher = registersPattern.matcher(instruction);
 
-        int[] registers = new int[3];
+        int[] registers = new int[2];
         int i = 0;
+
         for (;registersMatcher.find(); i++) {
             registers[i] = Integer.parseInt(registersMatcher.group().substring(1));
         }
 
-        if (i < 3)
+        if (i < 2)
             throw new Exception("Unsupported or missing Parameters in " + instruction);
+
+        Pattern offsetPattern = Pattern.compile("\\d*[(]");
+        Matcher offsetMatcher  = offsetPattern.matcher(instruction);
+
+        int offset = 0;
+        if (offsetMatcher.find()) {
+            String offsetDecimal = offsetMatcher.group();
+            offset = Integer.parseInt(offsetDecimal.substring(0, offsetDecimal.length() - 1));
+        } else throw new Exception("Offset value not found in " + instruction);
+
 
 
         String opcodeString = instructionsOperations.getOpcode(instruction);
-
-
-        String funcString = instructionsOperations.getFunction(instruction);
 
         int rd = registers[0];
         String rdString = instructionsOperations.getRegister(rd);
@@ -34,14 +45,15 @@ public class RTypeDecoder implements Decoder {
         int rs = registers[1];
         String rsString = instructionsOperations.getRegister(rs);
 
-        int rt = registers[2];
-        String rtString = instructionsOperations.getRegister(rt);
+        String offsetString = Integer.toBinaryString(offset);
+        offsetString = binaryExtend(offsetString, 5);
 
         return opcodeString
-                + funcString
-                + rdString
+                + offsetString
                 + rsString
-                + rtString;
+                + rdString;
+
     }
+
 
 }
