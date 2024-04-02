@@ -10,7 +10,6 @@ public class InstructionsOperations {
     Map<String, String> instructionOpcode;
     Map<String, String> instructionFunction;
     Map<String, InstructionType> instructionType;
-
     Map<Integer, String> registerString;
 
 

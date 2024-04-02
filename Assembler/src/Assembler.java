@@ -1,4 +1,4 @@
-import Decoders.LoadStoreDecoder;
+import Decoders.ITypeDecoder;
 
 public class Assembler {
 
@@ -11,8 +11,8 @@ public class Assembler {
     //Testing
     public static void main(String[] args) throws Exception {
         Assembler assembler = new Assembler();
-        String instruction = "lw $1, 10($2)"; //0110001010010001
-        LoadStoreDecoder lsd = new LoadStoreDecoder();
+        String instruction = "addi $1, $2, 5"; //0110001010010001
+        ITypeDecoder lsd = new ITypeDecoder();
         System.out.println(lsd.decodeInstruction(instruction));
     }
 
