@@ -164,4 +164,20 @@ private void initializeRegisters() {
     public String getRegister(int register) {
         return registerString.get(register);
     }
+
+    public int[] extractRegisters(String instruction, int n) throws Exception {
+        Pattern registersPattern = Pattern.compile("[$]+\\d");
+        Matcher registersMatcher = registersPattern.matcher(instruction);
+
+        int[] registers = new int[n];
+        int i = 0;
+        for (;registersMatcher.find(); i++) {
+            registers[i] = Integer.parseInt(registersMatcher.group().substring(1));
+        }
+
+        if (i < n)
+            throw new Exception("Unsupported or missing Parameters in " + instruction);
+
+        return registers;
+    }
 }

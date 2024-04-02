@@ -3,7 +3,7 @@ package Decoders;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Utils.BinaryOperations.binaryExtend;
+import static Utils.BinaryOperations.binaryString;
 
 public class LoadStoreDecoder implements Decoder {
     InstructionsOperations instructionsOperations;
@@ -45,8 +45,7 @@ public class LoadStoreDecoder implements Decoder {
         int rs = registers[1];
         String rsString = instructionsOperations.getRegister(rs);
 
-        String offsetString = Integer.toBinaryString(offset);
-        offsetString = binaryExtend(offsetString, 5);
+        String offsetString = binaryString(offset, 5, 1);
 
         return opcodeString
                 + offsetString

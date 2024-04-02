@@ -3,7 +3,7 @@ package Decoders;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Utils.BinaryOperations.binaryExtend;
+import static Utils.BinaryOperations.binaryString;
 
 public class ITypeDecoder implements Decoder {
     InstructionsOperations instructionsOperations;
@@ -45,8 +45,7 @@ public class ITypeDecoder implements Decoder {
             String rsString = instructionsOperations.getRegister(rs);
 
 
-            String immediateString = Integer.toBinaryString(immediate);
-            immediateString = binaryExtend(immediateString, 5);
+            String immediateString = binaryString(immediate, 5, 1);
 
             return opcodeString
                     + immediateString
