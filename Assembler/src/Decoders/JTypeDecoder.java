@@ -80,18 +80,12 @@ public class JTypeDecoder implements Decoder {
             // Retrieve the opcode from instructionsOperations
             String opcode = instructionsOperations.getOpcode(instruction);
 
-            // Extract the target register number from the instruction
-            Pattern registersPattern = Pattern.compile("[$]+\\d");
-            Matcher registersMatcher = registersPattern.matcher(instruction);
-
-            int rs = 0;
-            if (registersMatcher.find())
-                rs = Integer.parseInt(registersMatcher.group().substring(1));
-            else
-                throw new SyntaxException("["+currentAddress+"] Target register not found in " + instruction);
-
+            // Extracts one register from the given assembly instruction 'instruction'
+            // at the current address 'currentAddress' using the instructionsOperations object.
+            // The extracted registers will be used for further processing.
+            int[] registers = instructionsOperations.extractRegisters(instruction, 1, currentAddress);
             // Encode the target register number as a 3-bit binary string
-            String rsString = BinaryOperations.binaryString(rs, 3, 0);
+            String rsString = BinaryOperations.binaryString(registers[0], 3, 0);
 
             // Concatenate opcode, zeros, rs, and zeros to form the binary instruction
             return opcode + "00" + "000" + rsString + "000";

@@ -28,23 +28,10 @@ public class BTypeDecoder implements Decoder {
      *                   the label is not found, or if an error occurs during decoding.
      */
     public String decodeInstruction(String instruction, int currentAddress) throws Exception {
-        // Compile a regular expression pattern to match registers in the instruction
-        Pattern registersPattern = Pattern.compile("[$]+\\d");
-        // Create a matcher for the instruction
-        Matcher registersMatcher = registersPattern.matcher(instruction);
-
-        // Initialize an array to store register numbers
-        int[] registers = new int[2];
-        int i = 0;
-
-        // Extract register numbers from the instruction using the matcher
-        for (;registersMatcher.find(); i++) {
-            registers[i] = Integer.parseInt(registersMatcher.group().substring(1));
-        }
-
-        // Check if there are less than 2 registers specified in the instruction
-        if (i < 2)
-            throw new SyntaxException("["+currentAddress+"] Unsupported or missing Parameters in " + instruction);
+        // Extracts two registers from the given assembly instruction 'instruction'
+        // at the current address 'currentAddress' using the instructionsOperations object.
+        // The extracted registers will be used for further processing.
+        int[] registers = instructionsOperations.extractRegisters(instruction, 2, currentAddress);
 
         // Compile a regular expression pattern to match the label in the instruction
         Pattern labelPattern = Pattern.compile("[ ][\\w]+");

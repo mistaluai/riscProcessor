@@ -2,9 +2,6 @@ package Decoders;
 
 import Exceptions.SyntaxException;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class RTypeDecoder implements Decoder {
     InstructionsOperations instructionsOperations;
 
@@ -23,22 +20,11 @@ public class RTypeDecoder implements Decoder {
      * @throws SyntaxException if the instruction is unsupported or missing parameters.
      */
     public String decodeInstruction(String instruction, int currentAddress) throws Exception {
-        // Compile a regular expression pattern to match registers in the instruction
-        Pattern registersPattern = Pattern.compile("[$]+\\d");
-        // Create a matcher for the instruction
-        Matcher registersMatcher = registersPattern.matcher(instruction);
 
-        // Initialize an array to store register numbers
-        int[] registers = new int[3];
-        int i = 0;
-        // Extract register numbers from the instruction using the matcher
-        for (;registersMatcher.find(); i++) {
-            registers[i] = Integer.parseInt(registersMatcher.group().substring(1));
-        }
-
-        // Check if there are less than 3 registers specified in the instruction
-        if (i < 3)
-            throw new SyntaxException("["+currentAddress+"] Unsupported or missing parameters in " + instruction);
+        // Extracts three registers from the given assembly instruction 'instruction'
+// at the current address 'currentAddress' using the instructionsOperations object.
+// The extracted registers will be used for further processing.
+        int[] registers = instructionsOperations.extractRegisters(instruction, 3, currentAddress);
 
         // Retrieve opcode, function, and register representations from instructionsOperations
         String opcodeString = instructionsOperations.getOpcode(instruction);
