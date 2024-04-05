@@ -27,7 +27,7 @@ public class BTypeDecoder implements Decoder {
      * @throws Exception if the instruction is unsupported, missing parameters,
      *                   the label is not found, or if an error occurs during decoding.
      */
-    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) {
         // Extracts two registers from the given assembly instruction 'instruction'
         // at the current address 'currentAddress' using the instructionsOperations object.
         // The extracted registers will be used for further processing.
@@ -49,6 +49,8 @@ public class BTypeDecoder implements Decoder {
         int labelAddress = st.getLabel(label);
         // Calculate the offset relative to the current address
         int offset = labelAddress - currentAddress;
+
+        //System.out.println(offset);
 
         // Retrieve the opcode from instructionsOperations
         String opcode = instructionsOperations.getOpcode(instruction);

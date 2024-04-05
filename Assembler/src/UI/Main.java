@@ -29,7 +29,6 @@ public class Main extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1280, 720);
-        Font globalFont = new Font("Lucida Grande", Font.BOLD, 13);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());

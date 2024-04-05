@@ -25,23 +25,27 @@ public class ITypeDecoder implements Decoder {
      * @throws SyntaxException if the instruction is unsupported, missing parameters, or
      *                   if the immediate value is not given.
      */
-    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) {
         // Extracts two registers from the given assembly instruction 'instruction'
 // at the current address 'currentAddress' using the instructionsOperations object.
 // The extracted registers will be used for further processing.
         int[] registers = instructionsOperations.extractRegisters(instruction, 2, currentAddress);
         // Compile a regular expression pattern to match the immediate value in the instruction
-        Pattern immediatePattern = Pattern.compile("[^$][\\d]+");
+        Pattern immediatePattern = Pattern.compile("[ |-][\\d]+");
         // Create a matcher for the immediate value
         Matcher immediateMatcher = immediatePattern.matcher(instruction);
-        int immediate = 0;
+        String immediateString = "";
 
         // Extract the immediate value from the instruction if present
         if (immediateMatcher.find())
-            immediate = Integer.parseInt(immediateMatcher.group().substring(1));
+            immediateString = immediateMatcher.group();
         else
             throw new SyntaxException("Immediate value not given in " + instruction);
+        if (immediateString.charAt(0) == ' ')
+            immediateString = immediateString.substring(1);
 
+        int immediate = Integer.parseInt(immediateString);
+        //System.out.println(immediate);
         // Retrieve opcode and register representations from instructionsOperations
         String opcodeString = instructionsOperations.getOpcode(instruction);
         int rd = registers[0];
@@ -51,7 +55,7 @@ public class ITypeDecoder implements Decoder {
 
         // Retrieve the integer opcode from instructionsOperations
         int integerOpcode = instructionsOperations.getIntegerOpcode(instruction);
-        String immediateString = "";
+        immediateString = "";
 
         // Determine how to encode the immediate value based on the opcode
         if (integerOpcode == 7)

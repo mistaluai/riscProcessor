@@ -434,9 +434,9 @@ public class InstructionsOperations {
      * @param instruction The assembly instruction from which to extract the registers.
      * @param n The number of registers to extract.
      * @return An array containing the extracted register numbers.
-     * @throws Exception if the specified number of registers cannot be extracted from the instruction.
+     * @throws SyntaxException if the specified number of registers cannot be extracted from the instruction.
      */
-    public int[] extractRegisters(String instruction, int n, int currentAddress) throws Exception {
+    public int[] extractRegisters(String instruction, int n, int currentAddress) {
         // Define a pattern to match register patterns in the instruction
         Pattern registersPattern = Pattern.compile("[$]+\\d");
 

@@ -43,10 +43,10 @@ public class SymbolTable {
             String label = labelMatcher.group();
             label = label.substring(0, label.length() - 1); // Remove the colon from the label
             labels.put(label, index);
+         } else {
+            // Increment the index to track the next instruction address
+            index++;
          }
-
-         // Increment the index to track the next instruction address
-         index++;
       }
    }
 
@@ -56,9 +56,9 @@ public class SymbolTable {
     *
     * @param label the label whose address is to be retrieved.
     * @return the address associated with the given label.
-    * @throws Exception if the label is not found in the symbol table.
+    * @throws SyntaxException if the label is not found in the symbol table.
     */
-   public int getLabel(String label) throws Exception {
+   public int getLabel(String label) {
       // Check if the symbol table contains the given label
       if (labels.containsKey(label)) {
          // If found, return the address associated with the label

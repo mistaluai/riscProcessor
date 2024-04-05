@@ -31,47 +31,63 @@ public class Assembler {
         currentInstruction = 0;
         assemble();
     }
-    private void assemble() throws Exception {
+    /**
+     * Assembles the assembly code by iterating over each instruction, decoding it,
+     * and appending its corresponding binary representation to the binary code StringBuilder.
+     * Skippable instructions, such as those containing labels, are ignored during assembly.
+     */
+    private void assemble() {
+        // Split the assembly code into lines
         String[] lines = assemblyCode.split("\n");
+
+        // Iterate over each instruction in the assembly code
         for (String instruction : lines) {
-            if (instruction.length() == 0)
+            // Skip empty lines or comments
+            if (instruction.length() == 0 || instruction.charAt(0) == '#')
                 continue;
-            if (instruction.charAt(0) == '#')
-                continue;
+
+            // Skip skippable instructions (those containing labels)
             if (st.isSkippable(instruction))
                 continue;
 
+            // Trim the instruction to remove leading and trailing whitespaces
             instruction = instruction.trim();
 
-             switch (instructionsOperations.getInstructionType(instruction)) {
-                 case RType:
-                     binaryCode.append(rtd.decodeInstruction(instruction, currentInstruction));
-                     break;
-                 case IType:
-                     binaryCode.append(itd.decodeInstruction(instruction, currentInstruction));
-                     break;
-                 case JType:
-                     binaryCode.append(jtd.decodeInstruction(instruction, currentInstruction));
-                     break;
-                 case LoadStoreType:
-                     binaryCode.append(lstd.decodeInstruction(instruction, currentInstruction));
-                     break;
-                 case BType:
-                     binaryCode.append(btd.decodeInstruction(instruction, currentInstruction));
-             }
-        binaryCode.append("\n");
-        currentInstruction++;
+            //System.out.println(currentInstruction + " " + instruction);
+
+            // Decode the instruction based on its type and append the binary representation
+            // to the binary code StringBuilder
+            switch (instructionsOperations.getInstructionType(instruction)) {
+                case RType:
+                    binaryCode.append(rtd.decodeInstruction(instruction, currentInstruction));
+                    break;
+                case IType:
+                    binaryCode.append(itd.decodeInstruction(instruction, currentInstruction));
+                    break;
+                case JType:
+                    binaryCode.append(jtd.decodeInstruction(instruction, currentInstruction));
+                    break;
+                case LoadStoreType:
+                    binaryCode.append(lstd.decodeInstruction(instruction, currentInstruction));
+                    break;
+                case BType:
+                    binaryCode.append(btd.decodeInstruction(instruction, currentInstruction));
+                    break;
+            }
+
+            // Append a newline character after each instruction
+            binaryCode.append("\n");
+
+            // Increment the current instruction counter
+            currentInstruction++;
         }
     }
-    private String removeWhiteSpaces(String instruction) {
-        while (instruction.charAt(0) == ' ') {
-            instruction = instruction.substring(1);
-        }
-        return instruction;
-    }
+
+
     public String[][] getSymbols() {
         return st.getSymbols();
     }
+
     public String getBinaryCode() {
         return binaryCode.toString();
     }

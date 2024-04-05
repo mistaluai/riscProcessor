@@ -26,25 +26,28 @@ public class LoadStoreDecoder implements Decoder {
      * @throws Exception if the instruction is unsupported, missing parameters,
      *                   the offset value is out of range, or if the offset value is not found.
      */
-    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) {
         // Extracts two registers from the given assembly instruction 'instruction'
 // at the current address 'currentAddress' using the instructionsOperations object.
 // The extracted registers will be used for further processing.
         int[] registers = instructionsOperations.extractRegisters(instruction, 2, currentAddress);
 
         // Compile a regular expression pattern to match the offset value in the instruction
-        Pattern offsetPattern = Pattern.compile("\\d*[(]");
+        Pattern offsetPattern = Pattern.compile("[-| ]\\d*[(]");
         // Create a matcher for the offset value
         Matcher offsetMatcher = offsetPattern.matcher(instruction);
 
-        int offset = 0;
+        String offsetString = "";
         // Extract the offset value from the instruction if present
         if (offsetMatcher.find()) {
             String offsetDecimal = offsetMatcher.group();
-            offset = Integer.parseInt(offsetDecimal.substring(0, offsetDecimal.length() - 1));
+            offsetString = offsetDecimal.substring(0, offsetDecimal.length() - 1);
+            if (offsetString.charAt(0) == ' ')
+                offsetString = offsetString.substring(1);
         } else
             throw new SyntaxException("["+currentAddress+"] Offset value not found in " + instruction);
-
+        int offset = Integer.parseInt(offsetString);
+        System.out.println(offset);
         // Check if the offset value is within the range -16 to +15 because it is only 5 bit
         if (offset > 15 || offset < -16)
             throw new RangeException("Offset value out of range in " + instruction);
@@ -57,7 +60,7 @@ public class LoadStoreDecoder implements Decoder {
         String rsString = instructionsOperations.getRegister(rs);
 
         // Encode the offset value as a signed 5-bit binary string
-        String offsetString = binaryString(offset, 5, 1);
+        offsetString = binaryString(offset, 5, 1);
 
         // Concatenate opcode, offset value, and register representations to form the binary instruction
         return opcodeString + offsetString + rsString + rdString;

@@ -19,7 +19,7 @@ public class RTypeDecoder implements Decoder {
      * @return The binary representation of the instruction.
      * @throws SyntaxException if the instruction is unsupported or missing parameters.
      */
-    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) {
 
         // Extracts three registers from the given assembly instruction 'instruction'
 // at the current address 'currentAddress' using the instructionsOperations object.

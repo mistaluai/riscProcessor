@@ -28,7 +28,7 @@ public class JTypeDecoder implements Decoder {
      * @throws SyntaxException if the instruction is unsupported, missing parameters,
      *                   or if the immediate value or target register is not found.
      */
-    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) {
         // Get the name of the instruction from instructionsOperations
         String instructionName = instructionsOperations.getInstruction(instruction);
 
