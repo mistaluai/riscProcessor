@@ -15,6 +15,8 @@ public class Assembler {
 
     private String assemblyCode;
     private StringBuilder binaryCode;
+    private StringBuilder instructionCode;
+
     int currentInstruction;
     public Assembler(String code) {
         st = new SymbolTable(code);
@@ -28,6 +30,7 @@ public class Assembler {
 
         assemblyCode = code;
         binaryCode = new StringBuilder();
+        instructionCode = new StringBuilder();
         currentInstruction = 0;
     }
     /**
@@ -56,27 +59,28 @@ public class Assembler {
 
             // Decode the instruction based on its type and append the binary representation
             // to the binary code StringBuilder
+            String machineCode = "";
             switch (instructionsOperations.getInstructionType(instruction)) {
                 case RType:
-                    binaryCode.append(rtd.decodeInstruction(instruction, currentInstruction));
+                   machineCode = rtd.decodeInstruction(instruction, currentInstruction);
                     break;
                 case IType:
-                    binaryCode.append(itd.decodeInstruction(instruction, currentInstruction));
+                    machineCode = itd.decodeInstruction(instruction, currentInstruction);
                     break;
                 case JType:
-                    binaryCode.append(jtd.decodeInstruction(instruction, currentInstruction));
+                    machineCode = jtd.decodeInstruction(instruction, currentInstruction);
                     break;
                 case LoadStoreType:
-                    binaryCode.append(lstd.decodeInstruction(instruction, currentInstruction));
+                    machineCode = lstd.decodeInstruction(instruction, currentInstruction);
                     break;
                 case BType:
-                    binaryCode.append(btd.decodeInstruction(instruction, currentInstruction));
+                    machineCode = btd.decodeInstruction(instruction, currentInstruction);
                     break;
             }
 
             // Append a newline character after each instruction
-            binaryCode.append("\n");
-
+            binaryCode.append(machineCode + "\n");
+            instructionCode.append(instruction + " : " + machineCode + "\n");
             // Increment the current instruction counter
             currentInstruction++;
         }
@@ -89,6 +93,9 @@ public class Assembler {
 
     public String getBinaryCode() {
         return binaryCode.toString();
+    }
+    public String getDebugCode() {
+        return instructionCode.toString();
     }
     public int getCurrentInstruction()
     {

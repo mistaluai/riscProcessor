@@ -161,6 +161,16 @@ private void initializeMenuBar() {
     fileMenu.add(saveBinaryMenuItem);
 
     // Create the Save menu item
+    JMenuItem saveDebugCode = new JMenuItem("Save Debug Code");
+    saveDebugCode.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            fh.saveToFile(errorDetailsTextArea);
+        }
+    });
+    fileMenu.add(saveDebugCode);
+
+    // Create the Save menu item
     JMenuItem closeMenuItem = new JMenuItem("Close");
     closeMenuItem.addActionListener(new ActionListener() {
         @Override
@@ -244,6 +254,8 @@ private class AssemblingOperation implements ActionListener {
         try {
             as.assemble();
             binaryCodeTextArea.setText(as.getBinaryCode());
+            errorDetailsTextArea.setText(errorDetailsTextArea.getText()
+            + "\n" + as.getDebugCode());
         } catch (RuntimeException ex) {
             errorDetailsTextArea.setText(errorDetailsTextArea.getText() + "\n" + ex.getMessage());
             ex.printStackTrace();
