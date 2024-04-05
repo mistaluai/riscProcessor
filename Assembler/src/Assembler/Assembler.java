@@ -16,7 +16,7 @@ public class Assembler {
     private String assemblyCode;
     private StringBuilder binaryCode;
     int currentInstruction;
-    public Assembler(String code) throws Exception {
+    public Assembler(String code) {
         st = new SymbolTable(code);
         instructionsOperations = new InstructionsOperations();
 
@@ -29,14 +29,13 @@ public class Assembler {
         assemblyCode = code;
         binaryCode = new StringBuilder();
         currentInstruction = 0;
-        assemble();
     }
     /**
      * Assembles the assembly code by iterating over each instruction, decoding it,
      * and appending its corresponding binary representation to the binary code StringBuilder.
      * Skippable instructions, such as those containing labels, are ignored during assembly.
      */
-    private void assemble() {
+    public void assemble() {
         // Split the assembly code into lines
         String[] lines = assemblyCode.split("\n");
 

@@ -33,5 +33,32 @@ public class BinaryOperations {
         return binary;
     }
 
+    public static String binaryToHex(String binaryString) {
+        // Ensure the binary string length is a multiple of 4
+        int length = binaryString.length();
+        if (length % 4 != 0) {
+            throw new IllegalArgumentException("Binary string length must be a multiple of 4.");
+        }
+
+        // Initialize a StringBuilder to store the hexadecimal result
+        StringBuilder hexBuilder = new StringBuilder();
+
+        // Convert each group of 4 bits to hexadecimal
+        for (int i = 0; i < length; i += 4) {
+            // Get a substring of 4 bits
+            String substring = binaryString.substring(i, i + 4);
+
+            // Convert the substring to hexadecimal
+            int decimal = Integer.parseInt(substring, 2);
+            String hexDigit = Integer.toHexString(decimal);
+
+            // Append the hexadecimal digit to the result
+            hexBuilder.append(hexDigit);
+        }
+
+        // Return the hexadecimal representation
+        return hexBuilder.toString().toUpperCase();
+    }
+
 
 }

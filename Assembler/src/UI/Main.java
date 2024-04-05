@@ -1,17 +1,21 @@
 package UI;
 
 import Assembler.Assembler;
+import Utils.BinaryOperations;
 import Utils.FileHandler;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultStyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
 public class Main extends JFrame {
-    private JTextArea assemblyCodeTextArea;
+    private JTextPane assemblyCodeTextArea;
     private JTextArea binaryCodeTextArea;
     private JTable symbolTable;
     private JTextArea errorDetailsTextArea;
@@ -25,7 +29,7 @@ public class Main extends JFrame {
     private JMenuBar menuBar;
 
     public Main() {
-        setTitle("RISC Assembler.Assembler");
+        setTitle("RISC Assembler");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1280, 720);
@@ -45,62 +49,73 @@ public class Main extends JFrame {
 
 
 
-private void initializeTextAreas() {
+    private void initializeTextAreas() {
 
-    assemblyCodeTextArea = new JTextArea();
-    assemblyCodeTextArea.setRows(10);
-    assemblyCodeTextArea.setColumns(50);
+        // Create JTextPane instead of JTextArea for assembly code
+        assemblyCodeTextArea = new JTextPane();
+        assemblyCodeTextArea.setDocument(new DefaultStyledDocument());
+        assemblyCodeTextArea.setMargin(new Insets(5, 5, 5, 5));
+        assemblyCodeTextArea.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+                SyntaxHighlighter.highlightSyntax(assemblyCodeTextArea);
+            }
 
+            public void removeUpdate(DocumentEvent e) {
+                SyntaxHighlighter.highlightSyntax(assemblyCodeTextArea);
+            }
 
-    assemblyScrollPane = new JScrollPane(assemblyCodeTextArea);
+            public void changedUpdate(DocumentEvent e) {
+            }
+        });
 
-    binaryCodeTextArea = new JTextArea();
-    binaryCodeTextArea.setRows(10);
-    binaryCodeTextArea.setColumns(16);
-    binaryCodeTextArea.setEditable(false);
-    binaryScrollPane = new JScrollPane(binaryCodeTextArea);
+        // Use JScrollPane for scrolling
+        assemblyScrollPane = new JScrollPane(assemblyCodeTextArea);
 
-    DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"Label", "Address"}, 0);
-    symbolTable = new JTable(tableModel);
-    tableScrollPane = new JScrollPane(symbolTable);
+        binaryCodeTextArea = new JTextArea();
+        binaryCodeTextArea.setRows(10);
+        binaryCodeTextArea.setColumns(16);
+        binaryCodeTextArea.setEditable(false);
+        binaryScrollPane = new JScrollPane(binaryCodeTextArea);
 
-    errorDetailsTextArea = new JTextArea();
-    errorDetailsTextArea.setRows(5);
-    errorDetailsTextArea.setColumns(50);
-    errorScrollPane = new JScrollPane(errorDetailsTextArea);
+        DefaultTableModel tableModel = new DefaultTableModel(new Object[]{"Label", "Address"}, 0);
+        symbolTable = new JTable(tableModel);
+        JScrollPane tableScrollPane = new JScrollPane(symbolTable);
 
-    assembleButton = new JButton("Assemble");
-    hexButton = new JButton("Hex");
+        errorDetailsTextArea = new JTextArea();
+        errorDetailsTextArea.setRows(5);
+        errorDetailsTextArea.setColumns(50);
+        errorDetailsTextArea.setEditable(false);
+        errorScrollPane = new JScrollPane(errorDetailsTextArea);
 
-    GridBagConstraints gbc = new GridBagConstraints();
-    gbc.insets = new Insets(5, 5, 5, 5);
-    gbc.fill = GridBagConstraints.BOTH;
+        assembleButton = new JButton("Assemble");
+        hexButton = new JButton("Hex");
 
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.fill = GridBagConstraints.BOTH;
 
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.5; // Make assembly code take half of the width
+        gbc.weighty = 0.75; // Make assembly code take 75% of the height
+        mainPanel.add(assemblyScrollPane, gbc);
 
-    gbc.gridx = 0;
-    gbc.gridy = 0;
-    gbc.weightx = 0.5; // Make assembly code take half of the width
-    gbc.weighty = 0.75; // Make assembly code take 75% of the height
-    mainPanel.add(assemblyScrollPane, gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 0.25; // Make binary code take quarter of the width
+        mainPanel.add(binaryScrollPane, gbc);
 
-    gbc.gridx = 1;
-    gbc.gridy = 0;
-    gbc.weightx = 0.25; // Make binary code take quarter of the width
-    mainPanel.add(binaryScrollPane, gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        mainPanel.add(tableScrollPane, gbc);
 
-    gbc.gridx = 2;
-    gbc.gridy = 0;
-    mainPanel.add(tableScrollPane, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1; // Make error details stretch across all columns
+        gbc.weighty = 0.1; // Make error details take 10% of the height
+        mainPanel.add(errorScrollPane, gbc);
+    }
 
-    gbc.gridx = 0;
-    gbc.gridy = 1;
-    gbc.weightx = 1; // Make error details stretch across all columns
-    gbc.weighty = 0.1; // Make error details take 25% of the height
-    mainPanel.add(errorScrollPane, gbc);
-
-
-}
 
 private void initializeMenuBar() {
     // Create the menu bar
@@ -148,8 +163,44 @@ private void initializeMenuBar() {
     assemble.addActionListener(new AssemblingOperation());
     buildMenu.add(assemble);
 
-}
+    JMenuItem convertHEX = new JMenuItem("Convert to HEX");
+    convertHEX.addActionListener(new HexConversion());
+    buildMenu.add(convertHEX);
 
+    JMenuItem clearErrors = new JMenuItem("Clear Errors Console");
+    clearErrors.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            errorDetailsTextArea.setText("");
+        }
+    });
+    buildMenu.add(clearErrors);
+
+}
+private class HexConversion implements ActionListener {
+
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    public void actionPerformed(ActionEvent e) {
+        String machineCodes = binaryCodeTextArea.getText();
+        String[] codes = machineCodes.split("\n");
+        StringBuilder hexCodes = new StringBuilder("");
+        try {
+            for (String code : codes) {
+                code = BinaryOperations.binaryToHex(code);
+                hexCodes.append(code);
+                hexCodes.append("\n");
+            }
+        } catch (Exception ex) {
+            errorDetailsTextArea.setText(errorDetailsTextArea.getText() + "\n" + "ERROR: The code has already been converted to HEX");
+        }
+        binaryCodeTextArea.setText(hexCodes.toString());
+    }
+
+
+}
 private class AssemblingOperation implements ActionListener {
 
     /**
@@ -158,13 +209,14 @@ private class AssemblingOperation implements ActionListener {
      * @param e the event to be processed
      */
     public void actionPerformed(ActionEvent e) {
-        Assembler as = null;
+        Assembler as = new Assembler(assemblyCodeTextArea.getText());
+        symbolTable.setModel(new DefaultTableModel(as.getSymbols(),
+                new String[]{"Label","Address"}));
         try {
-            as = new Assembler(assemblyCodeTextArea.getText());
-            symbolTable.setModel(new DefaultTableModel(as.getSymbols(),
-                    new String[]{"Label","Address"}));
+            as.assemble();
             binaryCodeTextArea.setText(as.getBinaryCode());
-        } catch (Exception ex) {
+        } catch (RuntimeException ex) {
+            errorDetailsTextArea.setText(errorDetailsTextArea.getText() + "\n" + ex.getMessage());
             ex.printStackTrace();
         }
 

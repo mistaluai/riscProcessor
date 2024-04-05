@@ -1,5 +1,6 @@
 package Decoders;
 
+import Exceptions.RangeException;
 import Exceptions.SyntaxException;
 
 import java.util.regex.Matcher;
@@ -45,6 +46,10 @@ public class ITypeDecoder implements Decoder {
             immediateString = immediateString.substring(1);
 
         int immediate = Integer.parseInt(immediateString);
+
+        if (immediate < -16 || immediate > 15)
+            throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
+
         //System.out.println(immediate);
         // Retrieve opcode and register representations from instructionsOperations
         String opcodeString = instructionsOperations.getOpcode(instruction);

@@ -1,5 +1,6 @@
 package Decoders;
 
+import Exceptions.RangeException;
 import Exceptions.SyntaxException;
 import Utils.BinaryOperations;
 import Utils.SymbolTable;
@@ -50,6 +51,8 @@ public class BTypeDecoder implements Decoder {
         // Calculate the offset relative to the current address
         int offset = labelAddress - currentAddress;
 
+        if (offset < -16 || offset > 15)
+            throw new RangeException("["+currentAddress+"] The branch range exceeded in " + instruction);
         //System.out.println(offset);
 
         // Retrieve the opcode from instructionsOperations

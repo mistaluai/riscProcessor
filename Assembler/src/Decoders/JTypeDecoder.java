@@ -1,5 +1,6 @@
 package Decoders;
 
+import Exceptions.RangeException;
 import Exceptions.SyntaxException;
 import Utils.BinaryOperations;
 import Utils.SymbolTable;
@@ -46,6 +47,9 @@ public class JTypeDecoder implements Decoder {
                 immediate = Integer.parseInt(immediateMatcher.group().substring(1));
             else
                 throw new SyntaxException("["+currentAddress+"] Immediate value not given in " + instruction);
+
+            if (immediate >= 2048)
+                throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
 
             // Encode the immediate value as an 11-bit binary string
             String immediateString = binaryString(immediate, 11, 0);
