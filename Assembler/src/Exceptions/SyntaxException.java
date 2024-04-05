@@ -1,7 +1,12 @@
 package Exceptions;
 
 public class SyntaxException extends RuntimeException {
-    public static void main(String[] args) {
+    private String message;
+    public SyntaxException(String s) {
+        message = s;
+    }
 
+    public String getMessage() {
+        return message;
     }
 }

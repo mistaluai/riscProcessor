@@ -1,7 +1,12 @@
 package Exceptions;
 
 public class RangeException extends RuntimeException {
-    public static void main(String[] args) {
+    private String message;
+    public RangeException(String s) {
+        message = s;
+    }
 
+    public String getMessage() {
+        return message;
     }
 }
