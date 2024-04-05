@@ -131,7 +131,7 @@ private void initializeMenuBar() {
         }
     });
     fileMenu.add(saveMenuItem);
-    
+
     // Create the Save menu item
     JMenuItem saveBinaryMenuItem = new JMenuItem("Save Binary");
     saveMenuItem.addActionListener(new ActionListener() {
@@ -159,9 +159,15 @@ private class AssemblingOperation implements ActionListener {
      * @param e the event to be processed
      */
     public void actionPerformed(ActionEvent e) {
-        Assembler as = new Assembler(assemblyCodeTextArea.getText());
+        Assembler as = null;
+        try {
+            as = new Assembler(assemblyCodeTextArea.getText());
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
         symbolTable.setModel(new DefaultTableModel(as.getSymbols(),
                 new String[]{"Label","Address"}));
+        binaryCodeTextArea.setText(as.getBinaryCode());
 
 
     }

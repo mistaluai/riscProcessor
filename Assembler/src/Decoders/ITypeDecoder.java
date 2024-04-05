@@ -12,7 +12,7 @@ public class ITypeDecoder implements Decoder {
         instructionsOperations = new InstructionsOperations();
     }
 
-    public String decodeInstruction(String instruction) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
 
             Pattern registersPattern = Pattern.compile("[$]+\\d");
             Matcher registersMatcher = registersPattern.matcher(instruction);
@@ -28,7 +28,7 @@ public class ITypeDecoder implements Decoder {
                 throw new Exception("Unsupported or missing Parameters in " + instruction);
 
 
-            Pattern immediatePattern = Pattern.compile("[^$][\\d+]");
+            Pattern immediatePattern = Pattern.compile("[^$][\\d]+");
             Matcher immediateMatcher = immediatePattern.matcher(instruction);
             int immediate = 0;
             if (immediateMatcher.find())
@@ -44,8 +44,15 @@ public class ITypeDecoder implements Decoder {
             int rs = registers[1];
             String rsString = instructionsOperations.getRegister(rs);
 
+            int integerOpcode = instructionsOperations.getIntegerOpcode(instruction);
+            String immediateString = "";
 
-            String immediateString = binaryString(immediate, 5, 1);
+            if (integerOpcode >= 4 && integerOpcode <= 11 && integerOpcode != 7)
+                 immediateString = binaryString(immediate, 5, 0);
+            else
+                immediateString = binaryString(immediate, 5, 1);
+
+
 
             return opcodeString
                     + immediateString

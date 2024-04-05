@@ -12,7 +12,7 @@ public class LoadStoreDecoder implements Decoder {
         instructionsOperations = new InstructionsOperations();
     }
 
-    public String decodeInstruction(String instruction) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
         Pattern registersPattern = Pattern.compile("[$]+\\d");
         Matcher registersMatcher = registersPattern.matcher(instruction);
 
@@ -35,7 +35,7 @@ public class LoadStoreDecoder implements Decoder {
             offset = Integer.parseInt(offsetDecimal.substring(0, offsetDecimal.length() - 1));
         } else throw new Exception("Offset value not found in " + instruction);
 
-
+        if (offset > 15 || offset < -16) throw new Exception("offset out of range in " + instruction);
 
         String opcodeString = instructionsOperations.getOpcode(instruction);
 

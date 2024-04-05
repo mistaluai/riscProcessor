@@ -25,13 +25,25 @@ public class SymbolTable {
          if (labelMatcher.find()) {
             String label = labelMatcher.group();
             label = label.substring(0, label.length() - 1);
-            labels.put(label, index + 1);
+            labels.put(label, index);
             System.out.print(label);
          }
          index++;
       }
    }
 
+   public int getLabel(String label) throws Exception {
+      if (labels.containsKey(label))
+         return labels.get(label);
+      else throw new Exception("Label not found " + label);
+   }
+
+   public boolean isSkippable(String instruction) {
+      Pattern labelPattern = Pattern.compile("\\w+:");
+      Matcher labelMatcher = labelPattern.matcher(instruction);
+      if (labelMatcher.find()) { return true; }
+      return false;
+   }
    public String[][] getSymbols() {
       String[][] symbols = new String[labels.size()][2];
 

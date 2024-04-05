@@ -9,7 +9,7 @@ public class RTypeDecoder implements Decoder {
     public RTypeDecoder() {
         instructionsOperations = new InstructionsOperations();
     }
-    public String decodeInstruction(String instruction) throws Exception {
+    public String decodeInstruction(String instruction, int currentAddress) throws Exception {
         Pattern registersPattern = Pattern.compile("[$]+\\d");
         Matcher registersMatcher = registersPattern.matcher(instruction);
 

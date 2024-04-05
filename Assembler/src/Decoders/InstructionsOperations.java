@@ -11,9 +11,9 @@ public class InstructionsOperations {
     Map<String, String> instructionFunction;
     Map<String, InstructionType> instructionType;
     Map<Integer, String> registerString;
+    Map<String , Integer> integerOpcode;
 
-
-    enum InstructionType {
+    public enum InstructionType {
         RType,
         IType,
         JType,
@@ -26,6 +26,7 @@ public class InstructionsOperations {
         initializeFunctions();
         initializeTypes();
         initializeRegisters();
+        initializeIntegerOpcodes();
     }
 private void initializeRegisters() {
         registerString = new HashMap<>();
@@ -75,6 +76,45 @@ private void initializeRegisters() {
         instructionOpcode.put("J", "11110"); //30
         instructionOpcode.put("JAL", "11111"); //31
     }
+
+    private void initializeIntegerOpcodes() {
+        integerOpcode = new HashMap<>();
+
+        //R-Type
+        integerOpcode.put("AND", 0);
+        integerOpcode.put("OR", 0);
+        integerOpcode.put("XOR", 0);
+        integerOpcode.put("NOR", 0);
+
+        integerOpcode.put("ADD", 1);
+        integerOpcode.put("SUB", 1);
+        integerOpcode.put("SLT", 1);
+        integerOpcode.put("SLTU", 1);
+
+        integerOpcode.put("JR", 2);
+
+        //I-Type
+        integerOpcode.put("ANDI", 4);
+        integerOpcode.put("ORI", 5);
+        integerOpcode.put("XORI", 6);
+        integerOpcode.put("ADDI", 7);
+        integerOpcode.put("SLL", 8);
+        integerOpcode.put("SRL", 9);
+        integerOpcode.put("SRA", 10);
+        integerOpcode.put("ROR", 11);
+        integerOpcode.put("LW", 12);
+        integerOpcode.put("SW", 13);
+        integerOpcode.put("BEQ", 14);
+        integerOpcode.put("BNE", 15);
+        integerOpcode.put("BLT", 16);
+        integerOpcode.put("BGE", 17);
+
+        //J-Type
+        integerOpcode.put("LUI", 18);
+        integerOpcode.put("J", 30);
+        integerOpcode.put("JAL", 31);
+    }
+
     private void initializeTypes() {
         instructionType = new HashMap<>();
 
@@ -135,7 +175,7 @@ private void initializeRegisters() {
         Pattern instructionPattern = Pattern.compile("[\\w]+ ", Pattern.CASE_INSENSITIVE);
         Matcher instructionMatcher = instructionPattern.matcher(instruction);
         if (!instructionMatcher.find())
-            throw new Exception("Instruction not found in" + instruction);
+            throw new Exception("Instruction not found in " + instruction);
 
         instruction = instructionMatcher.group();
         instruction = instruction.substring(0, instruction.length() - 1);
@@ -147,7 +187,8 @@ private void initializeRegisters() {
         return instruction;
     }
 
-    public InstructionType getInstructionType(String instruction) {
+    public InstructionType getInstructionType(String instruction) throws Exception {
+        instruction = getInstruction(instruction);
         return instructionType.get(instruction);
     }
 
@@ -163,6 +204,11 @@ private void initializeRegisters() {
 
     public String getRegister(int register) {
         return registerString.get(register);
+    }
+
+    public int getIntegerOpcode(String instruction) throws Exception {
+        instruction = getInstruction(instruction);
+        return integerOpcode.get(instruction);
     }
 
     public int[] extractRegisters(String instruction, int n) throws Exception {
