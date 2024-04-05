@@ -44,6 +44,8 @@ public class JTypeDecoder implements Decoder {
             String opcode = instructionsOperations.getOpcode(instruction);
 
             String label = instruction.substring(2);
+            System.out.println(instruction);
+            System.out.println(label);
             int labelAddress = st.getLabel(label);
             int offset = labelAddress - currentAddress;
 
@@ -62,7 +64,7 @@ public class JTypeDecoder implements Decoder {
 
             int rs = 0;
             if (registersMatcher.find())
-                rs = Integer.parseInt(registersMatcher.group());
+                rs = Integer.parseInt(registersMatcher.group().substring(1));
             else throw new Exception("target register not found in " + instruction);
 
             String rsString = BinaryOperations.binaryString(rs, 3, 0);

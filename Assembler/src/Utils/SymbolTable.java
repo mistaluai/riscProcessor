@@ -26,7 +26,7 @@ public class SymbolTable {
             String label = labelMatcher.group();
             label = label.substring(0, label.length() - 1);
             labels.put(label, index);
-            System.out.print(label);
+            //System.out.print(label);
          }
          index++;
       }

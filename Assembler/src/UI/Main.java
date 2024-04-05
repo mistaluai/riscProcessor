@@ -162,12 +162,13 @@ private class AssemblingOperation implements ActionListener {
         Assembler as = null;
         try {
             as = new Assembler(assemblyCodeTextArea.getText());
+            symbolTable.setModel(new DefaultTableModel(as.getSymbols(),
+                    new String[]{"Label","Address"}));
+            binaryCodeTextArea.setText(as.getBinaryCode());
         } catch (Exception ex) {
-            throw new RuntimeException(ex);
+            ex.printStackTrace();
         }
-        symbolTable.setModel(new DefaultTableModel(as.getSymbols(),
-                new String[]{"Label","Address"}));
-        binaryCodeTextArea.setText(as.getBinaryCode());
+
 
 
     }

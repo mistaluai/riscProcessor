@@ -33,7 +33,7 @@ public class BTypeDecoder implements Decoder {
         Matcher labelMatcher = labelPattern.matcher(instruction);
         String label = "";
         if (labelMatcher.find())
-            label = labelMatcher.group();
+            label = labelMatcher.group().substring(1);
         else throw new Exception("Label not found in " + instruction);
 
         int labelAddress = st.getLabel(label);

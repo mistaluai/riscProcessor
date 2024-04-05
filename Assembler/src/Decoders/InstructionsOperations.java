@@ -129,7 +129,7 @@ private void initializeRegisters() {
         instructionType.put("SLT", InstructionType.RType); //1
         instructionType.put("SLTU", InstructionType.RType);//1
 
-        instructionType.put("JR", InstructionType.RType); //2
+        instructionType.put("JR", InstructionType.JType); //2
 
         //I-Type
         instructionType.put("ANDI", InstructionType.IType); //4
