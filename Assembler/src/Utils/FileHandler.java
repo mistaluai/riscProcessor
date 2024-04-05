@@ -1,10 +1,38 @@
 package Utils;
 
 import javax.swing.*;
+import javax.swing.text.StyledDocument;
 import java.io.*;
 
 public class FileHandler {
-    public static void saveToFile(JFrame frame, JTextPane CodeTextArea) {
+    private JFrame frame;
+
+    public FileHandler(JFrame frame) {
+        this.frame = frame;
+    }
+
+    public void saveToFile(JTextPane textPane) {
+        JFileChooser fileChooser = new JFileChooser();
+        int option = fileChooser.showSaveDialog(frame);
+
+        if (option == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+
+            try (FileWriter fileWriter = new FileWriter(file);
+                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+
+                StyledDocument doc = textPane.getStyledDocument();
+                String text = doc.getText(0, doc.getLength());
+                bufferedWriter.write(text);
+            } catch (IOException | javax.swing.text.BadLocationException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(frame, "Error saving file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+
+    public void saveToFile(JTextArea CodeTextArea) {
         JFileChooser fileChooser = new JFileChooser();
         int option = fileChooser.showSaveDialog(frame);
         if (option == JFileChooser.APPROVE_OPTION) {
@@ -18,21 +46,7 @@ public class FileHandler {
         }
     }
 
-    public static void saveToFile(JFrame frame, JTextArea CodeTextArea) {
-        JFileChooser fileChooser = new JFileChooser();
-        int option = fileChooser.showSaveDialog(frame);
-        if (option == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
-            try (PrintWriter writer = new PrintWriter(file)) {
-                writer.print(CodeTextArea.getText());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(frame, "Error saving file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    public static void openFromFile(JFrame frame, JTextPane CodeTextArea) {
+    public void openFromFile(JTextPane CodeTextArea) {
         JFileChooser fileChooser = new JFileChooser();
         int option = fileChooser.showOpenDialog(frame);
         if (option == JFileChooser.APPROVE_OPTION) {

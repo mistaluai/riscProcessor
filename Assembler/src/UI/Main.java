@@ -27,8 +27,12 @@ public class Main extends JFrame {
     private JScrollPane errorScrollPane;
     private JPanel mainPanel;
     private JMenuBar menuBar;
+    private FileHandler fh;
 
     public Main() {
+
+        fh = new FileHandler(this);
+
         setTitle("RISC Assembler");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +135,7 @@ private void initializeMenuBar() {
     openMenuItem.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            FileHandler.openFromFile(null, assemblyCodeTextArea);
+            fh.openFromFile(assemblyCodeTextArea);
         }
     });
     fileMenu.add(openMenuItem);
@@ -141,20 +145,45 @@ private void initializeMenuBar() {
     saveMenuItem.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            FileHandler.saveToFile(null, assemblyCodeTextArea);
+            fh.saveToFile(assemblyCodeTextArea);
         }
     });
     fileMenu.add(saveMenuItem);
 
     // Create the Save menu item
     JMenuItem saveBinaryMenuItem = new JMenuItem("Save Binary");
-    saveMenuItem.addActionListener(new ActionListener() {
+    saveBinaryMenuItem.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            FileHandler.saveToFile(null, binaryCodeTextArea);
+            fh.saveToFile(binaryCodeTextArea);
         }
     });
     fileMenu.add(saveBinaryMenuItem);
+
+    // Create the Save menu item
+    JMenuItem closeMenuItem = new JMenuItem("Close");
+    closeMenuItem.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int option = JOptionPane.showOptionDialog(null, "There might be unsaved work, save before close?",
+                    "Warning", JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.WARNING_MESSAGE, null, null, null);
+
+            if (option == JOptionPane.YES_OPTION) {
+                // User clicked Yes
+                fh.saveToFile(assemblyCodeTextArea);
+                System.exit(0);
+            } else if (option == JOptionPane.NO_OPTION) {
+                // User clicked No
+                System.exit(0);
+            } else if (option == JOptionPane.CANCEL_OPTION) {
+                // User clicked Cancel
+            } else if (option == JOptionPane.CLOSED_OPTION) {
+                // User closed the dialog without clicking any button
+            }
+        }
+    });
+    fileMenu.add(closeMenuItem);
 
     JMenu buildMenu = new JMenu("Build");
     menuBar.add(buildMenu);
