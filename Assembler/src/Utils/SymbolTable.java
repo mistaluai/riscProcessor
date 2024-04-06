@@ -31,9 +31,14 @@ public class SymbolTable {
 
       // Iterate over each line of the assembly code
       for (String instruction : lines) {
+         // Trim the instruction to remove leading and trailing whitespaces
+         instruction = instruction.trim();
+
          // Skip empty lines or comments
          if (instruction.length() == 0 || instruction.charAt(0) == '#')
             continue;
+
+         instruction = removeComments(instruction);
 
          // Match label patterns in the instruction
          Matcher labelMatcher = labelPattern.matcher(instruction);
@@ -85,6 +90,7 @@ public class SymbolTable {
 
       // If a label pattern is found in the instruction, it is considered skippable
       if (labelMatcher.find()) {
+         System.out.println(instruction + " is skippable");
          return true;
       }
 
@@ -113,5 +119,28 @@ public class SymbolTable {
       // Return the populated array
       return symbols;
    }
+   private String removeComments(String assemblyCode) {
+      StringBuilder result = new StringBuilder();
+      boolean inComment = false;
 
+      for (int i = 0; i < assemblyCode.length(); i++) {
+         char currentChar = assemblyCode.charAt(i);
+         char nextChar = i < assemblyCode.length() - 1 ? assemblyCode.charAt(i + 1) : '\0';
+
+         if (currentChar == '#' && (i == 0 || assemblyCode.charAt(i - 1) != '\\')) {
+            inComment = true;
+         }
+
+         if (!inComment) {
+            result.append(currentChar);
+         }
+
+         if (currentChar == '\n' || (currentChar == '\r' && nextChar == '\n')) {
+            inComment = false;
+         }
+      }
+      String output = result.toString();
+      output = output.trim();
+      return output;
+   }
 }

@@ -47,7 +47,7 @@ public class LoadStoreDecoder implements Decoder {
         } else
             throw new SyntaxException("["+currentAddress+"] Offset value not found in " + instruction);
         int offset = Integer.parseInt(offsetString);
-        System.out.println(offset);
+        //System.out.println(offset);
         // Check if the offset value is within the range -16 to +15 because it is only 5 bit
         if (offset > 15 || offset < -16)
             throw new RangeException("Offset value out of range in " + instruction);

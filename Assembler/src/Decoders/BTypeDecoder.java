@@ -51,6 +51,8 @@ public class BTypeDecoder implements Decoder {
         // Calculate the offset relative to the current address
         int offset = labelAddress - currentAddress;
 
+        //System.out.println(label + " " + labelAddress + " " + currentAddress + " " + offset);
+
         if (offset < -16 || offset > 15)
             throw new RangeException("["+currentAddress+"] The branch range exceeded in " + instruction);
         //System.out.println(offset);

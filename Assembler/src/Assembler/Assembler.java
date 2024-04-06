@@ -53,13 +53,12 @@ public class Assembler {
                 continue;
 
             instruction = removeComments(instruction);
-            System.out.println(instruction);
 
             // Skip skippable instructions (those containing labels)
             if (st.isSkippable(instruction))
                 continue;
 
-            //System.out.println(currentInstruction + " " + instruction);
+            System.out.println(currentInstruction + " " + instruction);
 
             // Decode the instruction based on its type and append the binary representation
             // to the binary code StringBuilder
@@ -110,8 +109,9 @@ public class Assembler {
                     inComment = false;
                 }
             }
-
-            return result.toString();
+            String output = result.toString();
+            output = output.trim();
+            return output;
         }
 
     public String[][] getSymbols() {
