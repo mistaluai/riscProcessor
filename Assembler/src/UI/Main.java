@@ -171,6 +171,20 @@ private void initializeMenuBar() {
     fileMenu.add(saveDebugCode);
 
     // Create the Save menu item
+    JMenuItem dumpTestCode = new JMenuItem("Dump Test Code");
+    dumpTestCode.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            StringBuilder dump = new StringBuilder();
+            dump.append("Input Code:\n------------------------\n" + assemblyCodeTextArea.getText());
+            dump.append("\n ------------------------\n" + "Output binary:\n ------------------------\n" + binaryCodeTextArea.getText());
+            dump.append("\n ------------------------\n" + "Debug Log:\n ------------------------\n" + errorDetailsTextArea.getText());
+            fh.saveToFile(dump.toString());
+        }
+    });
+    fileMenu.add(dumpTestCode);
+
+    // Create the Save menu item
     JMenuItem closeMenuItem = new JMenuItem("Close");
     closeMenuItem.addActionListener(new ActionListener() {
         @Override

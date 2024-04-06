@@ -32,6 +32,7 @@ public class FileHandler {
     }
 
 
+
     public void saveToFile(JTextArea CodeTextArea) {
         JFileChooser fileChooser = new JFileChooser();
         int option = fileChooser.showSaveDialog(frame);
@@ -39,6 +40,20 @@ public class FileHandler {
             File file = fileChooser.getSelectedFile();
             try (PrintWriter writer = new PrintWriter(file)) {
                 writer.print(CodeTextArea.getText());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(frame, "Error saving file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void saveToFile(String text) {
+        JFileChooser fileChooser = new JFileChooser();
+        int option = fileChooser.showSaveDialog(frame);
+        if (option == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try (PrintWriter writer = new PrintWriter(file)) {
+                writer.print(text);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(frame, "Error saving file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

@@ -1,6 +1,7 @@
 package Assembler;
 
 import Decoders.*;
+import Utils.BinaryOperations;
 import Utils.SymbolTable;
 
 public class Assembler {
@@ -44,16 +45,19 @@ public class Assembler {
 
         // Iterate over each instruction in the assembly code
         for (String instruction : lines) {
+            // Trim the instruction to remove leading and trailing whitespaces
+            instruction = instruction.trim();
+
             // Skip empty lines or comments
             if (instruction.length() == 0 || instruction.charAt(0) == '#')
                 continue;
 
+            instruction = removeComments(instruction);
+            System.out.println(instruction);
+
             // Skip skippable instructions (those containing labels)
             if (st.isSkippable(instruction))
                 continue;
-
-            // Trim the instruction to remove leading and trailing whitespaces
-            instruction = instruction.trim();
 
             //System.out.println(currentInstruction + " " + instruction);
 
@@ -80,12 +84,35 @@ public class Assembler {
 
             // Append a newline character after each instruction
             binaryCode.append(machineCode + "\n");
-            instructionCode.append(instruction + " : " + machineCode + "\n");
+            instructionCode.append(instruction + " : " + machineCode +" | " + BinaryOperations.binaryToHex(machineCode) + "\n");
             // Increment the current instruction counter
             currentInstruction++;
         }
     }
 
+        private String removeComments(String assemblyCode) {
+            StringBuilder result = new StringBuilder();
+            boolean inComment = false;
+
+            for (int i = 0; i < assemblyCode.length(); i++) {
+                char currentChar = assemblyCode.charAt(i);
+                char nextChar = i < assemblyCode.length() - 1 ? assemblyCode.charAt(i + 1) : '\0';
+
+                if (currentChar == '#' && (i == 0 || assemblyCode.charAt(i - 1) != '\\')) {
+                    inComment = true;
+                }
+
+                if (!inComment) {
+                    result.append(currentChar);
+                }
+
+                if (currentChar == '\n' || (currentChar == '\r' && nextChar == '\n')) {
+                    inComment = false;
+                }
+            }
+
+            return result.toString();
+        }
 
     public String[][] getSymbols() {
         return st.getSymbols();

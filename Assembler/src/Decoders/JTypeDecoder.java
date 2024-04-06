@@ -68,6 +68,7 @@ public class JTypeDecoder implements Decoder {
             if (instructionName.equals("J")) label = instruction.substring(2);
             else if (instructionName.equals("JAL")) label = instruction.substring(4);
 
+            label = label.trim();
             int labelAddress = st.getLabel(label);
             // Calculate the offset relative to the current address
             int offset = labelAddress - currentAddress;

@@ -104,7 +104,9 @@ public class SyntaxHighlighter {
                 // Find the start and end index of the word starting with the prefix
                 int start = pos;
                 int end = pos + 1;
-                while (end < text.length() && !Character.isWhitespace(text.charAt(end))) {
+                while (end < text.length()) {
+                    if (text.charAt(end) == '\n')
+                        break;
                     end++;
                 }
                 // Apply style to the word

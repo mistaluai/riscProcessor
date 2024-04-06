@@ -1,0 +1,58 @@
+Input Code:
+------------------------
+LUI 10    # Load immediate 10 into $1
+LUI 20    # Load immediate 20 into $2
+
+LW $3, 0($1)
+LW $4, 0($2)
+
+ADD $5, $3, $4
+
+SW $5, 0($1)
+
+BEQ $5, $0, result_is_zero
+BNE $5, $0, result_not_zero
+
+result_is_zero:
+    ADD $6, $5, $0
+    JAL exit
+
+result_not_zero:
+    SUB $6, $5, $0
+    JAL exit
+
+exit:
+    # Some exit operations
+
+ ------------------------
+Output binary:
+ ------------------------
+900A
+9014
+600B
+6014
+095C
+680D
+70A8
+78E8
+09A8
+F803
+0BA8
+F801
+
+ ------------------------
+Debug Log:
+ ------------------------
+
+LUI 10    # Load immediate 10 into $1 : 1001000000001010 | 900A
+LUI 20    # Load immediate 20 into $2 : 1001000000010100 | 9014
+LW $3, 0($1) : 0110000000001011 | 600B
+LW $4, 0($2) : 0110000000010100 | 6014
+ADD $5, $3, $4 : 0000100101011100 | 095C
+SW $5, 0($1) : 0110100000001101 | 680D
+BEQ $5, $0, result_is_zero : 0111000010101000 | 70A8
+BNE $5, $0, result_not_zero : 0111100011101000 | 78E8
+ADD $6, $5, $0 : 0000100110101000 | 09A8
+JAL exit : 1111100000000011 | F803
+SUB $6, $5, $0 : 0000101110101000 | 0BA8
+JAL exit : 1111100000000001 | F801
