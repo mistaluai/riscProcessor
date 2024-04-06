@@ -241,6 +241,7 @@ private class HexConversion implements ActionListener {
         String[] codes = machineCodes.split("\n");
         StringBuilder hexCodes = new StringBuilder("");
         try {
+            hexCodes.append("v2.0 raw\n");
             for (String code : codes) {
                 code = BinaryOperations.binaryToHex(code);
                 hexCodes.append(code);
