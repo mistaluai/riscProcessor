@@ -626,7 +626,7 @@ public class Main extends JFrame {
             }
 
             int i = 0;
-            while (i < str.length() && str.charAt(i) == '0') {
+            while (i < str.length() - 1 && str.charAt(i) == '0') {
                 i++;
             }
 
@@ -702,7 +702,7 @@ public class Main extends JFrame {
             }
 
             int i = 0;
-            while (i < str.length() && str.charAt(i) == '0') {
+            while (i < str.length() - 1 && str.charAt(i) == '0') {
                 i++;
             }
 

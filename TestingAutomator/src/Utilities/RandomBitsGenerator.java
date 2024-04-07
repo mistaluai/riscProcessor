@@ -53,8 +53,8 @@ public class RandomBitsGenerator {
         for (int i = 0; i < count; i++) {
 
             Random random = new Random();
-            // Generate a random number from 0 to 16
-            int randomNumber = random.nextInt(17); // 0 to 16 inclusive
+            // Generate a random number from 0 to 15
+            int randomNumber = random.nextInt(16); // 0 to 16 inclusive
 
             // Convert the random number to a 4-digit hexadecimal number with zero-padding
             String hexNumber = Integer.toHexString(randomNumber).toUpperCase(); // Convert to uppercase
