@@ -554,7 +554,12 @@ public class Main extends JFrame {
                         }
                         content.append(line).append("\n");
                     }
-                    actualOutputTextPane.setText(content.toString());
+                    String[] contents = content.toString().split(" ");
+                    actualOutputTextPane.setText("");
+                    for (String lineContent : contents) {
+                        actualOutputTextPane.setText(actualOutputTextPane.getText() + lineContent.toUpperCase());
+                        actualOutputTextPane.setText(actualOutputTextPane.getText() + "\n");
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                     JOptionPane.showMessageDialog(frame, "Error loading file.");
@@ -593,6 +598,10 @@ public class Main extends JFrame {
                 testPassed = false;
             } else {
                 for (int i = 0; i < expectedLines.length; i++) {
+
+                    if (expectedLines[i].charAt(0) == '0')
+                        expectedLines[i] = removeLeadingZeros(expectedLines[i]);
+
                     if (!expectedLines[i].equals(actualLines[i])) {
                         logMessage.append("Test Failed at line ").append(i + 1).append("\n");
                         logMessage.append("Input1: ").append(input1Lines[i]).append("\n");
@@ -611,6 +620,18 @@ public class Main extends JFrame {
             logTextPane.setText(logMessage.toString());
         }
 
+        public String removeLeadingZeros(String str) {
+            if (str == null || str.isEmpty()) {
+                return str;
+            }
+
+            int i = 0;
+            while (i < str.length() && str.charAt(i) == '0') {
+                i++;
+            }
+
+            return str.substring(i);
+        }
     }
 
     private class SheetCreatorActionListener implements ActionListener {
@@ -654,6 +675,8 @@ public class Main extends JFrame {
                     writer.write("Input1,Input2,Expected Output,Actual Output,Test Passed\n");
 
                     for (int i = 0; i < expectedLines.length; i++) {
+                        if (expectedLines[i].charAt(0) == '0')
+                            expectedLines[i] = removeLeadingZeros(expectedLines[i]);
                         boolean testPassed = expectedLines[i].equals(actualLines[i]);
 
                         writer.write("\"" + input1Lines[i].trim().replace("\n", "\",\"") + "\",");
@@ -671,6 +694,19 @@ public class Main extends JFrame {
                 JOptionPane.showMessageDialog(frame, "Error saving to CSV.");
             }
 
+        }
+
+        public String removeLeadingZeros(String str) {
+            if (str == null || str.isEmpty()) {
+                return str;
+            }
+
+            int i = 0;
+            while (i < str.length() && str.charAt(i) == '0') {
+                i++;
+            }
+
+            return str.substring(i);
         }
 
     }
