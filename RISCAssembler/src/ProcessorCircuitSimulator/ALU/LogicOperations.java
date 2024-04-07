@@ -1,4 +1,4 @@
-package ALU;
+package ProcessorCircuitSimulator.ALU;
 
 public class LogicOperations {
     // Bitwise AND operation method for hexadecimal strings

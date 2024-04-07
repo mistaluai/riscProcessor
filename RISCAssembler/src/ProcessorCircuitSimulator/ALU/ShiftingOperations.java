@@ -1,4 +1,4 @@
-package ALU;
+package ProcessorCircuitSimulator.ALU;
 
 public class ShiftingOperations {
     // Logical left shift (SLL) operation method for hexadecimal strings
