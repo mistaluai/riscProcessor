@@ -1,10 +1,16 @@
 package UI;
 
+import UI.Backend.LoadImageActionListener;
+import UI.Backend.OutputCheckerActionListener;
+import UI.Backend.SheetCreatorActionListener;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 
 import static ALU.ArithmeticOperations.addSignedHexStrings;
@@ -89,6 +95,19 @@ public class Main extends JFrame {
             }
         });
 
+        // Create JTextPanes
+        input1TextPane = new JTextPane();
+        input2TextPane = new JTextPane();
+        expectedOutputTextPane = new JTextPane();
+        actualOutputTextPane = new JTextPane();
+        logTextPane = new JTextPane();
+
+        // Set preferred size for logTextPane
+        logTextPane.setPreferredSize(new Dimension(300, 75)); // Adjust the dimensions as needed
+
+        // Create JScrollPanes for JTextPanes
+        JScrollPane logScrollPane = new JScrollPane(logTextPane);
+
         // Set up buttons
         JButton saveImageButton = new JButton("Save Images");
         JButton loadOutputImageButton = new JButton("Load Output Image");
@@ -98,11 +117,14 @@ public class Main extends JFrame {
         // Add action listeners to buttons
         saveImageButton.addActionListener(new SaveActionListener(this));
 
-        loadOutputImageButton.addActionListener(new LoadImageActionListener(this));
+        loadOutputImageButton.addActionListener(new LoadImageActionListener(this, input1TextPane, input2TextPane,
+                expectedOutputTextPane, actualOutputTextPane, logTextPane));
 
-        checkOutputButton.addActionListener(new OutputCheckerActionListener(this));
+        checkOutputButton.addActionListener(new OutputCheckerActionListener(this, input1TextPane, input2TextPane,
+                expectedOutputTextPane, actualOutputTextPane, logTextPane));
 
-        saveToSheetButton.addActionListener(new SheetCreatorActionListener(this));
+        saveToSheetButton.addActionListener(new SheetCreatorActionListener(this, input1TextPane, input2TextPane,
+                expectedOutputTextPane, actualOutputTextPane));
 
 
         // Set up the layout
@@ -118,18 +140,7 @@ public class Main extends JFrame {
         instructionPanel.add(saveToSheetButton);
         add(instructionPanel, BorderLayout.NORTH);
 
-        // Create JTextPanes
-        input1TextPane = new JTextPane();
-        input2TextPane = new JTextPane();
-        expectedOutputTextPane = new JTextPane();
-        actualOutputTextPane = new JTextPane();
-        logTextPane = new JTextPane();
 
-        // Set preferred size for logTextPane
-        logTextPane.setPreferredSize(new Dimension(300, 75)); // Adjust the dimensions as needed
-
-        // Create JScrollPanes for JTextPanes
-        JScrollPane logScrollPane = new JScrollPane(logTextPane);
 
         // Panel for input and output components
         JPanel ioPanel = new JPanel(new GridLayout(2, 2, 10, 10));
@@ -523,191 +534,4 @@ public class Main extends JFrame {
 
     }
 
-    private class LoadImageActionListener implements ActionListener {
-        JFrame frame;
-
-        public LoadImageActionListener(JFrame frame) {
-            this.frame = frame;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            loadOutputImage();
-        }
-
-        private void loadOutputImage() {
-            JFileChooser fileChooser = new JFileChooser();
-            int result = fileChooser.showOpenDialog(frame);
-
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
-                try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
-                    StringBuilder content = new StringBuilder();
-                    String line;
-                    boolean skipFirstLine = true;
-                    while ((line = reader.readLine()) != null) {
-                        if (skipFirstLine) {
-                            skipFirstLine = false;
-                            if (line.trim().equals("v2.0 raw")) {
-                                continue; // Skip the first line if it's "v2.0 raw"
-                            }
-                        }
-                        content.append(line).append("\n");
-                    }
-                    String[] contents = content.toString().split(" ");
-                    actualOutputTextPane.setText("");
-                    for (String lineContent : contents) {
-                        actualOutputTextPane.setText(actualOutputTextPane.getText() + lineContent.toUpperCase());
-                        actualOutputTextPane.setText(actualOutputTextPane.getText() + "\n");
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    JOptionPane.showMessageDialog(frame, "Error loading file.");
-                }
-            }
-        }
-    }
-
-    private class OutputCheckerActionListener implements ActionListener {
-
-        JFrame frame;
-
-        public OutputCheckerActionListener(JFrame frame) {
-            this.frame = frame;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            checkOutput();
-        }
-
-        private void checkOutput() {
-            String expectedOutput = expectedOutputTextPane.getText().trim();
-            String actualOutput = actualOutputTextPane.getText().trim();
-
-            String[] expectedLines = expectedOutput.split("\n");
-            String[] actualLines = actualOutput.split("\n");
-            String[] input1Lines = input1TextPane.getText().trim().split("\n");
-            String[] input2Lines = input2TextPane.getText().trim().split("\n");
-
-            boolean testPassed = true;
-            StringBuilder logMessage = new StringBuilder();
-
-            if (expectedLines.length != actualLines.length) {
-                logMessage.append("Test Failed: Number of lines in expected and actual output do not match.\n");
-                testPassed = false;
-            } else {
-                for (int i = 0; i < expectedLines.length; i++) {
-
-                    if (expectedLines[i].charAt(0) == '0')
-                        expectedLines[i] = removeLeadingZeros(expectedLines[i]);
-
-                    if (!expectedLines[i].equals(actualLines[i])) {
-                        logMessage.append("Test Failed at line ").append(i + 1).append("\n");
-                        logMessage.append("Input1: ").append(input1Lines[i]).append("\n");
-                        logMessage.append("Input2: ").append(input2Lines[i]).append("\n");
-                        logMessage.append("Expected Output: ").append(expectedLines[i]).append("\n");
-                        logMessage.append("Actual Output: ").append(actualLines[i]).append("\n");
-                        testPassed = false;
-                    }
-                }
-            }
-
-            if (testPassed) {
-                logMessage.append("Test Passed: Expected and actual output match.");
-            }
-
-            logTextPane.setText(logMessage.toString());
-        }
-
-        public String removeLeadingZeros(String str) {
-            if (str == null || str.isEmpty()) {
-                return str;
-            }
-
-            int i = 0;
-            while (i < str.length() - 1 && str.charAt(i) == '0') {
-                i++;
-            }
-
-            return str.substring(i);
-        }
-    }
-
-    private class SheetCreatorActionListener implements ActionListener {
-
-        JFrame frame;
-
-        public SheetCreatorActionListener(JFrame frame) {
-            this.frame = frame;
-        }
-
-        /**
-         * Invoked when an action occurs.
-         *
-         * @param e the event to be processed
-         */
-        public void actionPerformed(ActionEvent e) {
-            saveToSheet();
-        }
-
-        private void saveToSheet() {
-            String input1 = input1TextPane.getText().trim();
-            String input2 = input2TextPane.getText().trim();
-            String expectedOutput = expectedOutputTextPane.getText().trim();
-            String actualOutput = actualOutputTextPane.getText().trim();
-
-            String[] expectedLines = expectedOutput.split("\n");
-            String[] actualLines = actualOutput.split("\n");
-            String[] input1Lines = input1.split("\n");
-            String[] input2Lines = input2.split("\n");
-
-            try {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setDialogTitle("Save to CSV");
-                fileChooser.setSelectedFile(new File("test_results.csv"));
-                int userSelection = fileChooser.showSaveDialog(frame);
-
-                if (userSelection == JFileChooser.APPROVE_OPTION) {
-                    File fileToSave = fileChooser.getSelectedFile();
-                    FileWriter writer = new FileWriter(fileToSave);
-
-                    writer.write("Input1,Input2,Expected Output,Actual Output,Test Passed\n");
-
-                    for (int i = 0; i < expectedLines.length; i++) {
-                        if (expectedLines[i].charAt(0) == '0')
-                            expectedLines[i] = removeLeadingZeros(expectedLines[i]);
-                        boolean testPassed = expectedLines[i].equals(actualLines[i]);
-
-                        writer.write("\"" + input1Lines[i].trim().replace("\n", "\",\"") + "\",");
-                        writer.write("\"" + input2Lines[i].trim().replace("\n", "\",\"") + "\",");
-                        writer.write("\"" + expectedLines[i] + "\",");
-                        writer.write("\"" + actualLines[i] + "\",");
-                        writer.write("\"" + (testPassed ? "Passed" : "Failed") + "\"\n");
-                    }
-
-                    writer.close();
-                    JOptionPane.showMessageDialog(frame, "Test results saved to CSV.");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(frame, "Error saving to CSV.");
-            }
-
-        }
-
-        public String removeLeadingZeros(String str) {
-            if (str == null || str.isEmpty()) {
-                return str;
-            }
-
-            int i = 0;
-            while (i < str.length() - 1 && str.charAt(i) == '0') {
-                i++;
-            }
-
-            return str.substring(i);
-        }
-
-    }
 }
