@@ -45,4 +45,29 @@ public class RandomBitsGenerator {
         }
         return sb.toString();
     }
+
+    public static String generateRandomShiftAmount(int count) {
+        StringBuilder result = new StringBuilder();
+
+        // Generate the specified number of random numbers
+        for (int i = 0; i < count; i++) {
+
+            Random random = new Random();
+            // Generate a random number from 0 to 16
+            int randomNumber = random.nextInt(17); // 0 to 16 inclusive
+
+            // Convert the random number to a 4-digit hexadecimal number with zero-padding
+            String hexNumber = Integer.toHexString(randomNumber).toUpperCase(); // Convert to uppercase
+            // Add zero-padding if necessary
+            if (hexNumber.length() < 4) {
+                hexNumber = "0".repeat(4 - hexNumber.length()) + hexNumber;
+            }
+
+            // Append the hexadecimal number to the result with a newline character
+            result.append(hexNumber).append("\n");
+        }
+
+        return result.toString();
+    }
+
 }

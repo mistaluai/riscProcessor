@@ -87,5 +87,5 @@ public class ShiftingOperations {
 
         return resultHex;
     }
-    
+
 }
