@@ -1,6 +1,6 @@
-package UI;
+package TestingAutomationTool.UI;
 
-import UI.Backend.*;
+import TestingAutomationTool.UI.Backend.*;
 
 import javax.swing.*;
 import java.awt.*;

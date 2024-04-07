@@ -1,4 +1,4 @@
-package UI.Backend;
+package TestingAutomationTool.UI.Backend;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package Utilities;
+package TestingAutomationTool.Utilities;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
-package UI.Backend;
+package TestingAutomationTool.UI.Backend;
 
-import Utilities.InstructionsTesterALU;
+import TestingAutomationTool.Utilities.InstructionsTesterALU;
 
 import javax.swing.*;
 
