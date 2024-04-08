@@ -57,40 +57,40 @@ public class ArithmeticOperations {
 
 
     public static String setLessThan(String hexString1, String hexString2) {
-        int a = Integer.parseInt(hexString1, 16); // Convert hex string to integer
-        int b = Integer.parseInt(hexString2, 16); // Convert hex string to integer
+        int num1 = hexToSignedInt(hexString1);
+        int num2 = hexToSignedInt(hexString2);
+        System.out.printf("%s is %d, %s is %d \n", hexString1, num1, hexString2, num2);
+        return (num1 < num2) ? "0001" : "0000";
+    }
 
-        boolean set_less_than;
-        boolean overflow;
+    public static int hexToSignedInt(String hexString) {
+        // Convert hexadecimal string to integer
+        int intValue = Integer.parseInt(hexString, 16);
 
-        // Check for overflow
-        if ((a < 0 && b > 0 && a - b > 0) || (a > 0 && b < 0 && a - b < 0)) {
-            overflow = true;
-        } else {
-            overflow = false;
+        // If the most significant bit (bit 15) is set, it's a negative number
+        if ((intValue & 0x8000) != 0) {
+            // Perform sign extension to extend the sign bit to the full 32-bit integer
+            intValue |= 0xFFFF0000;
         }
 
-        // Check for less than
-        if (a < b && !overflow) {
-            set_less_than = true;
-        } else {
-            set_less_than = false;
-        }
-
-        // Return result
-        return set_less_than ? "0001" : "0000";
+        return intValue;
     }
 
     public static String setLessThanUnsigned(String hexString1, String hexString2) {
-        // Convert hex strings to integers
-        int a = Integer.parseInt(hexString1, 16);
-        int b = Integer.parseInt(hexString2, 16);
+        int num1 = hexToUnsignedInt(hexString1);
+        int num2 = hexToUnsignedInt(hexString2);
+        System.out.printf("%s is %d, %s is %d \n", hexString1, num1, hexString2, num2);
+        return (num1 < num2) ? "0001" : "0000";
+    }
 
-        // Check for less than
-        boolean setLessThan = a < b;
+    public static int hexToUnsignedInt(String hexString) {
+        // Convert hexadecimal string to long
+        long unsignedLongValue = Long.parseLong(hexString, 16);
 
-        // Return result based on setLessThan
-        return setLessThan ? "0001" : "0000";
+        // Truncate to 16 bits to fit into an int
+        int unsignedIntValue = (int) (unsignedLongValue & 0xFFFF);
+
+        return unsignedIntValue;
     }
 
 }
