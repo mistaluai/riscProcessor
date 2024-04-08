@@ -52,10 +52,44 @@ public class LoadImageActionListener implements ActionListener {
                     actualOutputTextPane.setText(actualOutputTextPane.getText() + lineContent.toUpperCase());
                     actualOutputTextPane.setText(actualOutputTextPane.getText() + "\n");
                 }
+                actualOutputTextPane.setText(replaceHexLine(actualOutputTextPane.getText()));
             } catch (IOException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(frame, "Error loading file.");
             }
         }
     }
-}
+
+        public String replaceHexLine(String input) {
+            StringBuilder output = new StringBuilder();
+
+            // Split input by lines
+            String[] lines = input.split("\\n");
+
+            // Iterate over each line
+            for (String line : lines) {
+                // Check if line matches the format
+                if (line.matches("[0-9a-fA-F]+\\*[0-9a-fA-F]+")) {
+                    // Split line into repeat count and value
+                    String[] parts = line.split("\\*");
+                    int repeatCount = Integer.parseInt(parts[0], 16);
+                    String value = parts[1];
+
+                    // Repeat the value and append to output with new lines
+                    for (int i = 0; i < repeatCount; i++) {
+                        output.append(value).append("\n");
+                    }
+                } else {
+                    // If the line doesn't match, just append it to output
+                    output.append(line).append("\n");
+                }
+            }
+
+            // Remove the trailing newline character
+            if (output.length() > 0) {
+                output.setLength(output.length() - 1);
+            }
+
+            return output.toString();
+        }
+    }
