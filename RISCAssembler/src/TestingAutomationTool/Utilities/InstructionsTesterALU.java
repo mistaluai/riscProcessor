@@ -20,8 +20,8 @@ public class InstructionsTesterALU {
     }
     public void performAddTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -37,7 +37,7 @@ public class InstructionsTesterALU {
         // Perform addition for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = ArithmeticOperations.addSignedHexStrings(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -46,8 +46,8 @@ public class InstructionsTesterALU {
 
     public void performSubtractTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -63,7 +63,7 @@ public class InstructionsTesterALU {
         // Perform subtraction for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = ArithmeticOperations.subtractSignedHexStrings(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -72,8 +72,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseAndTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -89,7 +89,7 @@ public class InstructionsTesterALU {
         // Perform bitwise AND for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = LogicOperations.bitwiseAnd(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -98,8 +98,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseOrTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -115,7 +115,7 @@ public class InstructionsTesterALU {
         // Perform bitwise OR for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = LogicOperations.bitwiseOr(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -124,8 +124,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseXorTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -141,7 +141,7 @@ public class InstructionsTesterALU {
         // Perform bitwise XOR for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = LogicOperations.bitwiseXor(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -150,8 +150,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseNorTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -167,7 +167,7 @@ public class InstructionsTesterALU {
         // Perform bitwise NOR for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = LogicOperations.bitwiseNor(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -176,8 +176,8 @@ public class InstructionsTesterALU {
 
     public void performSllTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -199,7 +199,7 @@ public class InstructionsTesterALU {
             String result = ShiftingOperations.sll(linesInput1[i], input2Int);
 
             // Append the result to the StringBuilder
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -208,8 +208,8 @@ public class InstructionsTesterALU {
 
     public void performSrlTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -231,7 +231,7 @@ public class InstructionsTesterALU {
             String result = ShiftingOperations.srl(linesInput1[i], input2Int);
 
             // Append the result to the StringBuilder
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -240,8 +240,8 @@ public class InstructionsTesterALU {
 
     public void performSraTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -263,7 +263,7 @@ public class InstructionsTesterALU {
             String result = ShiftingOperations.sra(linesInput1[i], input2Int);
 
             // Append the result to the StringBuilder
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -272,8 +272,8 @@ public class InstructionsTesterALU {
 
     public void performRorTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -295,7 +295,7 @@ public class InstructionsTesterALU {
             String result = ShiftingOperations.ror(linesInput1[i], input2Int);
 
             // Append the result to the StringBuilder
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -304,8 +304,8 @@ public class InstructionsTesterALU {
 
     public void performSltTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -321,7 +321,7 @@ public class InstructionsTesterALU {
         // Perform SLT for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = setLessThan(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
@@ -330,8 +330,8 @@ public class InstructionsTesterALU {
 
     public void performSltuTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -347,7 +347,7 @@ public class InstructionsTesterALU {
         // Perform SLTU for each pair of lines and store the result
         for (int i = 0; i < linesInput1.length; i++) {
             String result = setLessThanUnsigned(linesInput1[i], linesInput2[i]);
-            expectedOutput.append(result).append("\n");
+            expectedOutput.append(result).append((i == linesInput1.length - 1)?"":"\n");
         }
 
         // Set text of expected output text pane
