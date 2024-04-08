@@ -53,4 +53,44 @@ public class ArithmeticOperations {
 
         return diffHex;
     }
+
+
+
+    public static String setLessThan(String hexString1, String hexString2) {
+        int a = Integer.parseInt(hexString1, 16); // Convert hex string to integer
+        int b = Integer.parseInt(hexString2, 16); // Convert hex string to integer
+
+        boolean set_less_than;
+        boolean overflow;
+
+        // Check for overflow
+        if ((a < 0 && b > 0 && a - b > 0) || (a > 0 && b < 0 && a - b < 0)) {
+            overflow = true;
+        } else {
+            overflow = false;
+        }
+
+        // Check for less than
+        if (a < b && !overflow) {
+            set_less_than = true;
+        } else {
+            set_less_than = false;
+        }
+
+        // Return result
+        return set_less_than ? "0001" : "0000";
+    }
+
+    public static String setLessThanUnsigned(String hexString1, String hexString2) {
+        // Convert hex strings to integers
+        int a = Integer.parseInt(hexString1, 16);
+        int b = Integer.parseInt(hexString2, 16);
+
+        // Check for less than
+        boolean setLessThan = a < b;
+
+        // Return result based on setLessThan
+        return setLessThan ? "0001" : "0000";
+    }
+
 }
