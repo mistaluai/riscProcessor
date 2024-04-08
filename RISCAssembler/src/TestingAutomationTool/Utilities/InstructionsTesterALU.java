@@ -20,8 +20,8 @@ public class InstructionsTesterALU {
     }
     public void performAddTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -46,8 +46,8 @@ public class InstructionsTesterALU {
 
     public void performSubtractTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -72,8 +72,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseAndTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -98,8 +98,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseOrTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -124,8 +124,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseXorTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -150,8 +150,8 @@ public class InstructionsTesterALU {
 
     public void performBitwiseNorTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -176,8 +176,8 @@ public class InstructionsTesterALU {
 
     public void performSllTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -208,8 +208,8 @@ public class InstructionsTesterALU {
 
     public void performSrlTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -240,8 +240,8 @@ public class InstructionsTesterALU {
 
     public void performSraTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -272,8 +272,8 @@ public class InstructionsTesterALU {
 
     public void performRorTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateRandomShiftAmount(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -304,8 +304,8 @@ public class InstructionsTesterALU {
 
     public void performSltTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
@@ -330,8 +330,8 @@ public class InstructionsTesterALU {
 
     public void performSltuTest() {
         // Generate hexadecimal inputs
-        String hexInput1 = RandomBitsGenerator.generateHexInputs(128);
-        String hexInput2 = RandomBitsGenerator.generateHexInputs(128);
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(127);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(127);
 
         // Set text of input text panes
         input1TextPane.setText(hexInput1);
