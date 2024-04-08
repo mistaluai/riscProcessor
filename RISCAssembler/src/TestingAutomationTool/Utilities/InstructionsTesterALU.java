@@ -6,6 +6,9 @@ import ProcessorCircuitSimulator.ALU.ShiftingOperations;
 
 import javax.swing.*;
 
+import static ProcessorCircuitSimulator.ALU.ArithmeticOperations.setLessThan;
+import static ProcessorCircuitSimulator.ALU.ArithmeticOperations.setLessThanUnsigned;
+
 public class InstructionsTesterALU {
     JTextPane input1TextPane, input2TextPane, expectedOutputTextPane;
 
@@ -298,6 +301,60 @@ public class InstructionsTesterALU {
         // Set text of expected output text pane
         expectedOutputTextPane.setText(expectedOutput.toString());
     }
+
+    public void performSltTest() {
+        // Generate hexadecimal inputs
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+
+        // Set text of input text panes
+        input1TextPane.setText(hexInput1);
+        input2TextPane.setText(hexInput2);
+
+        // Initialize StringBuilder to store expected outputs
+        StringBuilder expectedOutput = new StringBuilder();
+
+        // Split input strings into lines and iterate over them
+        String[] linesInput1 = hexInput1.split("\n");
+        String[] linesInput2 = hexInput2.split("\n");
+
+        // Perform SLT for each pair of lines and store the result
+        for (int i = 0; i < linesInput1.length; i++) {
+            String result = setLessThan(linesInput1[i], linesInput2[i]);
+            expectedOutput.append(result).append("\n");
+        }
+
+        // Set text of expected output text pane
+        expectedOutputTextPane.setText(expectedOutput.toString());
+    }
+
+    public void performSltuTest() {
+        // Generate hexadecimal inputs
+        String hexInput1 = RandomBitsGenerator.generateHexInputs(100);
+        String hexInput2 = RandomBitsGenerator.generateHexInputs(100);
+
+        // Set text of input text panes
+        input1TextPane.setText(hexInput1);
+        input2TextPane.setText(hexInput2);
+
+        // Initialize StringBuilder to store expected outputs
+        StringBuilder expectedOutput = new StringBuilder();
+
+        // Split input strings into lines and iterate over them
+        String[] linesInput1 = hexInput1.split("\n");
+        String[] linesInput2 = hexInput2.split("\n");
+
+        // Perform SLTU for each pair of lines and store the result
+        for (int i = 0; i < linesInput1.length; i++) {
+            String result = setLessThanUnsigned(linesInput1[i], linesInput2[i]);
+            expectedOutput.append(result).append("\n");
+        }
+
+        // Set text of expected output text pane
+        expectedOutputTextPane.setText(expectedOutput.toString());
+    }
+
+
 
 
 

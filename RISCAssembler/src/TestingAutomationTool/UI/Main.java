@@ -28,6 +28,7 @@ public class Main extends JFrame {
                 "ANDI", "ORI", "XORI",
                 "ADD", "SUB", "ADDI",
                 "SLL", "SRL", "SRA", "ROR",
+                "SLT", "SLTU",
         };
 
         // Create JTextPanes for input, output, and logging
