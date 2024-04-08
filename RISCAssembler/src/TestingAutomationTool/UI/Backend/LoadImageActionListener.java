@@ -52,10 +52,29 @@ public class LoadImageActionListener implements ActionListener {
                     actualOutputTextPane.setText(actualOutputTextPane.getText() + lineContent.toUpperCase());
                     actualOutputTextPane.setText(actualOutputTextPane.getText() + "\n");
                 }
+                actualOutputTextPane.setText(interpretText(actualOutputTextPane.getText()));
             } catch (IOException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(frame, "Error loading file.");
             }
         }
     }
-}
+
+    public static String interpretText(String text) {
+        StringBuilder interpretedText = new StringBuilder();
+        String[] lines = text.split("\n");
+        for (String line : lines) {
+            String[] parts = line.split("\\*");
+            if (parts.length == 2) {
+                int count = Integer.parseInt(parts[0]);
+                String value = parts[1];
+                for (int i = 0; i < count; i++) {
+                    interpretedText.append(value).append("\n");
+                }
+            } else {
+                interpretedText.append(line).append("\n");
+            }
+        }
+        return interpretedText.toString();
+    }
+    }

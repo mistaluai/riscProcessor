@@ -37,7 +37,8 @@ public class OutputCheckerActionListener implements ActionListener {
         StringBuilder logMessage = new StringBuilder();
 
         if (expectedLines.length != actualLines.length) {
-            logMessage.append("Test Failed: Number of lines in expected and actual output do not match.\n");
+            logMessage.append("Test Failed: Number of lines in expected and actual output do not match.\n" +
+                    "Expected: " + expectedLines.length + " | Actual: " + actualLines.length);
             testPassed = false;
         } else {
             for (int i = 0; i < expectedLines.length; i++) {

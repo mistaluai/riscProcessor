@@ -11,7 +11,7 @@ public class RandomBitsGenerator {
                 int randInt = rand.nextInt(16); // Generate a random integer between 0 and 15
                 sb.append(Integer.toHexString(randInt).toUpperCase()); // Convert the integer to hexadecimal and append to StringBuilder
             }
-            sb.append("\n"); // Add newline character after each hexadecimal input
+            sb.append((i==n-1)?"":"\n"); // Add newline character after each hexadecimal input
         }
         return sb.toString();
     }
