@@ -11,11 +11,11 @@ import java.util.Random;
 public class SaveActionListener implements ActionListener {
     JFrame frame;
     JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane;
-    JComboBox<String> instructionComboBox;
+    JList<String> instructionComboBox;
 
     public SaveActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane,
                                       JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane,
-                              JComboBox<String> instructionComboBox) {
+                              JList<String> instructionComboBox) {
         this.frame = frame;
         this.input1TextPane = input1TextPane;
         this.input2TextPane = input2TextPane;
@@ -31,7 +31,7 @@ public class SaveActionListener implements ActionListener {
     }
 
     private void saveFiles() {
-        String instruction = (String) instructionComboBox.getSelectedItem();
+        String instruction = instructionComboBox.getSelectedValue();
         String input1Text = input1TextPane.getText().trim();
         String input2Text = input2TextPane.getText().trim();
 
