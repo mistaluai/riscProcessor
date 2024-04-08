@@ -59,7 +59,7 @@ public class ArithmeticOperations {
     public static String setLessThan(String hexString1, String hexString2) {
         int num1 = hexToSignedInt(hexString1);
         int num2 = hexToSignedInt(hexString2);
-        System.out.printf("%s is %d, %s is %d", hexString1, num1, hexString2, num2);
+        System.out.printf("%s is %d, %s is %d \n", hexString1, num1, hexString2, num2);
         return (num1 < num2) ? "0001" : "0000";
     }
 
@@ -79,13 +79,17 @@ public class ArithmeticOperations {
     public static String setLessThanUnsigned(String hexString1, String hexString2) {
         int num1 = hexToUnsignedInt(hexString1);
         int num2 = hexToUnsignedInt(hexString2);
-        System.out.printf("%s is %d, %s is %d", hexString1, num1, hexString2, num2);
+        System.out.printf("%s is %d, %s is %d \n", hexString1, num1, hexString2, num2);
         return (num1 < num2) ? "0001" : "0000";
     }
 
     public static int hexToUnsignedInt(String hexString) {
-        // Convert hexadecimal string to integer
-        int unsignedIntValue = Integer.parseInt(hexString, 16);
+        // Convert hexadecimal string to long
+        long unsignedLongValue = Long.parseLong(hexString, 16);
+
+        // Truncate to 16 bits to fit into an int
+        int unsignedIntValue = (int) (unsignedLongValue & 0xFFFF);
+
         return unsignedIntValue;
     }
 
