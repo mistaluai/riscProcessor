@@ -22,8 +22,7 @@ public class Main extends JFrame {
 
         // Add instruction options to the list
         String[] instructions = {"AND", "OR", "XOR", "NOR",
-                "ANDI", "ORI", "XORI",
-                "ADD", "SUB", "ADDI",
+                "ADD", "SUB",
                 "SLL", "SRL", "SRA", "ROR",
                 "SLT", "SLTU",
                 "ALU"
@@ -60,7 +59,7 @@ public class Main extends JFrame {
 
 
         // Initialize testInitializer
-        testInitializer = new TestInitializer(input1TextPane, input2TextPane, expectedOutputTextPane);
+        testInitializer = new TestInitializer(input1TextPane, input2TextPane, expectedOutputTextPane, operationTextPane, operationSignalsTextPane);
 
         // ActionListener for instructionComboBox
         instructionList.addListSelectionListener(new ListSelectionListener(){
