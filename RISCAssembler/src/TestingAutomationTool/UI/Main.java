@@ -127,7 +127,7 @@ public class Main extends JFrame {
         JMenuItem loadOutputImagesMenuItem = new JMenuItem("Load Output Images");
 
         saveImagesMenuItem.addActionListener(new SaveActionListener(this, input1TextPane, input2TextPane,
-                expectedOutputTextPane, actualOutputTextPane, instructionList));
+                operationSignalsTextPane, expectedOutputTextPane, actualOutputTextPane, instructionList));
 
         loadOutputImagesMenuItem.addActionListener(new LoadImageActionListener(this, input1TextPane, input2TextPane,
                 expectedOutputTextPane, actualOutputTextPane, logTextPane));
@@ -146,7 +146,7 @@ public class Main extends JFrame {
                 expectedOutputTextPane, actualOutputTextPane, logTextPane));
 
         saveTestCasesMenuItem .addActionListener(new SheetCreatorActionListener(this, input1TextPane, input2TextPane,
-                expectedOutputTextPane, actualOutputTextPane));
+                expectedOutputTextPane, actualOutputTextPane, operationTextPane, operationSignalsTextPane));
 
         testingMenu.add(checkOutputMenuItem);
         testingMenu.add(saveTestCasesMenuItem);

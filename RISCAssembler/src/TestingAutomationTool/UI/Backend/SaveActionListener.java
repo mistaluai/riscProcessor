@@ -10,10 +10,10 @@ import java.util.Random;
 
 public class SaveActionListener implements ActionListener {
     JFrame frame;
-    JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane;
+    JTextPane input1TextPane, input2TextPane, operationSignalsTextPane, expectedOutputTextPane, actualOutputTextPane;
     JList<String> instructionComboBox;
 
-    public SaveActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane,
+    public SaveActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane, JTextPane operationSignalsTextPane,
                                       JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane,
                               JList<String> instructionComboBox) {
         this.frame = frame;
@@ -22,6 +22,7 @@ public class SaveActionListener implements ActionListener {
         this.expectedOutputTextPane = expectedOutputTextPane;
         this.actualOutputTextPane = actualOutputTextPane;
         this.instructionComboBox = instructionComboBox;
+        this.operationSignalsTextPane = operationSignalsTextPane;
     }
 
     @Override
@@ -34,6 +35,7 @@ public class SaveActionListener implements ActionListener {
         String instruction = instructionComboBox.getSelectedValue();
         String input1Text = input1TextPane.getText().trim();
         String input2Text = input2TextPane.getText().trim();
+        String signals = operationSignalsTextPane.getText().trim();
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -51,6 +53,7 @@ public class SaveActionListener implements ActionListener {
 
             saveToFile(new File(folder, "input1.hex"), input1Text);
             saveToFile(new File(folder, "input2.hex"), input2Text);
+            saveToFile(new File(folder, "signals.hex"), signals);
 
             JOptionPane.showMessageDialog(frame, "Files saved successfully.");
         }

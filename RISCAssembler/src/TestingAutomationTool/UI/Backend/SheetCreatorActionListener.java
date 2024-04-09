@@ -10,15 +10,18 @@ import java.io.IOException;
 public class SheetCreatorActionListener implements ActionListener {
 
     JFrame frame;
-    JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane;
+    JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane, operationTextPane, operationSignalsTextPane;
 
     public SheetCreatorActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane,
-                                      JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane) {
+                                      JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane,
+                                      JTextPane operationTextPane, JTextPane operationSignalsTextPane) {
         this.frame = frame;
         this.input1TextPane = input1TextPane;
         this.input2TextPane = input2TextPane;
         this.expectedOutputTextPane = expectedOutputTextPane;
         this.actualOutputTextPane = actualOutputTextPane;
+        this.operationTextPane = operationTextPane;
+        this.operationSignalsTextPane = operationSignalsTextPane;
     }
 
     /**
@@ -35,11 +38,15 @@ public class SheetCreatorActionListener implements ActionListener {
         String input2 = input2TextPane.getText().trim();
         String expectedOutput = expectedOutputTextPane.getText().trim();
         String actualOutput = actualOutputTextPane.getText().trim();
+        String operation = operationTextPane.getText().trim();
+        String operationSignal = operationSignalsTextPane.getText().trim();
 
         String[] expectedLines = expectedOutput.split("\n");
         String[] actualLines = actualOutput.split("\n");
         String[] input1Lines = input1.split("\n");
         String[] input2Lines = input2.split("\n");
+        String[] operationLines = operation.split("\n");
+        String[] operationSignalLines = operationSignal.split("\n");
 
         try {
             JFileChooser fileChooser = new JFileChooser();
@@ -51,15 +58,20 @@ public class SheetCreatorActionListener implements ActionListener {
                 File fileToSave = fileChooser.getSelectedFile();
                 FileWriter writer = new FileWriter(fileToSave);
 
-                writer.write("Input1,Input2,Expected Output,Actual Output,Test Passed\n");
+                writer.write("Input1,Input2,Operation,Operation Signal,Expected Output,Actual Output,Test Passed\n");
 
                 for (int i = 0; i < expectedLines.length; i++) {
                     if (expectedLines[i].charAt(0) == '0')
                         expectedLines[i] = removeLeadingZeros(expectedLines[i]);
+                    if (actualLines[i].charAt(0) == '0')
+                        actualLines[i] = removeLeadingZeros(actualLines[i]);
+                    
                     boolean testPassed = expectedLines[i].equals(actualLines[i]);
 
                     writer.write("\"" + input1Lines[i].trim().replace("\n", "\",\"") + "\",");
                     writer.write("\"" + input2Lines[i].trim().replace("\n", "\",\"") + "\",");
+                    writer.write("\"" + operationLines[i].trim().replace("\n", "\",\"") + "\",");
+                    writer.write("\"" + operationSignalLines[i].trim().replace("\n", "\",\"") + "\",");
                     writer.write("\"" + expectedLines[i] + "\",");
                     writer.write("\"" + actualLines[i] + "\",");
                     writer.write("\"" + (testPassed ? "Passed" : "Failed") + "\"\n");
