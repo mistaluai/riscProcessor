@@ -88,6 +88,7 @@
     </appear>
     <wire from="(90,260)" to="(120,260)"/>
     <wire from="(450,120)" to="(470,120)"/>
+    <wire from="(500,130)" to="(520,130)"/>
     <wire from="(320,140)" to="(470,140)"/>
     <wire from="(200,150)" to="(220,150)"/>
     <wire from="(410,30)" to="(420,30)"/>
@@ -114,6 +115,10 @@
     <comp lib="0" loc="(90,260)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="JOperation"/>
+    </comp>
+    <comp lib="0" loc="(520,130)" name="Tunnel">
+      <a name="width" val="16"/>
+      <a name="label" val="newPC"/>
     </comp>
     <comp lib="0" loc="(190,50)" name="Tunnel">
       <a name="width" val="16"/>
