@@ -22,7 +22,7 @@ public class RTypeDecoder implements Decoder {
         // Extracts three registers from the given assembly instruction 'instruction'
 // at the current address 'currentAddress' using the instructionsOperations object.
 // The extracted registers will be used for further processing.
-        int[] registers = instructionsOperations.extractRegisters(instruction, 3, currentAddress);
+        int[] registers = extractParameters(instruction, currentAddress);
 
         // Retrieve opcode, function, and register representations from instructionsOperations
         String opcodeString = instructionsOperations.getOpcode(instruction);
@@ -40,6 +40,10 @@ public class RTypeDecoder implements Decoder {
 
         // Concatenate opcode, function, and register representations to form the binary instruction
         return opcodeString + funcString + rdString + rsString + rtString;
+    }
+
+    public int[] extractParameters(String instruction, int currentAddress) {
+        return instructionsOperations.extractRegisters(instruction, 3, currentAddress);
     }
 
 }

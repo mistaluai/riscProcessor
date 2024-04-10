@@ -29,10 +29,30 @@ public class LoadStoreDecoder implements Decoder {
      *                   the offset value is out of range, or if the offset value is not found.
      */
     public String decodeInstruction(String instruction, int currentAddress) {
-        // Extracts two registers from the given assembly instruction 'instruction'
-// at the current address 'currentAddress' using the instructionsOperations object.
-// The extracted registers will be used for further processing.
+
+        int[] parameters = extractParameters(instruction, currentAddress);
+
+        int offset = parameters[2];
+
+        // Retrieve opcode and register representations from instructionsOperations
+        String opcodeString = instructionsOperations.getOpcode(instruction);
+        int rd = parameters[0];
+        String rdString = instructionsOperations.getRegister(rd);
+        int rs = parameters[1];
+        String rsString = instructionsOperations.getRegister(rs);
+
+        // Encode the offset value as a signed 5-bit binary string
+        String offsetString = binaryString(offset, 5, 1);
+
+        // Concatenate opcode, offset value, and register representations to form the binary instruction
+        return opcodeString + offsetString + rsString + rdString;
+    }
+
+    public int[] extractParameters(String instruction, int currentAddress) {
+        int[] output = new int[3];
         int[] registers = instructionsOperations.extractRegisters(instruction, 2, currentAddress);
+        output[0] = registers[0];
+        output[1] = registers[1];
 
         // Compile a regular expression pattern to match the offset value in the instruction
         Pattern offsetPattern = Pattern.compile("[-| ]\\d*[(]");
@@ -54,18 +74,10 @@ public class LoadStoreDecoder implements Decoder {
         if (offset > 15 || offset < -16)
             throw new RangeException("Offset value out of range in " + instruction);
 
-        // Retrieve opcode and register representations from instructionsOperations
-        String opcodeString = instructionsOperations.getOpcode(instruction);
-        int rd = registers[0];
-        String rdString = instructionsOperations.getRegister(rd);
-        int rs = registers[1];
-        String rsString = instructionsOperations.getRegister(rs);
+        output[2] = offset;
 
-        // Encode the offset value as a signed 5-bit binary string
-        offsetString = binaryString(offset, 5, 1);
+        return output;
 
-        // Concatenate opcode, offset value, and register representations to form the binary instruction
-        return opcodeString + offsetString + rsString + rdString;
     }
 
 

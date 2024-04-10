@@ -40,6 +40,57 @@ public class JTypeDecoder implements Decoder {
             // Retrieve the opcode from instructionsOperations
             String opcode = instructionsOperations.getOpcode(instruction);
 
+            int immediate = extractParameters(instruction, currentAddress)[0];
+
+            // Encode the immediate value as an 11-bit binary string
+            String immediateString = binaryString(immediate, 11, 0);
+
+            // Concatenate opcode and immediate value to form the binary instruction
+            return opcode + immediateString;
+        }
+
+        if (instructionName.equals("J") || instructionName.equals("JAL")) {
+            // If the instruction is J or JAL
+            // Retrieve the opcode from instructionsOperations
+            String opcode = instructionsOperations.getOpcode(instruction);
+
+            int offset = extractParameters(instruction, currentAddress)[0];
+
+            // Encode the offset value as an 11-bit binary string
+            String offsetString = binaryString(offset, 11, 1);
+
+            // Concatenate opcode and offset value to form the binary instruction
+            return opcode + offsetString;
+        }
+
+        if (instructionName.equals("JR")) {
+            // If the instruction is JR
+            // Retrieve the opcode from instructionsOperations
+            String opcode = instructionsOperations.getOpcode(instruction);
+
+            // Extracts one register from the given assembly instruction 'instruction'
+            // at the current address 'currentAddress' using the instructionsOperations object.
+            // The extracted registers will be used for further processing.
+            int[] registers = extractParameters(instruction, currentAddress);
+            // Encode the target register number as a 3-bit binary string
+            String rsString = binaryString(registers[0], 3, 0);
+
+            // Concatenate opcode, zeros, rs, and zeros to form the binary instruction
+            return opcode + "00" + "000" + rsString + "000";
+        }
+
+        // If the instruction is not supported or recognized, return an empty string
+        return "";
+    }
+
+    public int[] extractParameters(String instruction, int currentAddress) {
+        // Get the name of the instruction from instructionsOperations
+        String instructionName = instructionsOperations.getInstruction(instruction);
+
+        // Decode instruction based on its name
+        if (instructionName.equals("LUI")) {
+            // If the instruction is LUI
+
             // Extract the immediate value from the instruction
             Pattern immediatePattern = Pattern.compile("[ ][\\d]*");
             Matcher immediateMatcher = immediatePattern.matcher(instruction);
@@ -52,11 +103,7 @@ public class JTypeDecoder implements Decoder {
             if (immediate >= 2048)
                 throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
 
-            // Encode the immediate value as an 11-bit binary string
-            String immediateString = binaryString(immediate, 11, 0);
-
-            // Concatenate opcode and immediate value to form the binary instruction
-            return opcode + immediateString;
+            return new int[]{immediate};
         }
 
         if (instructionName.equals("J") || instructionName.equals("JAL")) {
@@ -74,11 +121,8 @@ public class JTypeDecoder implements Decoder {
             // Calculate the offset relative to the current address
             int offset = labelAddress - currentAddress;
 
-            // Encode the offset value as an 11-bit binary string
-            String offsetString = binaryString(offset, 11, 1);
-
             // Concatenate opcode and offset value to form the binary instruction
-            return opcode + offsetString;
+            return new int[]{offset};
         }
 
         if (instructionName.equals("JR")) {
@@ -89,19 +133,10 @@ public class JTypeDecoder implements Decoder {
             // Extracts one register from the given assembly instruction 'instruction'
             // at the current address 'currentAddress' using the instructionsOperations object.
             // The extracted registers will be used for further processing.
-            int[] registers = instructionsOperations.extractRegisters(instruction, 1, currentAddress);
-            // Encode the target register number as a 3-bit binary string
-            String rsString = binaryString(registers[0], 3, 0);
-
-            // Concatenate opcode, zeros, rs, and zeros to form the binary instruction
-            return opcode + "00" + "000" + rsString + "000";
+            return instructionsOperations.extractRegisters(instruction, 1, currentAddress);
         }
-
-        // If the instruction is not supported or recognized, return an empty string
-        return "";
+        else return new int[0];
     }
-
-
 
 
 }

@@ -15,4 +15,6 @@ public interface Decoder {
      * @throws Exception if an error occurs during decoding.
      */
     public String decodeInstruction(String instruction, int currentAddress) throws Exception;
+
+    public int[] extractParameters(String instruction, int currentAddress);
 }

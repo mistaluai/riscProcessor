@@ -32,8 +32,39 @@ public class ITypeDecoder implements Decoder {
         // Extracts two registers from the given assembly instruction 'instruction'
 // at the current address 'currentAddress' using the instructionsOperations object.
 // The extracted registers will be used for further processing.
+        int[] parameters = extractParameters(instruction, currentAddress);
+
+        int immediate = parameters[2];
+
+        //System.out.println(immediate);
+        // Retrieve opcode and register representations from instructionsOperations
+        String opcodeString = instructionsOperations.getOpcode(instruction);
+        int rd = parameters[0];
+        String rdString = instructionsOperations.getRegister(rd);
+        int rs = parameters[1];
+        String rsString = instructionsOperations.getRegister(rs);
+
+        // Retrieve the integer opcode from instructionsOperations
+        int integerOpcode = instructionsOperations.getIntegerOpcode(instruction);
+        String immediateString = "";
+
+        // Determine how to encode the immediate value based on the opcode
+        if (integerOpcode == 7)
+            immediateString = binaryString(immediate, 5, 1);
+        else
+            immediateString = binaryString(immediate, 5, 0);
+
+        // Concatenate opcode, immediate value, and register representations to form the binary instruction
+        return opcodeString + immediateString + rsString + rdString;
+    }
+
+    public int[] extractParameters(String instruction, int currentAddress) {
+
+        int[] output = new int[3];
         int[] registers = instructionsOperations.extractRegisters(instruction, 2, currentAddress);
-        // Compile a regular expression pattern to match the immediate value in the instruction
+        output[0] = registers[0];
+        output[1] = registers[1];
+
         Pattern immediatePattern = Pattern.compile("[ |-][\\d]+");
         // Create a matcher for the immediate value
         Matcher immediateMatcher = immediatePattern.matcher(instruction);
@@ -52,26 +83,9 @@ public class ITypeDecoder implements Decoder {
         if (immediate < -16 || immediate > 15)
             throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
 
-        //System.out.println(immediate);
-        // Retrieve opcode and register representations from instructionsOperations
-        String opcodeString = instructionsOperations.getOpcode(instruction);
-        int rd = registers[0];
-        String rdString = instructionsOperations.getRegister(rd);
-        int rs = registers[1];
-        String rsString = instructionsOperations.getRegister(rs);
+        output[2] = immediate;
 
-        // Retrieve the integer opcode from instructionsOperations
-        int integerOpcode = instructionsOperations.getIntegerOpcode(instruction);
-        immediateString = "";
-
-        // Determine how to encode the immediate value based on the opcode
-        if (integerOpcode == 7)
-            immediateString = binaryString(immediate, 5, 1);
-        else
-            immediateString = binaryString(immediate, 5, 0);
-
-        // Concatenate opcode, immediate value, and register representations to form the binary instruction
-        return opcodeString + immediateString + rsString + rdString;
+        return output;
     }
 
 }

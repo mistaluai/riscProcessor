@@ -229,6 +229,21 @@ private void initializeMenuBar() {
     });
     buildMenu.add(clearErrors);
 
+    JMenu simulationMenu = new JMenu("Simulation & Verification");
+    menuBar.add(simulationMenu);
+
+    JMenuItem testComponents = new JMenuItem("Processor Verification");
+    testComponents.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            SwingUtilities.invokeLater(() -> {
+                TestingAutomationTool.UI.Main ui = new TestingAutomationTool.UI.Main();
+                ui.setVisible(true);
+            });
+        }
+    });
+    simulationMenu.add(testComponents);
+
+
 }
 private class HexConversion implements ActionListener {
 
