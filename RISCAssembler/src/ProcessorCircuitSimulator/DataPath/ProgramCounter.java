@@ -20,6 +20,10 @@ public class ProgramCounter {
         currentInstruction = newValue;
     }
 
+    public int getCurrentValue() {
+        return currentInstruction;
+    }
+
     public Instruction nextInstruction() {
         currentInstruction++;
         return (currentInstruction < instructionMemory.size())?instructionMemory.get(currentInstruction):null;
