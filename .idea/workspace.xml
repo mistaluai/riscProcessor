@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/BTypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/BTypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/JTypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/JTypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/LoadStoreDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/LoadStoreDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/RTypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/RTypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$AssemblingOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$AssemblingOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$HexConversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$HexConversion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,10 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 4
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2erqCcQwnOUBYlK6bOjXdcK9bG5" />
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
@@ -47,18 +35,18 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Assembler&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Assembler",
+    "jdk.selected.JAVA_MODULE": "21",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/RISCAssembler/src/Assember" />
@@ -88,15 +76,4 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
 </project>

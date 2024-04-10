@@ -2,7 +2,6 @@
 <module type="JAVA_MODULE" version="4">
   <component name="CheckStyle-IDEA-Module" serialisationVersion="2">
     <option name="activeLocationsIds" />
-    <excludeFromScan>true</excludeFromScan>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />

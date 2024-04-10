@@ -26,7 +26,7 @@ public class RandomBitsGenerator {
 
             // Extend to 16 bits with zero extension
             sb.append(String.format("%04X", randInt)); // Zero extend to 16 bits
-            sb.append("\n"); // Add newline character after each hexadecimal input
+            sb.append((i == n - 1)?"":"\n"); // Add newline character after each hexadecimal input
         }
         return sb.toString();
     }
@@ -64,7 +64,7 @@ public class RandomBitsGenerator {
             }
 
             // Append the hexadecimal number to the result with a newline character
-            result.append(hexNumber).append("\n");
+            result.append(hexNumber).append((i == count - 1)?"":"\n");
         }
 
         return result.toString();

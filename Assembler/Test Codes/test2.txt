@@ -1,0 +1,52 @@
+Input Code:
+------------------------
+# Initialize registers with immediate values
+ADDI $1, $0, 5000    # Load immediate 5000 into register 1
+ADDI $2, $0, 6000    # Load immediate 6000 into register 2
+
+# Load values from memory
+LW $3, 0($1)         # Load value from memory at address stored in register 1 into register 3
+LW $4, 4($2)         # Load value from memory at address stored in register 2 + 4 into register 4
+
+# Subtract values and store result
+SUB $5, $3, $4       # Subtract value in register 4 from register 3, store result in register 5
+
+# Store result in memory
+SW $5, 8($1)         # Store value from register 5 into memory at address stored in register 1 + 8
+
+# Check if result is zero
+BEQ $5, $0, result_is_zero      # Branch if result is zero
+BNE $5, $0, result_not_zero     # Branch if result is not zero
+
+# Subroutine for result being zero
+result_is_zero:
+    ADD $6, $5, $0    # Some operation
+    JAL exit          # Jump and link to exit subroutine
+
+# Subroutine for result not being zero
+result_not_zero:
+    ADD $6, $5, $0    # Some other operation
+    JAL exit          # Jump and link to exit subroutine
+
+# Exit subroutine
+exit:
+    # Some exit operations
+
+# Loop example
+ADDI $1, $0, 0       # Load immediate 0 into register 1 (initialize loop counter)
+loop_start:
+    ADDI $1, $1, 1    # Increment loop counter
+    BEQ $1, 10, loop_end  # Branch if loop counter equals 10
+    J loop_start      # Jump back to loop_start
+loop_end:
+    # End of loop
+
+ ------------------------
+Output binary:
+ ------------------------
+
+ ------------------------
+Debug Log:
+ ------------------------
+
+[0] The immediate range exceeded in ADDI $1, $0, 5000    

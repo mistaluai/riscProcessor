@@ -8,8 +8,11 @@ public class TestInitializer {
     InstructionsTesterALU instructionsTesterALU;
 
     public TestInitializer(JTextPane input1TextPane, JTextPane input2TextPane,
-                           JTextPane expectedOutputTextPane) {
-        instructionsTesterALU = new InstructionsTesterALU(input1TextPane, input2TextPane, expectedOutputTextPane);
+                           JTextPane expectedOutputTextPane, JTextPane operationTextPane,
+                           JTextPane operationSignalsTextPane) {
+        instructionsTesterALU = new InstructionsTesterALU(input1TextPane, input2TextPane,
+                expectedOutputTextPane,
+                operationTextPane, operationSignalsTextPane);
     }
     public void initializeTest(int selectedOption) {
         if (selectedOption >= 0 && selectedOption <= 15) {
@@ -32,42 +35,32 @@ public class TestInitializer {
             case 3: //NOR
                 instructionsTesterALU.performBitwiseNorTest();
                 break;
-            case 4: //ANDI
-                instructionsTesterALU.performBitwiseAndTest();
-                break;
-            case 5: //ORI
-                instructionsTesterALU.performBitwiseOrTest();
-                break;
-            case 6: //XORI
-                instructionsTesterALU.performBitwiseXorTest();
-                break;
-            case 7: //ADD
+            case 4: //ADD
                 instructionsTesterALU.performAddTest();
                 break;
-            case 8: //Subtract
+            case 5: //Subtract
                 instructionsTesterALU.performSubtractTest();
                 break;
-            case 9: //ADDI
-                instructionsTesterALU.performAddTest();
-                break;
-            case 10://SLL
+            case 6://SLL
                 instructionsTesterALU.performSllTest();
                 break;
-            case 11: //SRL
+            case 7: //SRL
                 instructionsTesterALU.performSrlTest();
                 break;
-            case 12: //SRA
+            case 8: //SRA
                 instructionsTesterALU.performSraTest();
                 break;
-            case 13: //ROR
+            case 9: //ROR
                 instructionsTesterALU.performRorTest();
                 break;
-            case 14: //SLT
+            case 10: //SLT
                 instructionsTesterALU.performSltTest();
                 break;
-            case 15://SLTU
+            case 11://SLTU
                 instructionsTesterALU.performSltuTest();
                 break;
+            case 12: //ALU
+                instructionsTesterALU.testALU();
         }
     }
 }
