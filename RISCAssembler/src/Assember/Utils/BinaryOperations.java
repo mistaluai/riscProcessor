@@ -33,6 +33,29 @@ public class BinaryOperations {
         return binary;
     }
 
+    public static String hexString(int value, int signExtension) {
+        // Apply sign extension if signExtension is 1 (signed), otherwise don't apply sign extension
+        if (signExtension == 1) {
+            // Signed extension (keep only 16 least significant bits)
+            value &= 0xFFFF;
+        } else {
+            // Unsigned extension (keep all 32 bits)
+            value &= 0xFFFFFFFF;
+        }
+
+        // Convert the integer to hexadecimal string with a maximum of 4 digits
+        String hexString = Integer.toHexString(value);
+        if (hexString.length() > 4) {
+            // If the hexadecimal string is longer than 4 digits, truncate it
+            hexString = hexString.substring(hexString.length() - 4);
+        } else {
+            // If the hexadecimal string is shorter than 4 digits, pad it with zeros
+            hexString = String.format("%04x", value);
+        }
+
+        return hexString;
+    }
+
     public static String binaryToHex(String binaryString) {
         // Ensure the binary string length is a multiple of 4
         int length = binaryString.length();
