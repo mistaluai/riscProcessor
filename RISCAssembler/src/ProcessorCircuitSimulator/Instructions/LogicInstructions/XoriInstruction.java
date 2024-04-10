@@ -17,15 +17,15 @@ public class XoriInstruction extends Instruction {
     }
 
     public void execute() {
-        int rd = parameters[0];
-        int rt = parameters[1];
+        int rt = parameters[0];
+        int rs = parameters[1];
 
-        String rtValue = registerFile.getRegister(rt);
+        String rsValue = registerFile.getRegister(rs);
         String immediate = hexString(parameters[2], 0);
 
-        String result = bitwiseXor(rtValue, immediate);
+        String result = bitwiseXor(rsValue, immediate);
 
-        registerFile.setRegister(rd, result);
+        registerFile.setRegister(rt, result);
     }
 }
 

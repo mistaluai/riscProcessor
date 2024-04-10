@@ -1,17 +1,16 @@
-package ProcessorCircuitSimulator.Instructions.LogicInstructions;
+package ProcessorCircuitSimulator.Instructions.ShiftingInstructions;
 
 import ProcessorCircuitSimulator.DataPath.DataMemory;
 import ProcessorCircuitSimulator.DataPath.ProgramCounter;
 import ProcessorCircuitSimulator.DataPath.RegisterFile;
 import ProcessorCircuitSimulator.Instructions.Instruction;
 
-import static Assember.Utils.BinaryOperations.hexString;
-import static ProcessorCircuitSimulator.ALU.LogicOperations.bitwiseAnd;
+import static ProcessorCircuitSimulator.ALU.ShiftingOperations.sll;
 
-public class AndiInstruction extends Instruction {
+public class SllInstruction extends Instruction {
     int[] parameters;
 
-    public AndiInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
+    public SllInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
         super(registerFile, memory, programCounter);
         this.parameters = parameters;
     }
@@ -21,9 +20,9 @@ public class AndiInstruction extends Instruction {
         int rs = parameters[1];
 
         String rsValue = registerFile.getRegister(rs);
-        String immediate = hexString(parameters[2], 0);
+        int shiftAmount = parameters[2];
 
-        String result = bitwiseAnd(rsValue, immediate);
+        String result = sll(rsValue, shiftAmount);
 
         registerFile.setRegister(rt, result);
     }
