@@ -21,7 +21,7 @@ public class SubInstruction extends Instruction {
         int rt = registers[2];
 
         String rsValue = registerFile.getRegister(rs);
-        String rtValue = registerFile.getRegister(rd);
+        String rtValue = registerFile.getRegister(rt);
 
         String result = subtractSignedHexStrings(rsValue, rtValue);
 

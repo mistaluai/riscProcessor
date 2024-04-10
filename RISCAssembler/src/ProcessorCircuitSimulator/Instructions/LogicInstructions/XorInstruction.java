@@ -1,16 +1,16 @@
-package ProcessorCircuitSimulator.Instructions.ArithmeticInstructions;
+package ProcessorCircuitSimulator.Instructions.LogicInstructions;
 
 import ProcessorCircuitSimulator.DataPath.DataMemory;
 import ProcessorCircuitSimulator.DataPath.ProgramCounter;
 import ProcessorCircuitSimulator.DataPath.RegisterFile;
 import ProcessorCircuitSimulator.Instructions.Instruction;
 
-import static ProcessorCircuitSimulator.ALU.ArithmeticOperations.addSignedHexStrings;
+import static ProcessorCircuitSimulator.ALU.LogicOperations.bitwiseXor;
 
-public class AddInstruction extends Instruction {
+public class XorInstruction extends Instruction {
     private int[] registers;
 
-    public AddInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] registers) {
+    public XorInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] registers) {
         super(registerFile, memory, programCounter);
         this.registers = registers;
     }
@@ -24,8 +24,9 @@ public class AddInstruction extends Instruction {
         String rsValue = registerFile.getRegister(rs);
         String rtValue = registerFile.getRegister(rt);
 
-        String result = addSignedHexStrings(rsValue, rtValue);
+        String result = bitwiseXor(rsValue, rtValue);
 
         registerFile.setRegister(rd, result);
+
     }
 }
