@@ -8,11 +8,8 @@ import ProcessorCircuitSimulator.Instructions.Instruction;
 import static Assember.Utils.BinaryOperations.hexString;
 
 public class LoadWordInstruction extends Instruction {
-    int[] parameters;
-
     public LoadWordInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
-        super(registerFile, memory, programCounter);
-        this.parameters = parameters;
+        super(registerFile, memory, programCounter, parameters);
     }
 
     public void execute() {

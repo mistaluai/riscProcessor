@@ -9,11 +9,8 @@ import static Assember.Utils.BinaryOperations.hexString;
 import static ProcessorCircuitSimulator.ALU.LogicOperations.bitwiseOr;
 
 public class OriInstruction extends Instruction {
-    int[] parameters;
-
     public OriInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
-        super(registerFile, memory, programCounter);
-        this.parameters = parameters;
+        super(registerFile, memory, programCounter, parameters);
     }
 
     public void execute() {

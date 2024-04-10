@@ -8,11 +8,13 @@ public abstract class Instruction {
     public DataMemory memory;
     public RegisterFile registerFile;
     public ProgramCounter programCounter;
+    public int[] parameters;
 
-    public Instruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter) {
+    public Instruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
         this.memory = memory;
         this.registerFile = registerFile;
         this.programCounter = programCounter;
+        this.parameters = parameters;
     }
     public abstract void execute();
 }

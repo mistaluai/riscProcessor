@@ -8,11 +8,8 @@ import ProcessorCircuitSimulator.Instructions.Instruction;
 import static ProcessorCircuitSimulator.ALU.ShiftingOperations.sll;
 
 public class SllInstruction extends Instruction {
-    int[] parameters;
-
     public SllInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
-        super(registerFile, memory, programCounter);
-        this.parameters = parameters;
+        super(registerFile, memory, programCounter, parameters);
     }
 
     public void execute() {
