@@ -5,8 +5,8 @@ import ProcessorCircuitSimulator.DataPath.ProgramCounter;
 import ProcessorCircuitSimulator.DataPath.RegisterFile;
 import ProcessorCircuitSimulator.Instructions.Instruction;
 
-public class BleInstruction extends Instruction {
-    public BleInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
+public class BltInstruction extends Instruction {
+    public BltInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
         super(registerFile, memory, programCounter, parameters);
     }
 

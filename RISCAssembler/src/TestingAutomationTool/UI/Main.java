@@ -16,7 +16,6 @@ public class Main extends JFrame {
     public Main() {
         // Set up the frame
         setTitle("RISC Processor Tester");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(900, 490); // Set frame size
         setLocationRelativeTo(null); // Center the frame on the screen
 

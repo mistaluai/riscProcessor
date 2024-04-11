@@ -2,8 +2,10 @@ package Assember.Assembler;
 
 
 import Assember.Decoders.*;
-import Assember.Utils.BinaryOperations;
 import Assember.Utils.SymbolTable;
+import ProcessorCircuitSimulator.Processor.Processor;
+
+import static Assember.Utils.BinaryOperations.binaryToHex;
 
 public class Assembler {
     private SymbolTable st;
@@ -19,6 +21,11 @@ public class Assembler {
     private StringBuilder binaryCode;
     private StringBuilder instructionCode;
 
+    StringBuilder instructions;
+    StringBuilder compiledInstructions;
+
+    private Processor processor;
+
     int currentInstruction;
     public Assembler(String code) {
         st = new SymbolTable(code);
@@ -29,6 +36,8 @@ public class Assembler {
         lstd = new LoadStoreDecoder();
         jtd = new JTypeDecoder(st);
         btd = new BTypeDecoder(st);
+
+        processor = new Processor(st);
 
         assemblyCode = code;
         binaryCode = new StringBuilder();
@@ -43,7 +52,8 @@ public class Assembler {
     public void assemble() {
         // Split the assembly code into lines
         String[] lines = assemblyCode.split("\n");
-
+        instructions = new StringBuilder();
+        compiledInstructions = new StringBuilder();
         // Iterate over each instruction in the assembly code
         for (String instruction : lines) {
             // Trim the instruction to remove leading and trailing whitespaces
@@ -59,7 +69,9 @@ public class Assembler {
             if (st.isSkippable(instruction))
                 continue;
 
-            System.out.println(currentInstruction + " " + instruction);
+
+            instructions.append(instruction + "\n");
+            processor.addInstruction(instruction, currentInstruction);
 
             // Decode the instruction based on its type and append the binary representation
             // to the binary code StringBuilder
@@ -84,11 +96,27 @@ public class Assembler {
 
             // Append a newline character after each instruction
             binaryCode.append(machineCode + "\n");
-            instructionCode.append(instruction + " : " + machineCode +" | " + BinaryOperations.binaryToHex(machineCode) + "\n");
+            compiledInstructions.append(binaryToHex(machineCode) + "\n");
+            instructionCode.append(instruction + " : " + machineCode +" | " + binaryToHex(machineCode) + "\n");
+
             // Increment the current instruction counter
             currentInstruction++;
         }
     }
+
+        public String[][] getInstructions() {
+        String[][] output = new String[currentInstruction][3];
+        String[] instructionLines = instructions.toString().split("\n");
+        String[] compiledInstructionLines = compiledInstructions.toString().split("\n");
+
+        for (int i = 0; i < currentInstruction; i++) {
+            output[i][0] = String.valueOf(i);
+            output[i][1] = compiledInstructionLines[i];
+            output[i][2] = instructionLines[i];
+        }
+
+        return output;
+        }
 
         private String removeComments(String assemblyCode) {
             StringBuilder result = new StringBuilder();
@@ -113,6 +141,10 @@ public class Assembler {
             String output = result.toString();
             output = output.trim();
             return output;
+        }
+
+        public Processor getProcessor() {
+        return processor;
         }
 
     public String[][] getSymbols() {

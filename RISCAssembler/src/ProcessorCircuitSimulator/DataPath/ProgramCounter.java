@@ -28,4 +28,12 @@ public class ProgramCounter {
         currentInstruction++;
         return (currentInstruction < instructionMemory.size())?instructionMemory.get(currentInstruction):null;
     }
+
+    public boolean hasNext() {
+        return (currentInstruction < instructionMemory.size() - 1);
+    }
+
+    public void initializeData(List<Instruction> instructions) {
+        instructionMemory = instructions;
+    }
 }

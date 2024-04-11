@@ -4,6 +4,7 @@ package Assember.UI;
 import Assember.Assembler.Assembler;
 import Assember.Utils.BinaryOperations;
 import Assember.Utils.FileHandler;
+import ProcessorCircuitSimulator.UI.SimulatorMain;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -29,6 +30,7 @@ public class Main extends JFrame {
     private JPanel mainPanel;
     private JMenuBar menuBar;
     private FileHandler fh;
+    private Assembler assembler;
 
     public Main() {
 
@@ -243,6 +245,17 @@ private void initializeMenuBar() {
     });
     simulationMenu.add(testComponents);
 
+    JMenuItem simulator = new JMenuItem("Processor Simulator");
+    simulator.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            SwingUtilities.invokeLater(() -> {
+                SimulatorMain ui = new SimulatorMain(assembler, assembler.getProcessor());
+                ui.setVisible(true);
+            });
+        }
+    });
+    simulationMenu.add(simulator);
+
 
 }
 private class HexConversion implements ActionListener {
@@ -279,14 +292,14 @@ private class AssemblingOperation implements ActionListener {
      * @param e the event to be processed
      */
     public void actionPerformed(ActionEvent e) {
-        Assembler as = new Assembler(assemblyCodeTextArea.getText());
-        symbolTable.setModel(new DefaultTableModel(as.getSymbols(),
+        assembler = new Assembler(assemblyCodeTextArea.getText());
+        symbolTable.setModel(new DefaultTableModel(assembler.getSymbols(),
                 new String[]{"Label","Address"}));
         try {
-            as.assemble();
-            binaryCodeTextArea.setText(as.getBinaryCode());
+            assembler.assemble();
+            binaryCodeTextArea.setText(assembler.getBinaryCode());
             errorDetailsTextArea.setText(errorDetailsTextArea.getText()
-            + "\n" + as.getDebugCode());
+            + "\n" + assembler.getDebugCode());
         } catch (RuntimeException ex) {
             errorDetailsTextArea.setText(errorDetailsTextArea.getText() + "\n" + ex.getMessage());
             ex.printStackTrace();
