@@ -88,6 +88,7 @@
     <wire from="(1500,540)" to="(1500,570)"/>
     <wire from="(440,440)" to="(490,440)"/>
     <wire from="(490,410)" to="(540,410)"/>
+    <wire from="(300,860)" to="(350,860)"/>
     <wire from="(80,520)" to="(80,530)"/>
     <wire from="(50,330)" to="(100,330)"/>
     <wire from="(1310,540)" to="(1370,540)"/>
@@ -98,6 +99,7 @@
     <wire from="(490,410)" to="(490,440)"/>
     <wire from="(130,410)" to="(130,440)"/>
     <wire from="(680,520)" to="(680,540)"/>
+    <wire from="(200,840)" to="(300,840)"/>
     <wire from="(630,860)" to="(650,860)"/>
     <wire from="(630,900)" to="(650,900)"/>
     <wire from="(630,940)" to="(650,940)"/>
@@ -166,6 +168,7 @@
     <wire from="(390,370)" to="(390,380)"/>
     <wire from="(1260,720)" to="(1360,720)"/>
     <wire from="(1310,600)" to="(1370,600)"/>
+    <wire from="(300,840)" to="(300,860)"/>
     <wire from="(1790,450)" to="(1790,460)"/>
     <wire from="(60,290)" to="(60,500)"/>
     <wire from="(200,380)" to="(200,400)"/>
@@ -196,6 +199,7 @@
     <wire from="(1240,540)" to="(1240,600)"/>
     <wire from="(440,420)" to="(450,420)"/>
     <wire from="(1240,600)" to="(1270,600)"/>
+    <wire from="(300,840)" to="(310,840)"/>
     <wire from="(1770,300)" to="(1790,300)"/>
     <wire from="(1330,340)" to="(1350,340)"/>
     <wire from="(990,330)" to="(1000,330)"/>
@@ -217,7 +221,6 @@
     <wire from="(1250,470)" to="(1310,470)"/>
     <wire from="(50,930)" to="(90,930)"/>
     <wire from="(990,500)" to="(990,520)"/>
-    <wire from="(200,840)" to="(240,840)"/>
     <wire from="(200,760)" to="(240,760)"/>
     <wire from="(200,720)" to="(240,720)"/>
     <wire from="(200,680)" to="(240,680)"/>
@@ -309,6 +312,10 @@
     <comp lib="0" loc="(1000,330)" name="Tunnel">
       <a name="width" val="16"/>
       <a name="label" val="RsValue"/>
+    </comp>
+    <comp lib="0" loc="(310,840)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="BranchOP"/>
     </comp>
     <comp lib="0" loc="(890,290)" name="Tunnel">
       <a name="facing" val="south"/>
@@ -466,6 +473,7 @@
       <a name="width" val="16"/>
       <a name="label" val="R7"/>
     </comp>
+    <comp lib="12" loc="(110,730)" name="ControlUnit"/>
     <comp lib="4" loc="(300,500)" name="ROM">
       <a name="addrWidth" val="16"/>
       <a name="dataWidth" val="16"/>
@@ -475,7 +483,6 @@
 601d f801 1038
 </a>
     </comp>
-    <comp lib="12" loc="(110,730)" name="ControlUnit"/>
     <comp lib="1" loc="(1380,570)" name="NOT Gate">
       <a name="facing" val="west"/>
       <a name="size" val="20"/>
@@ -662,6 +669,9 @@
       <a name="width" val="16"/>
       <a name="label" val="R6"/>
     </comp>
+    <comp lib="0" loc="(350,860)" name="Probe">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="0" loc="(1770,280)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="MemoryWrite"/>
@@ -745,10 +755,6 @@
       <a name="width" val="3"/>
       <a name="label" val="Rt"/>
     </comp>
-    <comp lib="0" loc="(240,840)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="BranchOP"/>
-    </comp>
     <comp lib="0" loc="(630,900)" name="Probe">
       <a name="radix" val="16"/>
     </comp>
@@ -771,7 +777,7 @@
     <comp lib="0" loc="(460,80)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="16"/>
-      <a name="label" val="PC"/>
+      <a name="label" val="PC+1"/>
     </comp>
     <comp lib="0" loc="(800,650)" name="Tunnel">
       <a name="facing" val="south"/>
