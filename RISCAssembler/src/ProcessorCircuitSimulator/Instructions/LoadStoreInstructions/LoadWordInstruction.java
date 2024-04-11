@@ -15,7 +15,10 @@ public class LoadWordInstruction extends Instruction {
     public void execute() {
         int rt = parameters[0];
 
-        int address = parameters[1] + parameters[2];
+        int rs = parameters[1];
+        String rsHex = registerFile.getRegister(rs);
+        int rsValue = Integer.parseInt(rsHex, 16);
+        int address =  rsValue + parameters[2];
         String addressValue = hexString(address, 0);
 
         String result = memory.loadFromMemory(addressValue);
