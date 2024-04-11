@@ -9,15 +9,15 @@ public class ProgramCounter {
     private List<Instruction> instructionMemory;
 
     public ProgramCounter() {
-        currentInstruction = -1;
+        currentInstruction = 0;
     }
 
     public void offsetCounter(int offset) {
-        currentInstruction += offset;
+        currentInstruction += offset - 1;
     }
 
     public void changeCounter(int newValue) {
-        currentInstruction = newValue;
+        currentInstruction = newValue - 1;
     }
 
     public int getCurrentValue() {
@@ -25,8 +25,12 @@ public class ProgramCounter {
     }
 
     public Instruction nextInstruction() {
-        currentInstruction++;
-        return (currentInstruction < instructionMemory.size())?instructionMemory.get(currentInstruction):null;
+        Instruction next = null;
+        if (currentInstruction < instructionMemory.size()) {
+            next = instructionMemory.get(currentInstruction);
+            currentInstruction++;
+        }
+        return next;
     }
 
     public boolean hasNext() {

@@ -35,8 +35,13 @@ public class Processor {
     public void loadProgram() {
         programCounter.initializeData(instructionMemory);
     }
-    public void performCycle() {
-        programCounter.nextInstruction().execute();
+    public boolean performCycle() {
+        Instruction next = programCounter.nextInstruction();
+        if (next==null)
+            return false;
+
+            next.execute();
+            return true;
     }
     public int getCurrentInstruction() {
         return programCounter.getCurrentValue();
@@ -48,7 +53,7 @@ public class Processor {
         return memory.getMemory();
     }
     public void executeProgram() {
-        while (programCounter.hasNext())
-            performCycle();
+        while (performCycle())
+            continue;
     }
 }

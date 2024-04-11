@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class SimulatorMain extends JFrame {
 
-    private DefaultTableModel registerModel, memoryModel;
+    private DefaultTableModel registerModel, memoryModel, instructionModel;
     private Processor processor;
     private Assembler assembler;
 
@@ -28,7 +28,7 @@ public class SimulatorMain extends JFrame {
 
         // Create JTable for the instructions
         String[] instructionColumns = {"Index", "Compiled", "Instruction"};
-        DefaultTableModel instructionModel = new DefaultTableModel(assembler.getInstructions(), instructionColumns);
+        instructionModel = new DefaultTableModel(assembler.getInstructions(), instructionColumns);
         JTable instructionTable = new JTable(instructionModel);
         JScrollPane instructionScrollPane = new JScrollPane(instructionTable);
         instructionScrollPane.setPreferredSize(new Dimension((int) (getWidth() * 0.75), getHeight()));
@@ -44,6 +44,14 @@ public class SimulatorMain extends JFrame {
         JScrollPane registerScrollPane = new JScrollPane(registerTable);
         registerScrollPane.setPreferredSize(new Dimension((int) (getWidth() * 0.25), (int) (getHeight() * 0.25)));
         dataPanel.add(registerScrollPane);
+
+        // Create JTable for the registers and values
+        String[] symbolTableColumns = {"Label", "Address"};
+        DefaultTableModel symbolTableModel = new DefaultTableModel(assembler.getSymbols(), symbolTableColumns);
+        JTable symbolTable = new JTable(symbolTableModel);
+        JScrollPane symbolTableScrollPane = new JScrollPane(symbolTable);
+        symbolTableScrollPane.setPreferredSize(new Dimension((int) (getWidth() * 0.25), (int) (getHeight() * 0.25)));
+        dataPanel.add(symbolTableScrollPane);
 
         // Create JTable for the memory addresses and values
         String[] memoryColumns = {"Address", "Value"};
@@ -92,6 +100,7 @@ public class SimulatorMain extends JFrame {
                 processor.performCycle();
                 updateRegisters();
                 updateMemory();
+                updateCurrentInstruction(processor.getCurrentInstruction());
             }
         });
 
@@ -119,6 +128,16 @@ public class SimulatorMain extends JFrame {
         });
     }
 
+    public void updateCurrentInstruction(int index) {
+        if (index >= 0 && index < instructionModel.getRowCount()) {
+            JTable instructionTable = (JTable) ((JScrollPane) getContentPane().getComponent(0)).getViewport().getView();
+            instructionTable.setRowSelectionInterval(index, index);
+            instructionTable.scrollRectToVisible(instructionTable.getCellRect(index, 0, true));
+        } else {
+            System.out.println("Invalid index");
+        }
+    }
+
     private void updateRegisters() {
         String[] registers = processor.getRegisters();
         // Simulated data update
@@ -130,6 +149,7 @@ public class SimulatorMain extends JFrame {
                 {"R5", registers[5],},
                 {"R6", registers[6],},
                 {"R7", registers[7]},
+                {"PC", String.valueOf(processor.getCurrentInstruction())}
         };
 
         // Clear the existing data

@@ -20,7 +20,7 @@ public class BeqInstruction extends Instruction {
         int rtValue = Integer.parseInt(rtHex, 16);
 
         int offset = parameters[2];
-
+        System.out.println(offset);
         if (rsValue == rtValue) programCounter.offsetCounter(offset);
     }
 }
