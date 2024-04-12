@@ -80,16 +80,8 @@ public class SimulatorMain extends JFrame {
         simulateMenu.add(runNextInstructionItem);
         simulateMenu.add(runProgramItem);
 
-        // Verify menu
-        JMenu verifyMenu = new JMenu("Verify");
-        JMenuItem verifyMemoryItem = new JMenuItem("Verify Memory");
-        JMenuItem verifyRegistersItem = new JMenuItem("Verify Registers");
-        verifyMenu.add(verifyMemoryItem);
-        verifyMenu.add(verifyRegistersItem);
-
         // Add menus to menu bar
         menuBar.add(simulateMenu);
-        menuBar.add(verifyMenu);
 
         setJMenuBar(menuBar);
 
@@ -113,19 +105,7 @@ public class SimulatorMain extends JFrame {
             }
         });
 
-        verifyMemoryItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Add your logic for verifying memory
-            }
-        });
 
-        verifyRegistersItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Add your logic for verifying registers
-            }
-        });
     }
 
     public void updateCurrentInstruction(int index) {

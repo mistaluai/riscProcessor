@@ -16,13 +16,14 @@ public class Processor {
     private DataMemory memory;
     private SimulatedInstructionsFactory instructionsFactory;
     private List<Instruction> instructionMemory;
-
+    int cycleCount;
     public Processor(SymbolTable symbolTable) {
         registerFile = new RegisterFile();
         memory = new DataMemory();
         programCounter = new ProgramCounter();
         instructionsFactory = new SimulatedInstructionsFactory(registerFile, programCounter, memory, symbolTable);
         instructionMemory = new ArrayList<>();
+        cycleCount = 0;
     }
 
     public void addInstruction(String instruction, int instructionAddress) {
@@ -36,11 +37,14 @@ public class Processor {
         programCounter.initializeData(instructionMemory);
     }
     public boolean performCycle() {
+        if (cycleCount >= 5000)
+            return false;
         Instruction next = programCounter.nextInstruction();
         if (next==null)
             return false;
 
             next.execute();
+            cycleCount++;
             return true;
     }
     public int getCurrentInstruction() {
