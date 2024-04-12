@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RISCAssembler:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RISCAssembler_jar</output-path>
+    <root id="archive" name="RISCAssembler.jar">
+      <element id="module-output" name="RISCAssembler" />
+    </root>
+  </artifact>
+</component>

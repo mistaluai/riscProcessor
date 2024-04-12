@@ -1,0 +1,120 @@
+Input Code:
+------------------------
+# Initialize registers with immediate values
+ADDI $1, $0, 10    # Load immediate 10 into register 1
+ADDI $2, $0, -8    # Load immediate -8 into register 2
+ADDI $3, $0, 5     # Load immediate 5 into register 3
+ADDI $4, $0, 3     # Load immediate 3 into register 4
+ADDI $5, $0, 0     # Load immediate 0 into register 5
+ADDI $6, $0, 1     # Load immediate 1 into register 6
+ADDI $7, $0, 0     # Load immediate 0 into register 7
+
+# Load values from memory
+LW $1, 0($1)       # Load value from memory at address stored in register 1 into register 1
+LW $2, 4($2)       # Load value from memory at address stored in register 2 + 4 into register 2
+
+# Perform arithmetic operations
+ADD $3, $1, $2    # Add values from register 1 and register 2, store result in register 3
+SUB $4, $1, $2    # Subtract value in register 2 from register 1, store result in register 4
+
+# Store results in memory
+SW $3, 8($1)      # Store value from register 3 into memory at address stored in register 1 + 8
+SW $4, 12($2)     # Store value from register 4 into memory at address stored in register 2 + 12
+
+# Call subroutine to perform additional operations
+JAL subroutine    # Jump and link to subroutine
+
+# Check if result is zero
+BNE $7, $0, result_not_zero     # Branch if result is not zero
+J result_is_zero                 # Jump to result_is_zero if result is zero
+
+# Subroutine for result being zero
+result_is_zero:
+    ADD $7, $7, $0    # Some operation
+    JAL exit            # Jump and link to exit subroutine
+
+# Subroutine for result not being zero
+result_not_zero:
+    SUB $7, $7, $0    # Some other operation
+    JAL exit            # Jump and link to exit subroutine
+
+# Exit subroutine
+exit:
+    # Some exit operations
+
+# Loop example
+ADDI $7, $0, 0       # Load immediate 0 into register 7 (initialize loop counter)
+loop_start:
+    ADDI $7, $7, 1   # Increment loop counter
+    SLT $7, $7, $6  # Set register 7 to 1 if register 7 is less than 1, otherwise set it to 0
+    BNE $7, $0, loop_start  # Branch back to loop_start if register 7 < 1
+loop_end:
+    # End of loop
+
+# Subroutine definition
+subroutine:
+    # Subroutine operations
+    ADDI $7, $0, 10   # Load immediate 100 into register 7
+    JR $4              # Jump back to return address
+
+ ------------------------
+Output binary:
+ ------------------------
+3A81
+3E02
+3943
+38C4
+3805
+3846
+3807
+6009
+6112
+08CA
+0B0A
+6A0B
+6B14
+F80D
+7938
+F001
+09F8
+F803
+0BF8
+F801
+3807
+387F
+0DFE
+7FF8
+3A87
+1020
+
+ ------------------------
+Debug Log:
+ ------------------------
+
+[24] The immediate range exceeded in ADDI $7, $0, 100   
+ADDI $1, $0, 10     : 0011101010000001 | 3A81
+ADDI $2, $0, -8     : 0011111000000010 | 3E02
+ADDI $3, $0, 5      : 0011100101000011 | 3943
+ADDI $4, $0, 3      : 0011100011000100 | 38C4
+ADDI $5, $0, 0      : 0011100000000101 | 3805
+ADDI $6, $0, 1      : 0011100001000110 | 3846
+ADDI $7, $0, 0      : 0011100000000111 | 3807
+LW $1, 0($1)        : 0110000000001001 | 6009
+LW $2, 4($2)        : 0110000100010010 | 6112
+ADD $3, $1, $2     : 0000100011001010 | 08CA
+SUB $4, $1, $2     : 0000101100001010 | 0B0A
+SW $3, 8($1)       : 0110101000001011 | 6A0B
+SW $4, 12($2)      : 0110101100010100 | 6B14
+JAL subroutine     : 1111100000001101 | F80D
+BNE $7, $0, result_not_zero      : 0111100100111000 | 7938
+J result_is_zero                  : 1111000000000001 | F001
+ADD $7, $7, $0     : 0000100111111000 | 09F8
+JAL exit             : 1111100000000011 | F803
+SUB $7, $7, $0     : 0000101111111000 | 0BF8
+JAL exit             : 1111100000000001 | F801
+ADDI $7, $0, 0        : 0011100000000111 | 3807
+ADDI $7, $7, 1    : 0011100001111111 | 387F
+SLT $7, $7, $6   : 0000110111111110 | 0DFE
+BNE $7, $0, loop_start   : 0111111111111000 | 7FF8
+ADDI $7, $0, 10    : 0011101010000111 | 3A87
+JR $4               : 0001000000100000 | 1020
