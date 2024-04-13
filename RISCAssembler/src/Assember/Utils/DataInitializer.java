@@ -17,7 +17,7 @@ private String delcarationCompiled;
     }
     private void setDelcarationCompiled() {
         StringBuilder compiled = new StringBuilder();
-        int memoryAddress = 0;
+        int memoryAddress = 200;
         for (DataDeclaration dd : dataDeclarations) {
             memoryAddress += dd.compileInitialization(memoryAddress);
             compiled.append(dd.getCompilation());
