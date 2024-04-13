@@ -22,7 +22,8 @@ private String delcarationCompiled;
             memoryAddress += dd.compileInitialization(memoryAddress);
             compiled.append(dd.getCompilation());
         }
-        compiled.append(clearRegisters());
+        if (dataDeclarations.size() > 0)
+            compiled.append(clearRegisters());
 
         delcarationCompiled = compiled.toString();
     }
