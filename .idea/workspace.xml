@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Processor/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Processor/Processor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/UI/SimulatorMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/UI/SimulatorMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/AsciiData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/AsciizData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Assembler",
+    "git-widget-placeholder": "AssemberDataTypes",
     "jdk.selected.JAVA_MODULE": "21",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
@@ -112,6 +112,24 @@
           <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/UI/SimulatorMain.java</url>
           <line>99</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java</url>
+          <line>58</line>
+          <properties class="Assember.Assembler.Assembler" method="assemble">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java</url>
+          <line>29</line>
+          <properties class="Assember.Utils.DataTypes.WordData" method="storeData">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
