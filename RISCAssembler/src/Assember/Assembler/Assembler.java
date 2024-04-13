@@ -2,6 +2,7 @@ package Assember.Assembler;
 
 
 import Assember.Decoders.*;
+import Assember.Utils.DataInitializer;
 import Assember.Utils.SymbolTable;
 import ProcessorCircuitSimulator.Processor.Processor;
 
@@ -44,14 +45,21 @@ public class Assembler {
         instructionCode = new StringBuilder();
         currentInstruction = 0;
     }
+    private String getAssemblyCode(String textSection, DataInitializer dataInitializer) {
+        StringBuilder code = new StringBuilder();
+        code.append(dataInitializer.getDeclarationsCompiled());
+        code.append(textSection);
+        return code.toString();
+    }
     /**
      * Assembles the assembly code by iterating over each instruction, decoding it,
      * and appending its corresponding binary representation to the binary code StringBuilder.
      * Skippable instructions, such as those containing labels, are ignored during assembly.
      */
     public void assemble() {
+        String code = getAssemblyCode(assemblyCode, st.getDataInitializer());
         // Split the assembly code into lines
-        String[] lines = assemblyCode.split("\n");
+        String[] lines = code.split("\n");
         instructions = new StringBuilder();
         compiledInstructions = new StringBuilder();
         // Iterate over each instruction in the assembly code

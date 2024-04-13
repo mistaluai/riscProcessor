@@ -14,7 +14,7 @@ public class JumpLinkInstruction extends Instruction {
 
     public void execute() {
 
-        int returnValue = programCounter.getCurrentValue() + 1;
+        int returnValue = programCounter.getCurrentValue();
         String returnHex = hexString(returnValue, 0);
         registerFile.setRegister(7, returnHex);
 
