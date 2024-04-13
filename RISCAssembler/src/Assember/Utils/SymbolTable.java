@@ -64,12 +64,6 @@ public class SymbolTable {
             case "word":
                dataDeclarations.add(new WordData(data));
                break;
-            case "ascii":
-               dataDeclarations.add(new AsciiData(data));
-               break;
-            case "asciiz":
-               dataDeclarations.add(new AsciizData(data));
-               break;
             case "space":
                dataDeclarations.add(new SpaceData(data));
                break;
