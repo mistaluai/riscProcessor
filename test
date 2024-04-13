@@ -1,0 +1,11 @@
+.data 
+.text
+
+add $1 ,  $2 , $3
+sub $3 ,$1 ,$5
+or $3, $1 ,$2 
+
+jal exit
+add $4 , $4 ,$2
+exit:
+jr $7
