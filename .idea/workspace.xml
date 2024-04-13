@@ -11,9 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/AsciiData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/AsciizData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/ProgramCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/ProgramCounter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +56,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "AssemberDataTypes",
+    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "21",
+    "last_opened_file_path": "/Users/mistaluai/Documents/Github Repos/mipsProcessor",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -113,23 +113,30 @@
           <line>99</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java</url>
-          <line>58</line>
-          <properties class="Assember.Assembler.Assembler" method="assemble">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="12" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java</url>
-          <line>29</line>
-          <properties class="Assember.Utils.DataTypes.WordData" method="storeData">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
