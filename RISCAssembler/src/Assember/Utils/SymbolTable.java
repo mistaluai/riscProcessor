@@ -16,6 +16,7 @@ public class SymbolTable {
    List<DataDeclaration> dataDeclarations;
    public DataInitializer dataInitializer;
    String code;
+   int textStart, dataStart;
    /**
     * Constructs a symbol table by detecting labels in the given assembly code and storing them
     * in a map with their corresponding addresses.
@@ -30,8 +31,8 @@ public class SymbolTable {
 
       String[] lines = code.split("\n");
 
-      int textStart = -1;
-      int dataStart = -1;
+      textStart = -1;
+      dataStart = -1;
       int index = 0;
       for (String line : lines) {
          if (line.contains(".text")) {
@@ -55,20 +56,20 @@ public class SymbolTable {
       // Iterate over each line of the assembly code
       for (int index = dataStart+1; index < dataEnd; index++) {
          String[] line = lines[index].split(" ");
-
-         String label = line[0];
-         String type = line[1].substring(1);
-         String data = line[2];
-
-         switch (type) {
-            case "word":
-               dataDeclarations.add(new WordData(data));
-               break;
-            case "space":
-               dataDeclarations.add(new SpaceData(data));
-               break;
-            default:
-               throw new SyntaxException("Unknown data type at " + lines[index]);
+         if (line.length >= 3) {
+            String label = line[0];
+            String type = line[1].substring(1);
+            String data = line[2];
+            switch (type) {
+               case "word":
+                  dataDeclarations.add(new WordData(data));
+                  break;
+               case "space":
+                  dataDeclarations.add(new SpaceData(data));
+                  break;
+               default:
+                  throw new SyntaxException("Unknown data type at " + lines[index]);
+            }
          }
       }
       dataInitializer = new DataInitializer(dataDeclarations);
@@ -119,8 +120,9 @@ public class SymbolTable {
    public int getLabel(String label) {
       // Check if the symbol table contains the given label
       if (labels.containsKey(label)) {
+         System.out.println("number of data lines " + dataInitializer.getInitializationLength());
          // If found, return the address associated with the label
-         return labels.get(label);
+         return labels.get(label) + dataInitializer.getInitializationLength();
       } else {
          // If not found, throw an exception indicating that the label was not found
          throw new SyntaxException("Label not found: " + label);

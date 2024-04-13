@@ -6,11 +6,16 @@ import java.util.List;
 
 public class DataInitializer {
 private List<DataDeclaration> dataDeclarations;
+private String delcarationCompiled;
 
     public DataInitializer(List<DataDeclaration> dataDeclarations) {
         this.dataDeclarations = dataDeclarations;
+        setDelcarationCompiled();
     }
     public String getDeclarationsCompiled() {
+        return delcarationCompiled;
+    }
+    private void setDelcarationCompiled() {
         StringBuilder compiled = new StringBuilder();
         int memoryAddress = 0;
         for (DataDeclaration dd : dataDeclarations) {
@@ -19,9 +24,19 @@ private List<DataDeclaration> dataDeclarations;
         }
         compiled.append(clearRegisters());
 
-        return compiled.toString();
+        delcarationCompiled = compiled.toString();
+    }
+    public int getInitializationLength() {
+         String[] lines = delcarationCompiled.split("\n");
+         int length = 0;
+         for (String line: lines)
+         {
+             if (line.length() != 0)
+                 length++;
+         }
+         return length;
     }
     private String clearRegisters() {
-        return "ADD $1, $0, $0\nADD $2, $0, $0\nADD $3, $0, $0\nADD $4, $0, $0\nADD $5, $0, $0\nADD $6, $0, $0\nADD $7, $0, $0";
+        return "ADD $1, $0, $0\nADD $2, $0, $0\n";
     }
 }
