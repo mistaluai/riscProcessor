@@ -17,7 +17,7 @@ public class ProgramCounter {
     }
 
     public void changeCounter(int newValue) {
-        currentInstruction = newValue - 1;
+        currentInstruction = newValue;
     }
 
     public int getCurrentValue() {
