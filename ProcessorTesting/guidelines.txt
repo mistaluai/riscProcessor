@@ -1,0 +1,6 @@
+attach the following:
+1. asm file with your code
+2. hex file with your compiled program
+3. dump test code from the assembler
+4. hex file with you ram after execution
+5. screenshot of your registers' values after execution	
