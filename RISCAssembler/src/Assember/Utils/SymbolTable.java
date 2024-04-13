@@ -2,15 +2,20 @@ package Assember.Utils;
 
 
 import Assember.Exceptions.SyntaxException;
+import Assember.Utils.DataTypes.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SymbolTable {
    Map<String, Integer> labels;
-
+   List<DataDeclaration> dataDeclarations;
+   public DataInitializer dataInitializer;
+   String code;
    /**
     * Constructs a symbol table by detecting labels in the given assembly code and storing them
     * in a map with their corresponding addresses.
@@ -18,26 +23,75 @@ public class SymbolTable {
     * @param code the assembly code in which labels are detected and stored.
     */
    public SymbolTable(String code) {
+      this.code = code;
       // Initialize the map to store labels and their addresses
       labels = new HashMap<>();
+      dataDeclarations = new ArrayList<>();
 
+      String[] lines = code.split("\n");
+
+      int textStart = -1;
+      int dataStart = -1;
+      int index = 0;
+      for (String line : lines) {
+         if (line.contains(".text")) {
+            textStart = index;
+         }
+         else if (line.contains(".data")) {
+            dataStart = index;
+         }
+         index++;
+      }
+
+      if (dataStart == -1 || textStart == -1 || textStart == dataStart)
+         throw new SyntaxException("invalid data and text sectioning");
+
+      initializeTextLabels(lines, textStart);
+      initializeDataDeclarations(lines, dataStart, textStart);
+
+   }
+   private void initializeDataDeclarations(String[] lines, int dataStart, int dataEnd) {
+      System.out.println("data starts at " + dataStart + " and ends at " + dataEnd);
+      // Iterate over each line of the assembly code
+      for (int index = dataStart+1; index < dataEnd; index++) {
+         String[] line = lines[index].split(" ");
+
+         String label = line[0];
+         String type = line[1].substring(1);
+         String data = line[2];
+
+         switch (type) {
+            case "word":
+               dataDeclarations.add(new WordData(data));
+               break;
+            case "space":
+               dataDeclarations.add(new SpaceData(data));
+               break;
+            default:
+               throw new SyntaxException("Unknown data type at " + lines[index]);
+         }
+      }
+      dataInitializer = new DataInitializer(dataDeclarations);
+   }
+   private void initializeTextLabels(String[] lines, int textStart) {
       // Define a pattern to match label patterns in the assembly code
       Pattern labelPattern = Pattern.compile("\\w+:");
 
-      // Split the assembly code into lines
-      String[] lines = code.split("\n");
+      System.out.println("text starts at " + textStart);
 
-      // Initialize an index to track the current address
-      int index = 0;
-
+      //the counter counts the actual instructions we have been through
+      int labelIndex = 0;
       // Iterate over each line of the assembly code
-      for (String instruction : lines) {
+      for (int index = textStart+1; index < lines.length; index++) {
+         String instruction = lines[index];
+
          // Trim the instruction to remove leading and trailing whitespaces
          instruction = instruction.trim();
 
          // Skip empty lines or comments
-         if (instruction.length() == 0 || instruction.charAt(0) == '#')
+         if (instruction.length() == 0 || instruction.charAt(0) == '#') {
             continue;
+         }
 
          instruction = removeComments(instruction);
 
@@ -48,14 +102,12 @@ public class SymbolTable {
          if (labelMatcher.find()) {
             String label = labelMatcher.group();
             label = label.substring(0, label.length() - 1); // Remove the colon from the label
-            labels.put(label, index);
+            labels.put(label, labelIndex);
          } else {
-            // Increment the index to track the next instruction address
-            index++;
+            labelIndex++;
          }
       }
    }
-
 
    /**
     * Retrieves the address associated with the given label from the symbol table.
@@ -83,6 +135,9 @@ public class SymbolTable {
     * @return true if the instruction contains a label and is skippable, false otherwise.
     */
    public boolean isSkippable(String instruction) {
+      if (instruction.contains(".text") || instruction.contains(".data"))
+         return true;
+
       // Define a pattern to match label patterns in the instruction
       Pattern labelPattern = Pattern.compile("\\w+:");
 
@@ -143,5 +198,9 @@ public class SymbolTable {
       String output = result.toString();
       output = output.trim();
       return output;
+   }
+
+   public DataInitializer getDataInitializer() {
+      return dataInitializer;
    }
 }
