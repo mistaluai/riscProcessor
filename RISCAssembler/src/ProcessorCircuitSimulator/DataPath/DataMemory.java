@@ -1,7 +1,6 @@
 package ProcessorCircuitSimulator.DataPath;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class DataMemory {
     private Map<String, String> memory;
@@ -19,10 +18,12 @@ public class DataMemory {
 
     public String[][] getMemory() {
         String[][] output = new String[memory.size()][2];
+        List<String> addresses = new ArrayList<>(memory.keySet());
+        Collections.sort(addresses);
         int i = 0;
-        for (Map.Entry<String, String> entry : memory.entrySet()) {
-            output[i][0] = entry.getKey();
-            output[i][1] = entry.getValue();
+        for (String address : addresses) {
+            output[i][0] = address;
+            output[i][1] = memory.get(address);
             i++;
         }
         return output;

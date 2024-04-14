@@ -80,7 +80,11 @@ public class ITypeDecoder implements Decoder {
 
         int immediate = Integer.parseInt(immediateString);
 
-        if (immediate < -16 || immediate > 15)
+        if ((immediate < -16 || immediate > 15) && instructionsOperations.getIntegerOpcode(instruction) == 7)
+            throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
+        else if ((immediate < 0 || immediate > 31) && (instructionsOperations.getIntegerOpcode(instruction) >= 4 && instructionsOperations.getIntegerOpcode(instruction) <= 6))
+            throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
+        else if ((immediate < 0 || immediate > 15) && (instructionsOperations.getIntegerOpcode(instruction) >= 8 && instructionsOperations.getIntegerOpcode(instruction) <= 11))
             throw new RangeException("["+currentAddress+"] The immediate range exceeded in " + instruction);
 
         output[2] = immediate;
