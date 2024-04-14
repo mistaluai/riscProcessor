@@ -12,6 +12,11 @@
     <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/DataDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/DataDeclaration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/SpaceData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/DataMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/DataMemory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/RISCAssembler_jar/RISCAssembler.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/RISCAssembler_jar/RISCAssembler.jar" afterDir="false" />
     </list>
@@ -36,6 +41,11 @@
     <toolWindowToFront>false</toolWindowToFront>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -53,19 +63,19 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ProcessorTesting&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mistaluai/Documents/Github Repos/mipsProcessor&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "21",
+    "last_opened_file_path": "/Users/mistaluai/Documents/Github Repos/mipsProcessor",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/RISCAssembler/src/Assember" />
