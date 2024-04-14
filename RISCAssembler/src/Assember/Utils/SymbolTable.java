@@ -60,12 +60,11 @@ public class SymbolTable {
             String label = line[0];
             String type = line[1].substring(1);
             String data = line[2];
+            String address = line[3];
+
             switch (type) {
                case "word":
-                  dataDeclarations.add(new WordData(data));
-                  break;
-               case "space":
-                  dataDeclarations.add(new SpaceData(data));
+                  dataDeclarations.add(new WordData(data, address));
                   break;
                default:
                   throw new SyntaxException("Unknown data type at " + lines[index]);
