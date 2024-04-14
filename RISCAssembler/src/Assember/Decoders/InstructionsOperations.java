@@ -149,6 +149,7 @@ public class InstructionsOperations {
         instructionOpcode.put("BNE", "01111"); //15
         instructionOpcode.put("BLT", "10000"); //16
         instructionOpcode.put("BGE", "10001"); //17
+        instructionOpcode.put("DRAW", "10011"); //19
 
         // J-Type instructions
         instructionOpcode.put("LUI", "10010"); //18
@@ -193,6 +194,7 @@ public class InstructionsOperations {
         integerOpcode.put("BNE", 15);
         integerOpcode.put("BLT", 16);
         integerOpcode.put("BGE", 17);
+        integerOpcode.put("DRAW", 19);
 
         // J-Type instructions
         integerOpcode.put("LUI", 18);
@@ -231,6 +233,7 @@ public class InstructionsOperations {
         instructionType.put("SRL", InstructionType.IType); //9
         instructionType.put("SRA", InstructionType.IType); //10
         instructionType.put("ROR", InstructionType.IType); //11
+        instructionType.put("DRAW", InstructionType.IType); //11
         instructionType.put("LW", InstructionType.LoadStoreType); //12
         instructionType.put("SW", InstructionType.LoadStoreType); //13
         instructionType.put("BEQ", InstructionType.BType); //14
