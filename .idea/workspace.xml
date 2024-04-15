@@ -11,14 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProcessorTesting/SumArrayTest/Expected.png" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessorTesting/SumArrayTest/Expected.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/DataDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/DataDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/SpaceData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/DataMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/DataMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/InstructionsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/InstructionsOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/SyntaxHighlighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/SyntaxHighlighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCProcessor/SingleCycleProcessor/SingleCycle.circ" beforeDir="false" afterPath="$PROJECT_DIR$/RISCProcessor/SingleCycleProcessor/SingleCycle.circ" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/RISCAssembler_jar/RISCAssembler.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/RISCAssembler_jar/RISCAssembler.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/SyntaxHighlighter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/SyntaxHighlighter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "GPU",
     "jdk.selected.JAVA_MODULE": "21",
     "last_opened_file_path": "/Users/mistaluai/Documents/Github Repos/mipsProcessor",
     "project.structure.last.edited": "Project",

@@ -116,7 +116,7 @@ public class ITypeDecoder implements Decoder {
 
         int immediate = Integer.parseInt(immediateString);
 
-        if (immediate > 31 || immediate < 0)
+        if (immediate > 15 || immediate < 0)
             throw new SyntaxException("Unknown column value in " + instruction);
 
         immediateString = binaryString(immediate, 5, 0);
