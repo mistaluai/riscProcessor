@@ -11,14 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProcessorTesting/SumArrayTest/Expected.png" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessorTesting/SumArrayTest/Expected.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/InstructionsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/InstructionsOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/SyntaxHighlighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/SyntaxHighlighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCProcessor/SingleCycleProcessor/SingleCycle.circ" beforeDir="false" afterPath="$PROJECT_DIR$/RISCProcessor/SingleCycleProcessor/SingleCycle.circ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/RISCAssembler_jar/RISCAssembler.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/RISCAssembler_jar/RISCAssembler.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/SyntaxHighlighter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/SyntaxHighlighter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +55,19 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GPU",
-    "jdk.selected.JAVA_MODULE": "21",
-    "last_opened_file_path": "/Users/mistaluai/Documents/Github Repos/mipsProcessor",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GPU&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mistaluai/Documents/Github Repos/mipsProcessor&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/RISCAssembler/src/Assember" />
