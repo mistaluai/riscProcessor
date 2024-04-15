@@ -32,6 +32,9 @@ public class ITypeDecoder implements Decoder {
         // Extracts two registers from the given assembly instruction 'instruction'
 // at the current address 'currentAddress' using the instructionsOperations object.
 // The extracted registers will be used for further processing.
+        String instructionName = instructionsOperations.getInstruction(instruction);
+        if (instructionName.equals("DRAW"))
+            return handleDrawInstruction(instruction, currentAddress);
         int[] parameters = extractParameters(instruction, currentAddress);
 
         int immediate = parameters[2];
@@ -90,6 +93,36 @@ public class ITypeDecoder implements Decoder {
         output[2] = immediate;
 
         return output;
+    }
+
+    private String handleDrawInstruction(String instruction, int currentAddress) {
+        int[] registers = instructionsOperations.extractRegisters(instruction, 1, currentAddress);
+
+        int rs = registers[0];
+        String rsString = instructionsOperations.getRegister(rs);
+
+        Pattern immediatePattern = Pattern.compile("[ |-][\\d]+");
+        // Create a matcher for the immediate value
+        Matcher immediateMatcher = immediatePattern.matcher(instruction);
+        String immediateString = "";
+
+        // Extract the immediate value from the instruction if present
+        if (immediateMatcher.find())
+            immediateString = immediateMatcher.group();
+        else
+            throw new SyntaxException("Immediate value not given in " + instruction);
+        if (immediateString.charAt(0) == ' ')
+            immediateString = immediateString.substring(1);
+
+        int immediate = Integer.parseInt(immediateString);
+
+        if (immediate > 15 || immediate < 0)
+            throw new SyntaxException("Unknown column value in " + instruction);
+
+        immediateString = binaryString(immediate, 5, 0);
+
+        String opcode = instructionsOperations.getOpcode(instruction);
+        return opcode + immediateString + rsString + "000";
     }
 
 }

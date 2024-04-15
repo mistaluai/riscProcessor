@@ -78,8 +78,7 @@ public class Assembler {
                 continue;
 
 
-            instructions.append(instruction + "\n");
-            processor.addInstruction(instruction, currentInstruction);
+
 
             // Decode the instruction based on its type and append the binary representation
             // to the binary code StringBuilder
@@ -104,20 +103,24 @@ public class Assembler {
 
             // Append a newline character after each instruction
             binaryCode.append(machineCode + "\n");
-            compiledInstructions.append(binaryToHex(machineCode) + "\n");
+
             instructionCode.append(instruction + " : " + machineCode +" | " + binaryToHex(machineCode) + "\n");
 
+            if (!instructionsOperations.getInstruction(instruction).equals("DRAW")) {
+                processor.addInstruction(instruction, currentInstruction);
+                instructions.append(instruction + "\n");
+                compiledInstructions.append(binaryToHex(machineCode) + "\n");
+            }
             // Increment the current instruction counter
             currentInstruction++;
         }
     }
 
         public String[][] getInstructions() {
-        String[][] output = new String[currentInstruction][3];
         String[] instructionLines = instructions.toString().split("\n");
         String[] compiledInstructionLines = compiledInstructions.toString().split("\n");
-
-        for (int i = 0; i < currentInstruction; i++) {
+        String[][] output = new String[instructionLines.length][3];
+        for (int i = 0; i < instructionLines.length; i++) {
             output[i][0] = String.valueOf(i);
             output[i][1] = compiledInstructionLines[i];
             output[i][2] = instructionLines[i];
