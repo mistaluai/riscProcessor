@@ -19,7 +19,7 @@ private String delcarationCompiled;
         StringBuilder compiled = new StringBuilder();
         int memoryAddress = 0;
         for (DataDeclaration dd : dataDeclarations) {
-            memoryAddress += dd.compileInitialization(memoryAddress);
+            memoryAddress += dd.compileInitialization();
             compiled.append(dd.getCompilation());
         }
         if (dataDeclarations.size() > 0)
@@ -38,6 +38,6 @@ private String delcarationCompiled;
          return length;
     }
     private String clearRegisters() {
-        return "ADD $1, $0, $0\nADD $2, $0, $0\n";
+        return "ADD $1, $0, $0\nADD $2, $0, $0\nADD $3, $0, $0\n";
     }
 }

@@ -18,6 +18,7 @@ public class SyntaxHighlighter {
                     "ANDI", "ORI", "XORI", "NORI",
                     "ADD", "SUB", "SLT", "SLTU",
                     "SLL", "SRL", "SRA", "ROR",
+                    "DRAW",
                     "LW", "SW",
                     "BEQ", "BNE", "BLT", "BGE",
                     "LUI",
