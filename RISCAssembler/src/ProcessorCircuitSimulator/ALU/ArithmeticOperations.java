@@ -1,8 +1,17 @@
 package ProcessorCircuitSimulator.ALU;
 
+/**
+ * Provides arithmetic operations for signed and unsigned hexadecimal strings with overflow handling.
+ */
 public class ArithmeticOperations {
 
-    // Addition method for signed hexadecimal strings with overflow handling
+    /**
+     * Adds two signed hexadecimal strings with overflow handling.
+     *
+     * @param hex1 the first hexadecimal string to be added.
+     * @param hex2 the second hexadecimal string to be added.
+     * @return the result of the addition as a hexadecimal string.
+     */
     public static String addSignedHexStrings(String hex1, String hex2) {
         // Convert hexadecimal strings to decimal integers
         int num1 = Integer.parseInt(hex1, 16);
@@ -28,7 +37,13 @@ public class ArithmeticOperations {
         return sumHex;
     }
 
-    // Subtraction method for signed hexadecimal strings with overflow handling
+    /**
+     * Subtracts one signed hexadecimal string from another with overflow handling.
+     *
+     * @param hex1 the hexadecimal string to be subtracted from.
+     * @param hex2 the hexadecimal string to subtract.
+     * @return the result of the subtraction as a hexadecimal string.
+     */
     public static String subtractSignedHexStrings(String hex1, String hex2) {
         // Convert hexadecimal strings to decimal integers
         int num1 = Integer.parseInt(hex1, 16);
@@ -54,15 +69,25 @@ public class ArithmeticOperations {
         return diffHex;
     }
 
-
-
+    /**
+     * Determines whether the first signed hexadecimal number is less than the second.
+     *
+     * @param hexString1 the first hexadecimal number.
+     * @param hexString2 the second hexadecimal number.
+     * @return "0001" if hexString1 is less than hexString2, otherwise "0000".
+     */
     public static String setLessThan(String hexString1, String hexString2) {
         int num1 = hexToSignedInt(hexString1);
         int num2 = hexToSignedInt(hexString2);
-        System.out.printf("%s is %d, %s is %d \n", hexString1, num1, hexString2, num2);
         return (num1 < num2) ? "0001" : "0000";
     }
 
+    /**
+     * Converts a signed hexadecimal string to an integer value.
+     *
+     * @param hexString the signed hexadecimal string to convert.
+     * @return the integer value corresponding to the hexadecimal string.
+     */
     public static int hexToSignedInt(String hexString) {
         // Convert hexadecimal string to integer
         int intValue = Integer.parseInt(hexString, 16);
@@ -76,13 +101,25 @@ public class ArithmeticOperations {
         return intValue;
     }
 
+    /**
+     * Determines whether the first unsigned hexadecimal number is less than the second.
+     *
+     * @param hexString1 the first unsigned hexadecimal number.
+     * @param hexString2 the second unsigned hexadecimal number.
+     * @return "0001" if hexString1 is less than hexString2, otherwise "0000".
+     */
     public static String setLessThanUnsigned(String hexString1, String hexString2) {
         int num1 = hexToUnsignedInt(hexString1);
         int num2 = hexToUnsignedInt(hexString2);
-        System.out.printf("%s is %d, %s is %d \n", hexString1, num1, hexString2, num2);
         return (num1 < num2) ? "0001" : "0000";
     }
 
+    /**
+     * Converts an unsigned hexadecimal string to an integer value.
+     *
+     * @param hexString the unsigned hexadecimal string to convert.
+     * @return the integer value corresponding to the hexadecimal string.
+     */
     public static int hexToUnsignedInt(String hexString) {
         // Convert hexadecimal string to long
         long unsignedLongValue = Long.parseLong(hexString, 16);
@@ -92,5 +129,4 @@ public class ArithmeticOperations {
 
         return unsignedIntValue;
     }
-
 }

@@ -51,6 +51,13 @@ public class SymbolTable {
       initializeDataDeclarations(lines, dataStart, textStart);
 
    }
+   /**
+    Initializes the data declarations in the assembly code and adds them to the list of data declarations.
+    @param lines the array of assembly code lines.
+    @param dataStart the index indicating the start of the .data section.
+    @param dataEnd the index indicating the end of the .data section.
+    @throws SyntaxException if an unknown data type is encountered.
+    */
    private void initializeDataDeclarations(String[] lines, int dataStart, int dataEnd) {
       System.out.println("data starts at " + dataStart + " and ends at " + dataEnd);
       // Iterate over each line of the assembly code
@@ -73,6 +80,12 @@ public class SymbolTable {
       }
       dataInitializer = new DataInitializer(dataDeclarations);
    }
+
+   /**
+    Initializes the text labels in the assembly code and stores them in the symbol table.
+    @param lines the array of assembly code lines.
+    @param textStart the index indicating the start of the .text section.
+    */
    private void initializeTextLabels(String[] lines, int textStart) {
       // Define a pattern to match label patterns in the assembly code
       Pattern labelPattern = Pattern.compile("\\w+:");
@@ -176,6 +189,13 @@ public class SymbolTable {
       // Return the populated array
       return symbols;
    }
+
+   /**
+
+    Removes comments from the given assembly code string.
+    @param assemblyCode the assembly code string from which comments are to be removed.
+    @return the assembly code string without comments.
+    */
    private String removeComments(String assemblyCode) {
       StringBuilder result = new StringBuilder();
       boolean inComment = false;
@@ -201,6 +221,11 @@ public class SymbolTable {
       return output;
    }
 
+   /**
+
+    Retrieves the data initializer associated with the symbol table.
+    @return the data initializer.
+    */
    public DataInitializer getDataInitializer() {
       return dataInitializer;
    }

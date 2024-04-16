@@ -1,7 +1,17 @@
 package ProcessorCircuitSimulator.ALU;
 
+/**
+ * Provides logic operations for bitwise AND, OR, XOR, and NOR on hexadecimal strings.
+ */
 public class LogicOperations {
-    // Bitwise AND operation method for hexadecimal strings
+
+    /**
+     * Performs bitwise AND operation on two hexadecimal strings.
+     *
+     * @param hex1 the first hexadecimal string.
+     * @param hex2 the second hexadecimal string.
+     * @return the result of the bitwise AND operation as a hexadecimal string.
+     */
     public static String bitwiseAnd(String hex1, String hex2) {
         // Convert hexadecimal strings to decimal integers
         int num1 = Integer.parseInt(hex1, 16);
@@ -21,7 +31,13 @@ public class LogicOperations {
         return resultHex;
     }
 
-    // Bitwise OR operation method for hexadecimal strings
+    /**
+     * Performs bitwise OR operation on two hexadecimal strings.
+     *
+     * @param hex1 the first hexadecimal string.
+     * @param hex2 the second hexadecimal string.
+     * @return the result of the bitwise OR operation as a hexadecimal string.
+     */
     public static String bitwiseOr(String hex1, String hex2) {
         // Convert hexadecimal strings to decimal integers
         int num1 = Integer.parseInt(hex1, 16);
@@ -41,7 +57,13 @@ public class LogicOperations {
         return resultHex;
     }
 
-    // Bitwise XOR operation method for hexadecimal strings
+    /**
+     * Performs bitwise XOR operation on two hexadecimal strings.
+     *
+     * @param hex1 the first hexadecimal string.
+     * @param hex2 the second hexadecimal string.
+     * @return the result of the bitwise XOR operation as a hexadecimal string.
+     */
     public static String bitwiseXor(String hex1, String hex2) {
         // Convert hexadecimal strings to decimal integers
         int num1 = Integer.parseInt(hex1, 16);
@@ -60,7 +82,14 @@ public class LogicOperations {
 
         return resultHex;
     }
-    // Bitwise NOR operation method for hexadecimal strings
+
+    /**
+     * Performs bitwise NOR operation on two hexadecimal strings.
+     *
+     * @param hex1 the first hexadecimal string.
+     * @param hex2 the second hexadecimal string.
+     * @return the result of the bitwise NOR operation as a hexadecimal string.
+     */
     public static String bitwiseNor(String hex1, String hex2) {
         // Convert hexadecimal strings to decimal integers
         int num1 = Integer.parseInt(hex1, 16);

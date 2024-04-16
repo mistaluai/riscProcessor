@@ -7,13 +7,25 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 
+/**
+ * The SyntaxHighlighter class provides methods to highlight syntax elements in a JTextPane.
+ */
 public class SyntaxHighlighter {
+
+    /**
+     * Highlights syntax elements in the given JTextPane.
+     *
+     * @param textPane The JTextPane to highlight syntax for.
+     */
     public static void highlightSyntax(JTextPane textPane) {
         SwingUtilities.invokeLater(() -> {
             StyledDocument doc = textPane.getStyledDocument();
+
+            // Style for instructions
             Style instructionStyle = textPane.addStyle("Instructions", null);
             StyleConstants.setForeground(instructionStyle, Color.BLUE);
 
+            // Keywords to highlight
             String[] keywords = {"AND", "OR", "XOR", "NOR",
                     "ANDI", "ORI", "XORI", "NORI",
                     "ADD", "SUB", "SLT", "SLTU",
@@ -25,24 +37,31 @@ public class SyntaxHighlighter {
                     "J", "JR", "JAL"
             };
 
+            // Highlight keywords
             for (String keyword : keywords) {
                 highlightWord(textPane, keyword, instructionStyle);
                 highlightWord(textPane, keyword.toLowerCase(), instructionStyle);
             }
-            // Words starting with "$" or "#"
+
+            // Style for registers
             Style registerStyle = textPane.addStyle("Registers", null);
             StyleConstants.setForeground(registerStyle, Color.RED);
             highlightRegister(textPane, registerStyle);
 
+            // Style for comments
             Style commentsStyle = textPane.addStyle("comments", null);
             StyleConstants.setForeground(commentsStyle, Color.GREEN);
             highlightComment(textPane, commentsStyle);
         });
-
-
     }
 
-
+    /**
+     * Highlights a specific word in the text pane.
+     *
+     * @param textPane The JTextPane containing the text.
+     * @param word     The word to highlight.
+     * @param style    The style to apply.
+     */
     private static void highlightWord(JTextPane textPane, String word, Style style) {
         SwingUtilities.invokeLater(() -> {
             StyledDocument doc = textPane.getStyledDocument();
@@ -51,7 +70,6 @@ public class SyntaxHighlighter {
                 text = doc.getText(0, doc.getLength());
                 int pos = 0;
                 while ((pos = text.indexOf(word, pos)) >= 0) {
-                    // Check if the word is surrounded by whitespace or if it's at the start/end of the text
                     boolean isStart = (pos == 0 || !Character.isLetterOrDigit(text.charAt(pos - 1)));
                     boolean isEnd = (pos + word.length() == text.length() || !Character.isLetterOrDigit(text.charAt(pos + word.length())));
                     if (isStart && isEnd) {
@@ -65,7 +83,12 @@ public class SyntaxHighlighter {
         });
     }
 
-
+    /**
+     * Highlights register elements in the text pane.
+     *
+     * @param textPane The JTextPane containing the text.
+     * @param style    The style to apply.
+     */
     private static void highlightRegister(JTextPane textPane, Style style) {
         StyledDocument doc = textPane.getStyledDocument();
         String text;
@@ -73,18 +96,14 @@ public class SyntaxHighlighter {
             text = doc.getText(0, doc.getLength());
             int pos = 0;
             while ((pos = text.indexOf("$", pos)) >= 0) {
-                // Find the start and end index of the word starting with the prefix
                 int start = pos;
                 int end = pos + 1;
                 if (end < text.length() && Character.isDigit(text.charAt(end))) {
-                    // If the character after "$" is a digit, extend the highlight
                     while (end < text.length() && Character.isDigit(text.charAt(end))) {
                         if (text.charAt(end) == ',')
                             break;
-
                         end++;
                     }
-                    // Apply style to the word
                     doc.setCharacterAttributes(start, end - start, style, false);
                 }
                 pos = end;
@@ -94,15 +113,19 @@ public class SyntaxHighlighter {
         }
     }
 
-
-    private static void highlightComment(JTextPane textPane,Style style) {
+    /**
+     * Highlights comments in the text pane.
+     *
+     * @param textPane The JTextPane containing the text.
+     * @param style    The style to apply.
+     */
+    private static void highlightComment(JTextPane textPane, Style style) {
         StyledDocument doc = textPane.getStyledDocument();
         String text;
         try {
             text = doc.getText(0, doc.getLength());
             int pos = 0;
             while ((pos = text.indexOf("#", pos)) >= 0) {
-                // Find the start and end index of the word starting with the prefix
                 int start = pos;
                 int end = pos + 1;
                 while (end < text.length()) {
@@ -110,7 +133,6 @@ public class SyntaxHighlighter {
                         break;
                     end++;
                 }
-                // Apply style to the word
                 doc.setCharacterAttributes(start, end - start, style, false);
                 pos = end;
             }
@@ -118,5 +140,4 @@ public class SyntaxHighlighter {
             e.printStackTrace();
         }
     }
-
 }

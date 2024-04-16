@@ -1,7 +1,18 @@
 package ProcessorCircuitSimulator.ALU;
 
+/**
+ * Provides shifting operations including logical left shift (SLL), arithmetic right shift (SRL),
+ * arithmetic right shift with sign extension (SRA), and rotate right (ROR) on hexadecimal strings.
+ */
 public class ShiftingOperations {
-    // Logical left shift (SLL) operation method for hexadecimal strings
+
+    /**
+     * Performs logical left shift (SLL) operation on a hexadecimal string.
+     *
+     * @param hex         the hexadecimal string to be shifted.
+     * @param shiftAmount the number of bits to shift by.
+     * @return the result of the logical left shift operation as a hexadecimal string.
+     */
     public static String sll(String hex, int shiftAmount) {
         // Convert hexadecimal string to decimal integer
         int num = Integer.parseInt(hex, 16);
@@ -20,7 +31,13 @@ public class ShiftingOperations {
         return resultHex;
     }
 
-    // Arithmetic right shift (SRL) operation method for hexadecimal strings
+    /**
+     * Performs arithmetic right shift (SRL) operation on a hexadecimal string.
+     *
+     * @param hex         the hexadecimal string to be shifted.
+     * @param shiftAmount the number of bits to shift by.
+     * @return the result of the arithmetic right shift operation as a hexadecimal string.
+     */
     public static String srl(String hex, int shiftAmount) {
         // Convert hexadecimal string to decimal integer
         int num = Integer.parseInt(hex, 16);
@@ -39,7 +56,13 @@ public class ShiftingOperations {
         return resultHex;
     }
 
-    // Arithmetic right shift (SRA) operation method for hexadecimal strings
+    /**
+     * Performs arithmetic right shift (SRA) operation on a hexadecimal string with sign extension.
+     *
+     * @param hex         the hexadecimal string to be shifted.
+     * @param shiftAmount the number of bits to shift by.
+     * @return the result of the arithmetic right shift operation with sign extension as a hexadecimal string.
+     */
     public static String sra(String hex, int shiftAmount) {
         // Convert hexadecimal string to decimal integer
         int num = Integer.parseInt(hex, 16);
@@ -63,7 +86,14 @@ public class ShiftingOperations {
 
         return resultHex;
     }
-    // Rotate right (ROR) operation method for hexadecimal strings
+
+    /**
+     * Performs rotate right (ROR) operation on a hexadecimal string.
+     *
+     * @param hex          the hexadecimal string to be rotated.
+     * @param rotateAmount the number of bits to rotate by.
+     * @return the result of the rotate right operation as a hexadecimal string.
+     */
     public static String ror(String hex, int rotateAmount) {
         // Ensure that rotateAmount is within the range [0, 16]
         rotateAmount %= 16;

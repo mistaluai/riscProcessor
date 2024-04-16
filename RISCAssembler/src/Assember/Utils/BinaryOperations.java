@@ -1,15 +1,19 @@
 package Assember.Utils;
 
+/**
+ * A utility class for performing binary operations.
+ */
 public class BinaryOperations {
+
     /**
      * Converts a decimal integer to a binary string representation with the specified number of bits.
      * If the binary representation is shorter than the specified amount of bits, it extends or truncates
      * the binary string accordingly. If signed is set to 1, it extends the binary string with the sign bit,
      * considering the value as a signed integer.
      *
-     * @param decimal the decimal integer to convert to binary.
-     * @param amount the number of bits in the resulting binary string.
-     * @param signed specifies whether the binary string should be signed or unsigned (0 for unsigned, 1 for signed).
+     * @param decimal     the decimal integer to convert to binary.
+     * @param amount      the number of bits in the resulting binary string.
+     * @param signed      specifies whether the binary string should be signed or unsigned (0 for unsigned, 1 for signed).
      * @return the binary string representation of the decimal integer with the specified number of bits.
      */
     public static String binaryString(int decimal, int amount, int signed) {
@@ -20,19 +24,26 @@ public class BinaryOperations {
         if (binary.length() < amount) {
             // If signed is set to 1, extend the binary string with the sign bit
             char signBit = (decimal < 0) ? '1' : '0';
-            String extender = "";
+            StringBuilder extender = new StringBuilder();
             for (int c = 0; c < amount - binary.length(); c++) {
-                extender += (signed == 0) ? "0" : signBit;
+                extender.append((signed == 0) ? "0" : signBit);
             }
-            binary = extender + binary;
+            binary = extender.append(binary).toString();
         } else if (binary.length() > amount) {
-            binary = binary.substring(binary.length() - amount, binary.length());
+            binary = binary.substring(binary.length() - amount);
         }
 
         // Return the binary string representation
         return binary;
     }
 
+    /**
+     * Converts an integer value to a hexadecimal string representation with sign extension.
+     *
+     * @param value          the integer value to convert.
+     * @param signExtension  specifies whether to perform sign extension (1 for signed, 0 for unsigned).
+     * @return the hexadecimal string representation of the integer value.
+     */
     public static String hexString(int value, int signExtension) {
         // Apply sign extension if signExtension is 1 (signed), otherwise don't apply sign extension
         if (signExtension == 1) {
@@ -56,6 +67,13 @@ public class BinaryOperations {
         return hexString;
     }
 
+    /**
+     * Converts a binary string to its hexadecimal string representation.
+     *
+     * @param binaryString the binary string to convert.
+     * @return the hexadecimal string representation of the binary string.
+     * @throws IllegalArgumentException if the length of the binary string is not a multiple of 4.
+     */
     public static String binaryToHex(String binaryString) {
         // Ensure the binary string length is a multiple of 4
         int length = binaryString.length();
@@ -82,6 +100,4 @@ public class BinaryOperations {
         // Return the hexadecimal representation
         return hexBuilder.toString().toUpperCase();
     }
-
-
 }
