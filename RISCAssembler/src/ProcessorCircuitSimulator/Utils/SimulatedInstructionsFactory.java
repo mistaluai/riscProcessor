@@ -23,6 +23,9 @@ import ProcessorCircuitSimulator.Instructions.ShiftingInstructions.SllInstructio
 import ProcessorCircuitSimulator.Instructions.ShiftingInstructions.SraInstruction;
 import ProcessorCircuitSimulator.Instructions.ShiftingInstructions.SrlInstruction;
 
+/**
+ * Factory class for creating simulated instructions based on assembly instructions.
+ */
 public class SimulatedInstructionsFactory {
     private RegisterFile registerFile;
     private ProgramCounter programCounter;
@@ -30,6 +33,14 @@ public class SimulatedInstructionsFactory {
     private SymbolTable symbolTable;
     private InstructionsOperations instructionsOperations;
 
+    /**
+     * Constructs a new SimulatedInstructionsFactory with the specified components.
+     *
+     * @param registerFile  the register file of the processor.
+     * @param programCounter the program counter of the processor.
+     * @param memory        the data memory of the processor.
+     * @param symbolTable   the symbol table of the assembler.
+     */
     public SimulatedInstructionsFactory(RegisterFile registerFile, ProgramCounter programCounter, DataMemory memory, SymbolTable symbolTable) {
         this.registerFile = registerFile;
         this.programCounter = programCounter;
@@ -38,6 +49,13 @@ public class SimulatedInstructionsFactory {
         instructionsOperations = new InstructionsOperations();
     }
 
+    /**
+     * Creates a simulated instruction based on the given assembly instruction and address.
+     *
+     * @param instruction        the assembly instruction.
+     * @param instructionAddress the address of the instruction.
+     * @return the simulated instruction.
+     */
     public Instruction brew(String instruction, int instructionAddress) {
         int[] parameters = prepareParameters(instruction, instructionAddress);
         instruction = instructionsOperations.getInstruction(instruction);
@@ -96,10 +114,16 @@ public class SimulatedInstructionsFactory {
             case "JR":
                 return new JumpRegisterInstruction(registerFile, memory, programCounter, parameters);
         }
-    return null;
+        return null;
     }
 
-
+    /**
+     * Prepares the parameters for the given assembly instruction and address.
+     *
+     * @param instruction        the assembly instruction.
+     * @param instructionAddress the address of the instruction.
+     * @return the parameters extracted from the instruction.
+     */
     public int[] prepareParameters(String instruction, int instructionAddress) {
 
         RTypeDecoder rTypeDecoder = new RTypeDecoder();
