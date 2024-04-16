@@ -1,3 +1,6 @@
+/**
+ * ActionListener implementation for loading an image file and displaying its content.
+ */
 package TestingAutomationTool.UI.Backend;
 
 import javax.swing.*;
@@ -12,8 +15,18 @@ public class LoadImageActionListener implements ActionListener {
     JFrame frame;
     JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane, logTextPane;
 
+    /**
+     * Constructs a LoadImageActionListener with references to various UI components.
+     *
+     * @param frame                The main frame of the application.
+     * @param input1TextPane       Text pane for input 1.
+     * @param input2TextPane       Text pane for input 2.
+     * @param expectedOutputTextPane Text pane for expected output.
+     * @param actualOutputTextPane   Text pane for actual output.
+     * @param logTextPane           Text pane for logging.
+     */
     public LoadImageActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane,
-                                       JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane, JTextPane logTextPane) {
+                                   JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane, JTextPane logTextPane) {
         this.frame = frame;
         this.input1TextPane = input1TextPane;
         this.input2TextPane = input2TextPane;
@@ -27,6 +40,9 @@ public class LoadImageActionListener implements ActionListener {
         loadOutputImage();
     }
 
+    /**
+     * Loads the image file selected by the user and displays its content in the actual output text pane.
+     */
     private void loadOutputImage() {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(frame);
@@ -60,6 +76,12 @@ public class LoadImageActionListener implements ActionListener {
         }
     }
 
+    /**
+     * Interprets the text content of the actual output text pane.
+     *
+     * @param text The text content to interpret.
+     * @return The interpreted text.
+     */
     public static String interpretText(String text) {
         StringBuilder interpretedText = new StringBuilder();
         String[] lines = text.split("\n");
@@ -77,4 +99,4 @@ public class LoadImageActionListener implements ActionListener {
         }
         return interpretedText.toString();
     }
-    }
+}

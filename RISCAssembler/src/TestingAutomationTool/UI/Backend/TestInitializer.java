@@ -1,3 +1,6 @@
+/**
+ * Class responsible for initializing and running tests based on user selection.
+ */
 package TestingAutomationTool.UI.Backend;
 
 import TestingAutomationTool.Utilities.InstructionsTesterALU;
@@ -7,6 +10,15 @@ import javax.swing.*;
 public class TestInitializer {
     InstructionsTesterALU instructionsTesterALU;
 
+    /**
+     * Constructs a TestInitializer with references to various UI components.
+     *
+     * @param input1TextPane           Text pane for input 1.
+     * @param input2TextPane           Text pane for input 2.
+     * @param expectedOutputTextPane   Text pane for expected output.
+     * @param operationTextPane        Text pane for operations.
+     * @param operationSignalsTextPane Text pane for operation signals.
+     */
     public TestInitializer(JTextPane input1TextPane, JTextPane input2TextPane,
                            JTextPane expectedOutputTextPane, JTextPane operationTextPane,
                            JTextPane operationSignalsTextPane) {
@@ -14,6 +26,12 @@ public class TestInitializer {
                 expectedOutputTextPane,
                 operationTextPane, operationSignalsTextPane);
     }
+
+    /**
+     * Initializes and runs tests based on the selected option.
+     *
+     * @param selectedOption The selected option representing the instruction to test.
+     */
     public void initializeTest(int selectedOption) {
         if (selectedOption >= 0 && selectedOption <= 15) {
             testSingleInstruction(selectedOption);
@@ -21,6 +39,11 @@ public class TestInitializer {
         }
     }
 
+    /**
+     * Runs tests for a single instruction based on the selected option.
+     *
+     * @param selectedOption The selected option representing the instruction to test.
+     */
     private void testSingleInstruction(int selectedOption) {
         switch (selectedOption) {
             case 0: //AND

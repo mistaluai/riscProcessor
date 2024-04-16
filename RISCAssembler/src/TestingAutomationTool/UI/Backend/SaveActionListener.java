@@ -1,3 +1,6 @@
+/**
+ * ActionListener implementation for saving input, output, and signal files.
+ */
 package TestingAutomationTool.UI.Backend;
 
 import javax.swing.*;
@@ -13,8 +16,19 @@ public class SaveActionListener implements ActionListener {
     JTextPane input1TextPane, input2TextPane, operationSignalsTextPane, expectedOutputTextPane, actualOutputTextPane;
     JList<String> instructionComboBox;
 
+    /**
+     * Constructs a SaveActionListener with references to various UI components.
+     *
+     * @param frame                  The main frame of the application.
+     * @param input1TextPane         Text pane for input 1.
+     * @param input2TextPane         Text pane for input 2.
+     * @param operationSignalsTextPane Text pane for operation signals.
+     * @param expectedOutputTextPane Text pane for expected output.
+     * @param actualOutputTextPane   Text pane for actual output.
+     * @param instructionComboBox    Combo box for selecting instructions.
+     */
     public SaveActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane, JTextPane operationSignalsTextPane,
-                                      JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane,
+                              JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane,
                               JList<String> instructionComboBox) {
         this.frame = frame;
         this.input1TextPane = input1TextPane;
@@ -27,10 +41,12 @@ public class SaveActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Code to save images
         saveFiles();
     }
 
+    /**
+     * Saves the input, output, and signal files.
+     */
     private void saveFiles() {
         String instruction = instructionComboBox.getSelectedValue();
         String input1Text = input1TextPane.getText().trim();
@@ -59,6 +75,12 @@ public class SaveActionListener implements ActionListener {
         }
     }
 
+    /**
+     * Saves the given text to the specified file.
+     *
+     * @param file The file to which the text will be saved.
+     * @param text The text to be saved.
+     */
     private void saveToFile(File file, String text) {
         try {
             PrintWriter writer = new PrintWriter(file);
@@ -89,6 +111,11 @@ public class SaveActionListener implements ActionListener {
         }
     }
 
+    /**
+     * Generates a random two-digit number.
+     *
+     * @return A random two-digit number as a string.
+     */
     private String getRandomNumber() {
         Random random = new Random();
         int randomNumber = random.nextInt(90) + 10; // Generate a random number between 10 and 99

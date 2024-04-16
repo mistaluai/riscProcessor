@@ -1,3 +1,6 @@
+/**
+ * ActionListener implementation for checking the output against the expected output.
+ */
 package TestingAutomationTool.UI.Backend;
 
 import javax.swing.*;
@@ -9,8 +12,18 @@ public class OutputCheckerActionListener implements ActionListener {
     JFrame frame;
     JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane, logTextPane;
 
+    /**
+     * Constructs an OutputCheckerActionListener with references to various UI components.
+     *
+     * @param frame                 The main frame of the application.
+     * @param input1TextPane        Text pane for input 1.
+     * @param input2TextPane        Text pane for input 2.
+     * @param expectedOutputTextPane Text pane for expected output.
+     * @param actualOutputTextPane   Text pane for actual output.
+     * @param logTextPane            Text pane for logging.
+     */
     public OutputCheckerActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane,
-                                      JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane, JTextPane logTextPane) {
+                                       JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane, JTextPane logTextPane) {
         this.frame = frame;
         this.input1TextPane = input1TextPane;
         this.input2TextPane = input2TextPane;
@@ -24,6 +37,9 @@ public class OutputCheckerActionListener implements ActionListener {
         checkOutput();
     }
 
+    /**
+     * Compares the actual output with the expected output and updates the log text pane accordingly.
+     */
     private void checkOutput() {
         String expectedOutput = expectedOutputTextPane.getText().trim();
         String actualOutput = actualOutputTextPane.getText().trim();
@@ -38,7 +54,7 @@ public class OutputCheckerActionListener implements ActionListener {
 
         if (expectedLines.length != actualLines.length) {
             logMessage.append("Test Failed: Number of lines in expected and actual output do not match.\n" +
-                    "Expected: " + expectedLines.length + " | Actual: " + actualLines.length);
+                    "Expected: ").append(expectedLines.length).append(" | Actual: ").append(actualLines.length);
             testPassed = false;
         } else {
             for (int i = 0; i < expectedLines.length; i++) {
@@ -64,6 +80,12 @@ public class OutputCheckerActionListener implements ActionListener {
         logTextPane.setText(logMessage.toString());
     }
 
+    /**
+     * Removes leading zeros from the given string.
+     *
+     * @param str The string from which leading zeros are to be removed.
+     * @return The string with leading zeros removed.
+     */
     public String removeLeadingZeros(String str) {
         if (str == null || str.isEmpty()) {
             return str;

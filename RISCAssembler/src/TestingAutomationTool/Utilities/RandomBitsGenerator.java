@@ -1,8 +1,18 @@
+/**
+ * Utility class for generating random hexadecimal inputs and shift amounts.
+ */
 package TestingAutomationTool.Utilities;
 
 import java.util.Random;
 
 public class RandomBitsGenerator {
+
+    /**
+     * Generates random hexadecimal inputs.
+     *
+     * @param n The number of hexadecimal inputs to generate.
+     * @return A string containing the generated hexadecimal inputs, separated by newline characters.
+     */
     public static String generateHexInputs(int n) {
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
@@ -16,7 +26,12 @@ public class RandomBitsGenerator {
         return sb.toString();
     }
 
-    // Generates numbers from 0 to 31 and extends them with zeros
+    /**
+     * Generates random unsigned extended hexadecimal inputs.
+     *
+     * @param n The number of hexadecimal inputs to generate.
+     * @return A string containing the generated hexadecimal inputs, separated by newline characters.
+     */
     public static String generateUnsignedExtendedHexInputs(int n) {
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
@@ -31,7 +46,12 @@ public class RandomBitsGenerator {
         return sb.toString();
     }
 
-    // Generates numbers from -16 to 15 and extends them with sign extension
+    /**
+     * Generates random signed extended hexadecimal inputs.
+     *
+     * @param n The number of hexadecimal inputs to generate.
+     * @return A string containing the generated hexadecimal inputs, separated by newline characters.
+     */
     public static String generateSignedExtendedHexInputs(int n) {
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
@@ -46,6 +66,12 @@ public class RandomBitsGenerator {
         return sb.toString();
     }
 
+    /**
+     * Generates random shift amounts.
+     *
+     * @param count The number of random shift amounts to generate.
+     * @return A string containing the generated shift amounts, separated by newline characters.
+     */
     public static String generateRandomShiftAmount(int count) {
         StringBuilder result = new StringBuilder();
 

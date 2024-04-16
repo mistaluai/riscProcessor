@@ -5,11 +5,26 @@ import ProcessorCircuitSimulator.DataPath.ProgramCounter;
 import ProcessorCircuitSimulator.DataPath.RegisterFile;
 import ProcessorCircuitSimulator.Instructions.Instruction;
 
+/**
+ * Branch Less Than (BLT) instruction class.
+ */
 public class BltInstruction extends Instruction {
+
+    /**
+     * Constructs a new BltInstruction with the specified components and parameters.
+     *
+     * @param registerFile   the register file of the processor.
+     * @param memory         the data memory of the processor.
+     * @param programCounter the program counter of the processor.
+     * @param parameters     the parameters of the instruction.
+     */
     public BltInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
         super(registerFile, memory, programCounter, parameters);
     }
 
+    /**
+     * Executes the BLT instruction.
+     */
     public void execute() {
         int rs = parameters[0];
         String rsHex = registerFile.getRegister(rs);
@@ -21,6 +36,8 @@ public class BltInstruction extends Instruction {
 
         int offset = parameters[2];
 
-        if (rsValue < rtValue) programCounter.offsetCounter(offset);
+        if (rsValue < rtValue) {
+            programCounter.offsetCounter(offset);
+        }
     }
 }

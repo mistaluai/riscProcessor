@@ -10,36 +10,116 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="900e0e65-7612-46ea-8330-2998522b9fff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Assembler/Assembler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/BTypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/BTypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/ITypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/JTypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/JTypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/LoadStoreDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/LoadStoreDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/RTypeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Decoders/RTypeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/SyntaxHighlighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/UI/SyntaxHighlighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/BinaryOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/BinaryOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/DataDeclaration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/DataDeclaration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/DataTypes/WordData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/Assember/Utils/SymbolTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/ALU/ArithmeticOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/ALU/ArithmeticOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/ALU/LogicOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/ALU/LogicOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/ALU/ShiftingOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/ALU/ShiftingOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/DataMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/DataMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/ProgramCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/ProgramCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/RegisterFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/DataPath/RegisterFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddiInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddiInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltuInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltuInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SubInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SubInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/Instruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Processor/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Processor/Processor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/StaticData/SignalALU.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/StaticData/SignalALU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Utils/SimulatedInstructionsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Utils/SimulatedInstructionsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BeqInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BeqInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BgeInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BgeInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BltInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BltInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BneInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/BranchInstructions/BneInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpRegisterInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpRegisterInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LoadWordInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LoadWordInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LuiInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LuiInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/StoreWordInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/StoreWordInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndiInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndiInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/NorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/NorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/OrInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/OrInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/OriInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/OriInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/XorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/XorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/XoriInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/LogicInstructions/XoriInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/RorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/RorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SllInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SllInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SraInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SraInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SrlInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SrlInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/LoadImageActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/LoadImageActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/OutputCheckerActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/OutputCheckerActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/SaveActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/SaveActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/SheetCreatorActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/SheetCreatorActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/TestInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/UI/Backend/TestInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/Utilities/RandomBitsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/RISCAssembler/src/TestingAutomationTool/Utilities/RandomBitsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISCProcessor/SingleCycleProcessor/singlecycle.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/RISCProcessor/SingleCycleProcessor/singlecycle.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Assembler/Assembler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Assembler/Assembler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Assembler/Assembler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Assembler/Assembler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/BTypeDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/BTypeDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/Decoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/Decoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/ITypeDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/ITypeDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/InstructionsOperations$InstructionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/InstructionsOperations$InstructionType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/InstructionsOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/InstructionsOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/JTypeDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/JTypeDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/LoadStoreDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/LoadStoreDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/RTypeDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Decoders/RTypeDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Exceptions/RangeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Exceptions/RangeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Exceptions/SyntaxException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Exceptions/SyntaxException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$AssemblingOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$AssemblingOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$HexConversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main$HexConversion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/SyntaxHighlighter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/UI/SyntaxHighlighter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/BinaryOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/BinaryOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/DataInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/DataInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/DataTypes/DataDeclaration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/DataTypes/DataDeclaration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/DataTypes/WordData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/DataTypes/WordData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/FileHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/SymbolTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/Assember/Utils/SymbolTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/ALU/ArithmeticOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/ALU/ArithmeticOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/ALU/LogicOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/ALU/LogicOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/ALU/ShiftingOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/ALU/ShiftingOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/DataPath/DataMemory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/DataPath/DataMemory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/DataPath/ProgramCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/DataPath/ProgramCounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/DataPath/RegisterFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/DataPath/RegisterFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddiInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/AddiInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltuInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SltuInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SubInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ArithmeticInstructions/SubInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BeqInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BeqInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BgeInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BgeInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BltInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BltInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BneInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/BranchInstructions/BneInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/Instruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/Instruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpRegisterInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpRegisterInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LoadWordInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LoadWordInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LuiInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/LuiInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/StoreWordInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LoadStoreInstructions/StoreWordInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndiInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/AndiInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/NorInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/NorInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/OrInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/OrInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/OriInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/OriInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/XorInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/XorInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/XoriInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/LogicInstructions/XoriInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/RorInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/RorInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SllInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SllInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SraInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SraInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SrlInstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Instructions/ShiftingInstructions/SrlInstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Processor/Processor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Processor/Processor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/StaticData/SignalALU.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/StaticData/SignalALU.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/UI/SimulatorMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/UI/SimulatorMain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/UI/SimulatorMain$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/UI/SimulatorMain$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/UI/SimulatorMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/UI/SimulatorMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Utils/SimulatedInstructionsFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Utils/SimulatedInstructionsFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Utils/SimulatedInstructionsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/ProcessorCircuitSimulator/Utils/SimulatedInstructionsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/LoadImageActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/LoadImageActionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/OutputCheckerActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/OutputCheckerActionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/SaveActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/SaveActionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/SheetCreatorActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/SheetCreatorActionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/TestInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Backend/TestInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/UI/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/Utilities/InstructionsTesterALU.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/Utilities/InstructionsTesterALU.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/Utilities/RandomBitsGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISCAssembler/TestingAutomationTool/Utilities/RandomBitsGenerator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,19 +164,20 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "CodeDocumentation",
-    "jdk.selected.JAVA_MODULE": "21",
-    "last_opened_file_path": "/Users/mistaluai/Documents/Github Repos/mipsProcessor",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;CodeDocumentation&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mistaluai/Documents/Github Repos/mipsProcessor&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/RISCAssembler/src/Assember" />
@@ -147,27 +228,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
-          <line>20</line>
+          <line>36</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RISCAssembler/src/ProcessorCircuitSimulator/Instructions/JumpInstructions/JumpLinkInstruction.java</url>
-          <line>21</line>
+          <line>37</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

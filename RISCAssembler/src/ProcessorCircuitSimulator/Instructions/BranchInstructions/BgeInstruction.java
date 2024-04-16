@@ -5,11 +5,26 @@ import ProcessorCircuitSimulator.DataPath.ProgramCounter;
 import ProcessorCircuitSimulator.DataPath.RegisterFile;
 import ProcessorCircuitSimulator.Instructions.Instruction;
 
+/**
+ * Branch Greater Than or Equal (BGE) instruction class.
+ */
 public class BgeInstruction extends Instruction {
+
+    /**
+     * Constructs a new BgeInstruction with the specified components and parameters.
+     *
+     * @param registerFile   the register file of the processor.
+     * @param memory         the data memory of the processor.
+     * @param programCounter the program counter of the processor.
+     * @param parameters     the parameters of the instruction.
+     */
     public BgeInstruction(RegisterFile registerFile, DataMemory memory, ProgramCounter programCounter, int[] parameters) {
         super(registerFile, memory, programCounter, parameters);
     }
 
+    /**
+     * Executes the BGE instruction.
+     */
     public void execute() {
         int rs = parameters[0];
         String rsHex = registerFile.getRegister(rs);
@@ -21,6 +36,8 @@ public class BgeInstruction extends Instruction {
 
         int offset = parameters[2];
 
-        if (rsValue >= rtValue) programCounter.offsetCounter(offset);
+        if (rsValue >= rtValue) {
+            programCounter.offsetCounter(offset);
+        }
     }
 }

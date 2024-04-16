@@ -1,3 +1,6 @@
+/**
+ * ActionListener implementation for saving test results to a CSV file.
+ */
 package TestingAutomationTool.UI.Backend;
 
 import javax.swing.*;
@@ -12,6 +15,17 @@ public class SheetCreatorActionListener implements ActionListener {
     JFrame frame;
     JTextPane input1TextPane, input2TextPane, expectedOutputTextPane, actualOutputTextPane, operationTextPane, operationSignalsTextPane;
 
+    /**
+     * Constructs a SheetCreatorActionListener with references to various UI components.
+     *
+     * @param frame                    The main frame of the application.
+     * @param input1TextPane           Text pane for input 1.
+     * @param input2TextPane           Text pane for input 2.
+     * @param expectedOutputTextPane   Text pane for expected output.
+     * @param actualOutputTextPane     Text pane for actual output.
+     * @param operationTextPane        Text pane for operations.
+     * @param operationSignalsTextPane Text pane for operation signals.
+     */
     public SheetCreatorActionListener(JFrame frame, JTextPane input1TextPane, JTextPane input2TextPane,
                                       JTextPane expectedOutputTextPane, JTextPane actualOutputTextPane,
                                       JTextPane operationTextPane, JTextPane operationSignalsTextPane) {
@@ -33,6 +47,9 @@ public class SheetCreatorActionListener implements ActionListener {
         saveToSheet();
     }
 
+    /**
+     * Saves the test results to a CSV file.
+     */
     private void saveToSheet() {
         String input1 = input1TextPane.getText().trim();
         String input2 = input2TextPane.getText().trim();
@@ -65,7 +82,7 @@ public class SheetCreatorActionListener implements ActionListener {
                         expectedLines[i] = removeLeadingZeros(expectedLines[i]);
                     if (actualLines[i].charAt(0) == '0')
                         actualLines[i] = removeLeadingZeros(actualLines[i]);
-                    
+
                     boolean testPassed = expectedLines[i].equals(actualLines[i]);
 
                     writer.write("\"" + input1Lines[i].trim().replace("\n", "\",\"") + "\",");
@@ -84,9 +101,14 @@ public class SheetCreatorActionListener implements ActionListener {
             e.printStackTrace();
             JOptionPane.showMessageDialog(frame, "Error saving to CSV.");
         }
-
     }
 
+    /**
+     * Removes leading zeros from the given string.
+     *
+     * @param str The input string.
+     * @return The string with leading zeros removed.
+     */
     public String removeLeadingZeros(String str) {
         if (str == null || str.isEmpty()) {
             return str;
