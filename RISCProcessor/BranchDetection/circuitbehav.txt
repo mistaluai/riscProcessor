@@ -1,0 +1,27 @@
+inputs: { Address:PC(0:3), Decode.BranchTaken, Decode.JumpTaken, Decode.newPC }
+outputs: { PredictedPC, controlPC }
+components: {Registers[PredefinedAddress, State], Register[prevAddress, prevState] }
+cycle {
+
+currentState = State[Address]
+if (currentState == (00 | 01))
+	PredictedPC = xx16
+	controlPC = Decode.PCSrc
+else
+	//PredictedPC = PredefinedAddress[Address]
+	controlPC = 1 
+
+if (Decode.JumpTaken == 1)
+	State[prevAddress] = 11
+else if (Decode.BranchTaken == 0)
+	State[prevAddress] = (prevState != 00)? prevState-- : prevState
+else if (Decode.BranchTaken == 1)
+	State[prevAddress] = (prevState != 11)? prevState++ : prevState
+	PredefinedAddress[prevAddress] = Decode.newPC
+
+if (prevPrediction != (BranchTaken | JumpTaken))
+	flush = 1
+else flush = 0
+prevState = currentState
+prevAddress = Address
+}
