@@ -43,9 +43,8 @@
   <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/Memory/DataMemory.circ" name="10"/>
   <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/RegisterFile/RegisterFileC.circ" name="11"/>
   <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/Utilities/InstructionSplitter/InstructionSplitterC.circ" name="12"/>
-  <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/SingleCycleProcessor/SingleCycle.circ" name="13"/>
-  <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/JumpBranchControl PipeLined/JBControl.circ" name="14"/>
-  <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/BranchDetection/BranchPrediction.circ" name="15"/>
+  <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/JumpBranchControl PipeLined/JBControl.circ" name="13"/>
+  <lib desc="file#/Users/mistaluai/Documents/Github Repos/mipsProcessor/RISCProcessor/BranchDetection/BranchPrediction.circ" name="14"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -1341,10 +1340,13 @@
       <a name="addrWidth" val="16"/>
       <a name="dataWidth" val="16"/>
       <a name="contents">addr/data: 16 16
-9000 280b 9000 2f8a 681a 840 880 8c0
-f803 f808 f80f 840 6002 6849 3849 878a
-1038 840 6002 900 604b 923 3849 874a
-1038 f000
+9000 280b 9000 284a 681a 9000 284b 9000
+284a 681a 9000 288b 9000 2a8a 681a 9001
+2f0b 9218 2a8a 681a 9001 2f4b 939a 288a
+681a 840 880 8c0 9384 3b4d 4cd 6001
+6042 6083 3aa4 b24 914 d93 70f0 88a
+7700 6804 f804 4193 58de 7000 353 6001
+614a 618b 113 6804 1038
 </a>
     </comp>
     <comp lib="0" loc="(1340,460)" name="Tunnel">
@@ -1558,7 +1560,7 @@ f803 f808 f80f 840 6002 6849 3849 878a
       <a name="text" val="Memory"/>
       <a name="font" val="SansSerif bold 20"/>
     </comp>
-    <comp lib="15" loc="(540,820)" name="PredictionCircuit"/>
+    <comp lib="14" loc="(540,820)" name="PredictionCircuit"/>
     <comp lib="0" loc="(4110,230)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="3"/>
@@ -1899,7 +1901,7 @@ f803 f808 f80f 840 6002 6849 3849 878a
       <a name="text" val="Instruction Decode"/>
       <a name="font" val="SansSerif bold 20"/>
     </comp>
-    <comp lib="14" loc="(1350,620)" name="JumpControl"/>
+    <comp lib="13" loc="(1350,620)" name="JumpControl"/>
     <comp lib="2" loc="(1450,1120)" name="Multiplexer">
       <a name="width" val="2"/>
       <a name="enable" val="false"/>
@@ -2306,7 +2308,7 @@ f803 f808 f80f 840 6002 6849 3849 878a
       <a name="label" val="ReturnAddressRegister"/>
     </comp>
     <comp lib="11" loc="(1400,230)" name="RegisterFile"/>
-    <comp lib="14" loc="(1350,800)" name="BranchControl"/>
+    <comp lib="13" loc="(1350,800)" name="BranchControl"/>
     <comp lib="4" loc="(3330,630)" name="Register">
       <a name="width" val="16"/>
       <a name="label" val="Shifted Immediate"/>
