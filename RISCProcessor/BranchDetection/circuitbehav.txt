@@ -1,0 +1,35 @@
+inputs: { Address:PC(0:2), Decode.BranchTaken, Decode.JumpTaken, Decode.newPC, Fetch.currentPC }
+outputs: { PredictedPC, Prediction, prevPrediction, Flush }
+components: { RegisterFile[TargetAddress,BranchAddress, State], Register[prevInstructionAddress, prevBranchAddress,  prevState, prevPrediction ] }
+
+loop cycle {
+
+currentState = State[Address]
+currentInstructionAddress = BranchAddress[Address]
+
+if (currentState == (00 | 01))
+	PredictedPC = x
+	Prediction = 0
+else
+	PredictedPC = TargetAddress[Address]
+	Prediction = 1 & (currentInstructionAddress == currentPC) 
+
+if (Decode.JumpTaken == 1)
+	State[prevAddress] = 11
+else if (Decode.BranchTaken == 0)
+	State[prevAddress] = (prevState != 00)? prevState-- : prevState
+else if (Decode.BranchTaken == 1)
+	State[prevAddress] = (prevState != 11)? prevState++ : prevState
+	BranchAddress[prevAddress] = prevInstructionAddress
+	TargetAddress[prevAddress] = Decode.newPC
+
+if (prevPrediction != (BranchTaken | JumpTaken))
+	flush = 1
+else flush = 0
+
+prevState = currentState
+prevAddress = Address
+prevInstructionAddress = currentInstructionAddress
+prevPrediction = Prediction
+
+}
