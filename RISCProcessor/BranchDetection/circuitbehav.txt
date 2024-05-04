@@ -1,15 +1,18 @@
-inputs: { Address:PC(0:3), Decode.BranchTaken, Decode.JumpTaken, Decode.newPC }
-outputs: { PredictedPC, controlPC }
-components: {Registers[PredefinedAddress, State], Register[prevAddress, prevState] }
-cycle {
+inputs: { Address:PC(0:2), Decode.BranchTaken, Decode.JumpTaken, Decode.newPC, Fetch.currentPC }
+outputs: { PredictedPC, Prediction, prevPrediction, Flush }
+components: { RegisterFile[TargetAddress,BranchAddress, State], Register[prevInstructionAddress, prevBranchAddress,  prevState, prevPrediction ] }
+
+loop cycle {
 
 currentState = State[Address]
+currentInstructionAddress = BranchAddress[Address]
+
 if (currentState == (00 | 01))
-	PredictedPC = xx16
-	controlPC = Decode.PCSrc
+	PredictedPC = x
+	Prediction = 0
 else
-	//PredictedPC = PredefinedAddress[Address]
-	controlPC = 1 
+	PredictedPC = TargetAddress[Address]
+	Prediction = 1 & (currentInstructionAddress == currentPC) 
 
 if (Decode.JumpTaken == 1)
 	State[prevAddress] = 11
@@ -17,11 +20,16 @@ else if (Decode.BranchTaken == 0)
 	State[prevAddress] = (prevState != 00)? prevState-- : prevState
 else if (Decode.BranchTaken == 1)
 	State[prevAddress] = (prevState != 11)? prevState++ : prevState
-	PredefinedAddress[prevAddress] = Decode.newPC
+	BranchAddress[prevAddress] = prevInstructionAddress
+	TargetAddress[prevAddress] = Decode.newPC
 
 if (prevPrediction != (BranchTaken | JumpTaken))
 	flush = 1
 else flush = 0
+
 prevState = currentState
 prevAddress = Address
+prevInstructionAddress = currentInstructionAddress
+prevPrediction = Prediction
+
 }
